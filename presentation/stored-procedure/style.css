@@ -1,0 +1,47 @@
+/* BODY */
+body {
+	font-family: arial,helvetica;
+}
+
+.comment {
+	color: #abafb1;
+}
+
+code.response {
+	font-size: 20px !important;
+	color: #036348 !important;
+}
+
+
+/* INTRODUCTION */
+.introduction {
+	background-color: #03a9f4;
+	color: #e1f5fe;
+	text-align: center;
+}
+
+.introduction div.fp-tableCell h1 {
+	font-size: 100px;
+}
+
+.definition {
+	padding: 0 100px;
+	background-color: #40c4ff;
+}
+
+.definition div.fp-tableCell h2, .stored-proc div.fp-tableCell h2, .stored-function div.fp-tableCell h2 {
+	font-size: 50px;
+	color: #034563;
+}
+
+.definition div.fp-tableCell p, .stored-proc div.fp-tableCell code, .stored-function div.fp-tableCell code {
+	font-size: 30px;
+	color: #034563;
+}
+
+/* EXAMPLE */
+.example.stored-proc, .example.stored-function {
+	padding: 0 100px;
+	color: #034563;
+	background-color: #e1f5fe;
+}

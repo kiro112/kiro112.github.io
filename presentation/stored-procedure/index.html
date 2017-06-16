@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>STORED PROCEDURE</title>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" type="text/css" href="assets/fontello/css/fontello.css">
+  <link rel="stylesheet" type="text/css" href="/assets/js/bower_components/fullpage.js/jquery.fullPage.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <div id="fullpage">
+    <div class="section introduction">
+      <h1>
+        STORED PROCEDURE
+      </h1>
+    </div>
+
+    <div class="section definition">
+      <div class="slide meaning">
+        <h2>What is Stored Procedure ?</h2>
+        <p>A stored procedure is a group of SQL statements that has been created and stored in the database.</p>
+      </div>
+      <div class="slide advantages">
+        <h2>Advantages</h2>
+        <ul>
+          <li><p>A stored procedure will accept input parameters so that a single procedure can be used over the network by several clients using different input data.</p></li>
+          <li><p>A stored procedures will reduce network traffic and increase the performance.</p></li>
+          <li><p>If we modify a stored procedure all the clients will get the updated stored procedure.</p></li>
+          <li><p>Limit direct access to tables via defined roles in the database</p></li>
+        </ul>
+      </div>
+      <div class="slide">
+        <h2>Disadvatage</h2>
+        <ul>
+          <li><p>There are no debuggers available for stored procedures</p></li>
+          <li><p>Stored procedure language may differ from one database system to another.</p></li>
+          <li><p>Poor exception handling</p></li>
+        </ul>
+      </div>
+      <div class="slide">
+        <h2>When should i use stored procedure ?</h2>
+        <p>We used stored procedure when we want an optimize call for mysql queries</p>
+      </div>
+    </div>
+
+    <div class="section example stored-proc">
+      <div class="slide create-procedure">
+        <h2>How to create stored procedure ?</h2>
+        <p>
+          <code>
+            DELIMITER ;; &emsp;<span class="comment">// change the default delimiter</span> <br/>
+
+            CREATE PROCEDURE `procedure_name` (_parameterName DATATYPE) &emsp;<span class="comment">// Initialize the procedure</span><br/>
+            BEGIN &emsp;<span class="comment">// start the BEGIN proc</span><br/>
+              &emsp;SQL QUERY; &emsp;<span class="comment">// logic | query of the stored procedure goes here </span><br/>
+            END;; &emsp; <span class="comment">// close the procedure</span><br/>
+            DELIMITER ; &emsp;<span class="comment">// return the delimiter to the default ;</span>
+          </code>
+        </p>
+      </div>
+      <div class="slide sample_proc">
+        <h2>SAMPLE 1 <br/>
+          <small>COUNT ALL ROWS FROM A TABLE</small>
+        </h2>
+        <p>
+          <code>
+            DELIMITER ;; <br/>
+            CREATE PROCEDURE count_products (OUT productCounts INTO productCounts) <br/>
+            BEGIN <br/>
+            &emsp;SELECT COUNT(*) INTO productCounts FROM products; <br/>
+            END; <br/>
+            DELIMITER;
+          </code>
+        </p>
+
+        <hr>
+        <h3>LETS CALL THE PROCEDURE</h3>
+        <p>
+          <code>CALL count_products(@a); <span class="comment">// @a will hold the productCounts</span></code> <br/>
+          <code class="response">RESPONSE: Query OK, 1 row affected (0.01 sec)</code>
+        </p>
+
+        <hr>
+        <h3>WHERE IS THE PRODUCT COUNT ? <small>the @a hold the value of the product count</small></h3>
+        <code>SELECT @a;</code> <br>
+        <code class="response">
+          RESPONSE: <br/>
+          +------+ <br/>
+          | @a &emsp;&emsp;| <br/>
+          +------+ <br/>
+          | 10 &emsp;&emsp;| <br/>
+          +------+
+        </code>
+      </div>
+
+      <div class="slide sample_proc2">
+        <h2>SAMPLE 2 <br/>
+          <small>RETRIEVE ROWS IN MULTIPLE TABLE</small>
+        </h2>
+        
+        <code>
+          DELIMITER ;; <br/>
+          CREATE PROCEDURE `supplierAndProducts` () <br/>
+          BEGIN <br/>
+          &emsp;SELECT * FROM products; <br/>
+          &emsp;SELECT * FROM suppliers; <br/>
+          END ;; <br/>
+          DELIMITER ; <br/>
+        </code>
+        <hr>
+        <br>
+        <code>CALL suppliersAndProducts();</code> <br/>
+        <img src="images/sample2.png">
+      </div>
+
+      <div class="slide sample_proc3">
+        <h2>SAMPLE 3 <br/>
+          <small>INSERT AND RETRIEVE</small>
+        </h2>
+        <code>
+          DELIMITER ;; <br/>
+          CREATE PROCEDURE sample3 (name VARCHAR(99), price FLOAT, category VARCHAR(99)) <br/>
+          BEGIN <br/>
+          &emsp;INSERT INTO products (name, price, category) <br/>
+          &emsp;VALUES (name, price, category); <br/>
+          &emsp;SELECT * FROM products; <br/>
+          END ;; <br/>
+          DELIMITER ; <br/>
+        </code> <br/>
+        <hr>
+        <code>CALL sample3("J5", 15000, "SAMSUNG");</code><br/>
+        <img src="images/sample3.png">
+      </div>
+    </div>
+
+
+    
+    <div class="section introduction">
+      <h1>STORED FUNCTION</h1>
+    </div>
+
+    <div class="section definition">
+      <div class="slide meaning">
+        <h2>What is a Stored Function ?</h2>
+        <p>A stored function is a defined function that is called from within an SQL statement like a regular function, and returns a single value.</p>
+      </div>
+
+      <div class="slide advantages">
+        <h2>Advantage</h2>
+        <p>Stored function has given you the capability to use OOP on your procedures.</p>
+      </div>
+    </div>
+
+    <div class="section example stored-function">
+      <div class="slide fx_sample1 create-stored-function">
+        <h2>How to create stored function ?</h2>
+        <p>
+          <code>
+            DELIMITER ;; &emsp;<span class="comment">// change the default delimiter</span> <br/>
+            CREATE PROCEDURE `function_name` (_parameterName DATATYPE) &emsp;<span class="comment">// Initialize the function</span><br/>
+            RETURNS VARCHAR(5) &emsp; <span class="comment">// this will be the datatype of what you will return</span><br/>
+            BEGIN &emsp;<span class="comment">// start the BEGIN function</span><br/>
+              &emsp;PROCCESS; &emsp;<span class="comment">// logic | query of the function goes here </span><br/>
+              &emsp;RETURN value; &emsp; <span class="comment">// return the proccessed value</span>
+            END;; &emsp; <span class="comment">// close the function</span><br/>
+            DELIMITER ; &emsp;<span class="comment">// return the delimiter to the default ;</span>
+          </code>
+        </p>
+      </div>
+
+      <div class="slide fx_sample2">
+        <h2>SAMPLE 1 <br/>
+        <small>CHECK IF VALUE IS ODD OR EVEN</small></h2>
+
+        <code>
+          CREATE FUNCTION oddOrEven (value INT) <br/>
+          RETURNS VARCHAR(5) <br/>
+          BEGIN <br/>
+          &emsp;DECLARE type VARCHAR(5); <br/>
+          &emsp;IF MOD(value, 2) != 0 <br/>
+          &emsp;THEN <br/>
+          &emsp;&emsp;SET type = 'ODD'; <br/>
+          &emsp;ELSE <br/>
+          &emsp;&emsp;SET type = 'EVEN'; <br/>
+          &emsp;END IF; <br/>
+          &emsp;RETURN type; <br/>
+          END;;
+        </code>
+        <br>
+        <hr>
+        <em>Note: we did not CALL function we SELECT them.</em> <br/>
+        <code>SELECT oddOrEven(3);</code> <br/>
+        <code class="response">RESPONSE: ODD</code> <br/><br/>
+        <code>SELECT oddOrEven(8);</code> <br/>
+        <code class="response">RESPONSE: EVEN</code> <br/><br/>
+        <img src="images/fx_sample1.png">
+        <img src="images/fx_sample1.1.png">
+      </div>
+
+      <div class="slide fx_sample3">
+        <h2>SAMPLE 2 <br/>
+        <small>GREETER</small></h2>
+
+        <code>
+          CREATE FUNCTION greeter (name VARCHAR(50)) <br/>
+          RETURNS VARCHAR(70) <br/>
+          BEGIN <br/>
+          &emsp;RETURN CONCAT('Hello there ', name, '!'); <br/>
+          END;; 
+        </code> <br/>
+        <hr>
+        <img src="images/fx_sample2.png">
+        <img src="images/fx_sample2.1.png">
+      </div>
+    </div>
+  </div>
+
+
+  <script src="/assets/js/jquery-3.2.1.min.js"></script>
+  <script src="/assets/js/bower_components/fullpage.js/jquery.fullPage.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#fullpage').fullpage();
+    });
+  </script>
+</body>
+</html>

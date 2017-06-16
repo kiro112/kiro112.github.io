@@ -1,0 +1,17 @@
+{
+  "name": "jairo",
+  "homepage": "https://github.com/kiro112/kiro112.github.io",
+  "authors": [
+    "Jairo Malanay <jairo.malanay@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
