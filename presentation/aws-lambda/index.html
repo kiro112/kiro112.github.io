@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AWS LAMBDA TUTORIAL</title>
+	<link rel="stylesheet" type="text/css" href="/assets/fontello/css/fontello.css">
+	<link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/js/bower_components/fullpage.js/jquery.fullPage.css">
+</head>
+<body>
+	<div>
+		<div class="Introduction">
+			<h1>AWS LAMBDA</h1>
+			<small>Disclaimer: This is base on <a target="_blank" href="http://docs.aws.amazon.com/apigateway/latest/developerguide/integrating-api-with-aws-services-lambda.html">Create an API Gateway API for AWS Lambda Functions</a></small>
+		</div>
+
+		<div class="IAM-SETUP">
+			<h2>STEP 1: SETUP IAM</h2>
+			<ol>
+				<li>Go to IAM</li>
+				<li>Create New Role</li>
+				<li>We need to select to go to next step - <small>Select <strong>AWS Lambda</strong> Then Next</small></li>
+				<li>add <strong>Role Name</strong></li>
+				<li>We now have an IAM ROLE</li>
+				<li>Lets add the Required Policy for Lambda and API GATEWAY</li>
+				<li>Click the Create Role</li>
+				<li>Click <strong>Permissions</strong> tab</li>
+				<li>
+					Expand <strong>Inline Policies</strong> and Create one
+					<br/>
+					<ol>
+						<li>
+							You Can Create Via <strong>Policy Generator</strong>
+							<ol>
+								<li>
+									Set the following values: <br/>
+									Effect: "Allow" <br/>
+									AWS Service: "AWS Lambda" <br/>
+									Action: "Invoke Function" <br/>
+									ARN: "*" // or specify if you want to retrict to specific arn									
+								</li>
+								<li>Click Next Step</li>
+							</ol>
+						</li>
+						<li>
+							Via <strong>Custom Policy</strong> <br/>
+							just paste this: <br/>
+							<pre>
+							{
+								"Version": "2012-10-17",
+								"Statement": [
+									{
+										"Effect": "Allow",
+										"Action": "lambda:InvokeFunction",
+										"Resource": "*"
+									}
+								]
+							}
+							</pre>
+							<br/>
+							<strong>Validate</strong> then <strong>Apply Policy</strong>
+						</li>
+					</ol>
+				</li>
+				<li>
+					Click <strong>Trust relationships</strong> tab for the API GATEWAY Permission <br>
+					Edit and add <em>apigateway.amazonaws.com</em> in service
+					<pre>
+						{
+						  "Version": "2012-10-17",
+						  "Statement": [
+						    {
+						      "Effect": "Allow",
+						      "Principal": {
+						        "Service": [ "lambda.amazonaws.com", "apigateway.amazonaws.com" ]
+						      },
+						      "Action": "sts:AssumeRole"
+						    }
+						  ]
+						}
+					</pre>
+					<br />
+					then update policy
+				</li>
+			</ol>
+			<blockquote>
+				Note: If you do not enact this policy, the API caller will receive a 500 Internal Server Error response. The response contains the "Invalid permissions on Lambda function" error message. 
+			</blockquote>
+		</div>
+
+		<div class="lambda-function">
+			<h2>Step 2: Create Lambda Function</h2>
+			<ol>
+				<li>Go to Lambda Console</li>
+				<li>Select Blueprint: Choose <strong>Blank Function</strong></li>
+				<li>Add then function <em>Name</em></li>
+				<li>Choose Your <em>Runtime</em> e.g. Node.js</li>
+				<li>And put your function. <br/>
+					<pre>
+						exports.handler = function(event, context, callback) {
+						    console.log('Received event:', JSON.stringify(event, null, 2));
+						    if (event.a === undefined || event.b === undefined || event.op === undefined) {
+						        callback("400 Invalid Input");
+						    }
+						    
+						    var res = {};
+						    res.a = Number(event.a);
+						    res.b = Number(event.b);
+						    res.op = event.op;
+						    
+						    if (isNaN(event.a) || isNaN(event.b)) {
+						        callback("400 Invalid Operand");
+						    }
+
+						    switch(event.op)
+						    {
+						        case "+":
+						        case "add":
+						            res.c = res.a + res.b;
+						            break;
+						        case "-":
+						        case "sub":
+						            res.c = res.a - res.b;
+						            break;
+						        case "*":
+						        case "mul":
+						            res.c = res.a * res.b;
+						            break;
+						        case "/":
+						        case "div":
+						            res.c = res.b===0 ? NaN : Number(event.a) / Number(event.b);
+						            break;
+						        default:
+						            callback("400 Invalid Operator");
+						            break;
+						    }
+						    callback(null, res);
+						};
+					</pre>
+				</li>
+				<li><strong>Role</strong>: <em>Choose an existing role</em></li>
+				<li><em>Existing Role:</em> Select the IAM Role we create on step1</li>
+				<li>Click Next and Review the Function then <em>Create function</em></li>
+				<li>We successfuly create a <strong>Lambda Function</strong> !</li>
+				<li>Let us now test it. Click the <button type="button" class="btn btn-primary btn-xs">Test</button> Button</li>
+				<li>Then Set the parameters for the function <br/>
+					<pre>
+						{
+						  "a": "1",
+						  "b": "2",
+						  "op": "+"
+						}
+					</pre>
+					<br/> <em>SAMPLE RESPONSE:</em>
+					<img src="images/Lambda-test.png" alt="lambda test response">
+				</li>
+			</ol>
+		</div>
+
+		<div class="api-resources">
+			<h1>Create API Resources for the Lambda Function</h1>	
+			<ol>
+				<li>Create New API</li>
+				<li>Select <em>NEW API</em></li>
+				<li>Add your API <em>Name</em></li>
+				<li>
+					<blockquote>Create the /calc resource off the API's root. We will expose the GET and POST methods on this resource for the client to invoke the backend Lambda function. The caller must supply the required input as query string parameters (to be declared as ?operand1=...&operand2=...&operator=...) in the GET request and as a JSON payload in the POST request, respectively.
+
+					We will also create the /calc/{operand1}/{operand2}/{operator} resource subtree to expose the GET method to invoke the Lambda function. The caller must supply the required input by specifying the three path parameters (operand1, operand2, and operator). </blockquote>
+				</li>
+				<li>Click the <em>/</em></li>
+				<li>Click <em>Actions</em> -> <em>Create Resource</em></li>
+				<li>Fill the settings. provide <strong>Resource name</strong> and <strong>Resource Path</strong></li>
+			</ol>
+
+			<h2>Create a GET Method with Query Parameters</h2>
+			<ol>
+				<li>Choose the created <em>Resources</em> in previous instruction</li>
+				<li>Click <em>Actions</em> -> <em>Create Method</em> then select <em>GET</em></li>
+				<li>Click the <em>GET</em> Method and set it up</li>
+				<li>
+					<strong>Integration Type: AWS Service</strong> <br/>
+					<strong>AWS Region:</strong> Select your preferred region <br/>
+					<strong>AWS Service: Lambda</strong> <br/>
+					<strong>Subdomain: </strong> skip this one <br/>
+					<strong>HTTP Method: POST</strong>  <br/>
+					<strong>Action Type: Use path override</strong><br/>
+					<strong>Path override:</strong>
+					SET to "/2015-03-31/functions/arn:aws:lambda:<code>SelectedRegion</code>:<code>AccountNumber</code>:function:<code>lambdaFunctionName</code>/invocations" <br/>
+					How to Get the accountNumber? On the upper right side of the console Click <em>Your Name</em> and you will be navigated to your account details. get the <strong>Account Id</strong> <br/>
+					<strong>Execution role: Paste the Role ARN we created at step 1.</strong> <br/>
+					Where is it? In the IAM Console, Click Roles and Select the created Role and copy <em>Role ARN</em> <br/>
+					<strong>Leave the Passthrough</strong> <br/>
+					<strong>SAVE !</strong>
+				</li>
+				<li>Click the <strong>GET</strong> -> <strong>Method Request</strong> on the <em>/calc</em> to received the query string parameters</li>
+				<li>Set <strong>Request Validator: Validate query string parameters and headers</strong> <small>Dont forget to save. Click the save icon</small></li>
+				<li>Click the <strong>URL Query String Parameters</strong> and add your query parameters
+				<img src="images/query-parameters.png" alt="query parameters">
+				</li>
+				<li>Go Back (<em>Click Method Execution</em>)</li>
+				<li>Click <strong>Integration Request</strong></li>
+				<li>Expand <strong>Body Mapping Templates</strong></li>
+				<li>Set <strong>Request Body passthrough: </strong> <em> When no template matches the request Content-Type header</em></li>
+				<li>Click <strong>Add mapping template</strong></li>
+				<li>add <em>application/json</em> then click save icon</li>
+				<li>
+					put your JSON configuration for template
+					<pre>
+						{
+						    "a":  "$input.params('operand1')",
+						    "b":  "$input.params('operand2')", 
+						    "op": "$input.params('operator')"   
+						}
+					</pre>
+				</li>
+				<li>Save</li>
+			</ol>
+
+			<h2>Create a POST Method with a JSON Payload</h2>
+			<ol>
+				<li>Create a <strong>POST</strong> Method under your resources</li>
+				<li>
+					<strong>Integration Type: AWS Service</strong> <br/>
+					<strong>AWS Region:</strong> Select your preferred region <br/>
+					<strong>AWS Service: Lambda</strong> <br/>
+					<strong>Subdomain: </strong> skip this one <br/>
+					<strong>HTTP Method: POST</strong>  <br/>
+					<strong>Action Type: Use path override</strong><br/>
+					<strong>Path override:</strong>
+					SET to "/2015-03-31/functions/arn:aws:lambda:<code>SelectedRegion</code>:<code>AccountNumber</code>:function:<code>lambdaFunctionName</code>/invocations" <br/>
+					How to Get the accountNumber? On the upper right side of the console Click <em>Your Name</em> and you will be navigated to your account details. get the <strong>Account Id</strong> <br/>
+					<strong>Execution role: Paste the Role ARN we created at step 1.</strong> <br/>
+					Where is it? In the IAM Console, Click Roles and Select the created Role and copy <em>Role ARN</em> <br/>
+					<strong>Leave the Passthrough</strong> <br/>
+					<strong>SAVE !</strong>
+				</li>
+				<li>Click <strong>Models</strong> and Create one</li>
+				<li>Fill the <strong>Name</strong>, <strong>Content-Type</strong> and <strong>Model Schema</strong> (<small>Model Schema base on you function parameters requirements</small>) <br/>
+				the Calc Function Above Require <code>a</code>, <code>b</code> and <code>op</code> as parameters <br/>
+				<img src="images/input-model.png" alt="Input Model"> 
+				</li>
+				<li>Click the <button type="button" class="btn btn-primary btn-xs">Create Model</button></li>
+				<li>Create the Model for <code>Output</code> <br/>
+					<img src="images/output-model.png" alt="Output Model">
+				</li>
+				<li>Create the Model for the <code>Result</code> <br/>
+					<pre>
+						{
+						    "type":"object",
+						    "properties":{
+						        "input":{
+						            "$ref":"https://apigateway.amazonaws.com/restapis/&lt;restapi-id&gt;/models/&lt;ModelName&gt;"
+						        },
+						        "output":{
+						            "$ref":"https://apigateway.amazonaws.com/restapis/&lt;restapi-id&gt;/models/&lt;ModelName&gt;"
+						        }
+						    },
+						    "title":"Output"
+						}
+					</pre>
+
+					<img src="images/result-model.png" alt="Result Model"> <br/>
+
+					<small>Oh shit! where can i get thet restapi-id !!</small> <br/>
+					Drag any model in your resources to the Model Schema editor and booyaahh ! <br/>
+					<img src="images/restapi-id.png" alt="RestAPI id">
+				</li>
+				<li>Go back to <strong>Resources</strong> and click the <strong>POST</strong> Method under the created resources</li>
+				<li>Click the <strong>Method Request</strong> Configuration and update the <strong>Request Validator</strong> to <em>Validate body</em>(<small>Dont forget to save</small>)</li>
+				<li>Expand the <strong>Rquest Body</strong></li>
+				<li>Click the <em>Add Model</em></li>
+				<li><strong>Content type:</strong> <em>application/json</em>, <strong>Model Name:</strong> <em>Input</em></li>
+				<li>Now lets test it. Go Back and Click Test</li>
+				<li>
+					add this as parameters
+					<pre>
+						{
+							"a": 1,
+							"b": 2,
+							"op": "+"
+						}</pre>
+				</li>
+				<li>
+					Sample Response: <br/>
+					<img src="images/post-result.png" alt="POST Test Result">
+				</li>
+			</ol>
+
+			<h2>Create a GET Method with Path/Request Parameters</h2>
+			<ol>
+				<li>Create Resource Under you main resource</li>
+				<li><code>/{operand1}</code> <small>serve as 1<sup>st</sup> parameter</small></li>
+				<li>create another resources under <em>/{operand1} </em><code>/{operand2}</code> <small> 2<sup>nd</sup> parameter</small></li>
+				<li>create another resourcees under <em>/{operand2}</em> <code>/{operator}</code> <small>serve as the 3<sup>rd</sup> parameter</small></li>
+				<li>And create the <code>GET</code> Method under the last resource e.g. <em>/{operator}</em></li>
+				<li>Configure the <code>GET</code> Method</li>
+				<li>
+					<strong>Integration Type: lambda Function</strong> <br/>
+					<strong>Lambda Region: </strong> <em>Your Region</em> <br />
+					<strong>Lambda Function: </strong> <em>The Name of the Lambda fx</em>
+				</li>
+				<li>Click Save and (Yes) Add Permission to lambda function</li>
+				<li><img src="images/request-params.png" alt="Request Parameters"/></li>
+				<li>Now, Lets go back and add mapping template</li>
+				<li>Click the <strong>Integration Request</strong></li>
+				<li>Leave the <strong>Integration Type: Lambda Function</strong></li>
+				<li>Expand the <strong>Body Mapping Templates</strong></li>
+				<li>Add mapping template</li>
+				<li>add <em>application/json</em> Content type</li>
+				<li>
+					<pre>
+						{
+						   "a": "$input.params('operand1')",
+						   "b": "$input.params('operand2')",
+						   "op": #if($input.params('operator')=='%2F')"/"#{else}"$input.params('operator')"#end
+						   
+						}
+					</pre>
+					<blockquote>This template maps the three URL path parameters, declared when the /calc/{operand1}/{operand2}/{operator} resource was created, into designated property values of the JSON object. Because URL paths must be URL-encoded, the division operator must be specified as %2F instead of /. This template translates the %2F into '/ before passing it to the Lambda function. </blockquote>
+				</li>
+				<li>Screenshot <br><img src="images/req-params-mapping-template.png"></li>
+				<li>Save it Then lets test it</li>
+				<li>Sample-Response: <br/>
+				<img src="images/req-params-result.png">					
+				</li>
+			</ol>
+		</div>
+	</div>
+
+
+
+	<script src="/assets/js/jquery-3.2.1.min.js"></script>
+	<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/assets/js/bower_components/fullpage.js/jquery.fullPage.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage();
+		});
+	</script>
+</body>
+</html>
