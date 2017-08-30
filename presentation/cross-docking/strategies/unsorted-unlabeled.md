@@ -1,0 +1,3 @@
+# Unsorted Unlabeled Crossdocking
+
+In an unsorted/unlabeled crossdocking operation, the inbound merchandise does not have a final ship-to-destination label and the product has not been presorted by the shipping partner. The manufacturer or wholesaler/distributor picks the merchandise for shipment and builds the shipping load base on the economic and efficient methods for the shipper. When the product is received, the customer must breakdown the loads, sort the product, label the product for the final destination and reload the truck.

@@ -1,0 +1,4 @@
+# Sorted/Labeled Crossdocking
+
+In this strategy, Inbound product is labeled by the vendor and the vendor has performed a pre-sort of the merchandise to build logical loads. The customer is then going to crossdock the entire unit load upon receipt. The vendor has essentially picked its Stock Keeping Units (SKUs) for the order.
+In some cases, if the vendor is pre-sorting and pre-labeling the product, the product is never received at the Customer Distribution Center (DC). Instead the merchandise is shipped directly to the store. In other case, the merchandise has been already picked and identified by the vendor and, as a result, the receiving process is stramlined. 
