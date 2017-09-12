@@ -1,4 +1,6 @@
-How to setup Ethereum Test
+
+
+# Ethereum Setup
 
 Create a genesis.json
 ```
@@ -36,24 +38,31 @@ geth --identity "MyEth" --nodiscover --networkid 1999 --datadir "~/ethereum/" co
 ```
 
 Create your first account
-```personal.newAccount();```
+```
+personal.newAccount();
+```
+
 this will ask you for your passphrase.
 
 
 Let start Mining!
 
-```miner.start(); // lets earn ether```
-
-```miner.stop();  // lets stop the miner ~!```
+```
+miner.start(); // lets earn ether
+miner.stop();  // lets stop the miner ~!
+```
 
 lets check how many etherium we earn
-`web3.fromWei(eth.getBalance(eth.coinbase), "ether")`
+```
+web3.fromWei(eth.getBalance(eth.coinbase), "ether")
+```
 
-Add new account
-`personal.newAccount()`
+Add new account `personal.newAccount()`
 
 set the second account as the collector of the reward
+```
 miner.setEtherbase(eth.accounts[1]);
+```
 
 the second account/eth.accounts[1] will receive the ethereum
 lets start the mining!
@@ -64,7 +73,9 @@ miner.stop();
 
 
 Check the of the second account if it earns some ethereum
-`web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")`
+```
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+```
 
 
 How Transfer ethereum?
@@ -108,9 +119,9 @@ and the account 2 has been added by 100
 
 
 
-`SOLIDITY`
+# SOLIDITY
 
-installation
+## Installation
 
 lets install the solidity CLI via NPM
 `npm install -g solc`
