@@ -80,9 +80,13 @@ web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
 ```
 
 
-How Transfer ethereum?
+### Transfer Ethereum
+
 first we need to unlock the account who gonna send the etherium
-`personal.unlockAccount("<Account number>");` e.g. `personal.unlockAccount(eth.accounts[0])`;
+```
+personal.unlockAccount("<Account number>"); 
+// e.g. personal.unlockAccount(eth.accounts[0])
+```
 and enter the passphrase
 
 then create a send transaction
