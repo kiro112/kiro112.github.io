@@ -22,9 +22,11 @@ Create a genesis.json
 create your custom directory (I use ~/ethereum as my custom dir), this will serve as the directory for databases and keystore
 
 initialize your genesis file
-`geth --identity "MyEth" --nodiscover --networkid 1999 --datadir "~/ethereum/" init ~/ethereum/genesis.json`
-
 ```
+geth --identity "MyEth" --nodiscover --networkid 1999 --datadir "~/ethereum/" init ~/ethereum/genesis.json
+
+
+DETAILS
 --identity - Custom node name
 -- nodiscover - Disables the peer discovery mechanism (manual peer addition)
 --networkid - Network identifier
