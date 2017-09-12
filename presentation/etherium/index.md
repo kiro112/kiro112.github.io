@@ -36,7 +36,7 @@ geth --identity "MyEth" --nodiscover --networkid 1999 --datadir "~/ethereum/" co
 ```
 
 Create your first account
-```personal.newAccount()```
+```personal.newAccount();```
 this will ask you for your passphrase.
 
 
