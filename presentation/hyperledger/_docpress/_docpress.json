@@ -33,9 +33,9 @@
             "slug": "consensus",
             "headings": [
               {
-                "title": "Two general approaches have been proposed.",
+                "title": "Approach proposed",
                 "depth": 2,
-                "id": "two-general-approaches-have-been-proposed."
+                "id": "approach-proposed"
               }
             ]
           },
@@ -44,6 +44,18 @@
             "source": "docs/poet.md",
             "url": "poet.html",
             "slug": "poet"
+          }
+        ]
+      },
+      {
+        "title": "Architecture",
+        "source": "",
+        "sections": [
+          {
+            "title": "Transactions and Batches",
+            "source": "docs/txn-n-batches.md",
+            "url": "txn-n-batches.html",
+            "slug": "txn-n-batches"
           }
         ]
       }
@@ -82,9 +94,9 @@
       "slug": "consensus",
       "headings": [
         {
-          "title": "Two general approaches have been proposed.",
+          "title": "Approach proposed",
           "depth": 2,
-          "id": "two-general-approaches-have-been-proposed."
+          "id": "approach-proposed"
         }
       ]
     },
@@ -93,6 +105,12 @@
       "title": "Proof of Elapsed Time (PoET) - Sawtooth",
       "pageTitle": "Proof of Elapsed Time (PoET)",
       "slug": "poet"
+    },
+    "txn-n-batches.html": {
+      "source": "docs/txn-n-batches.md",
+      "title": "Transactions and Batches - Sawtooth",
+      "pageTitle": "Transactions and Batches",
+      "slug": "txn-n-batches"
     }
   },
   "sources": {
@@ -101,6 +119,7 @@
     "docs/distributed-ledger.md": "distributed-ledger.html",
     "docs/consensus.md": "consensus.html",
     "docs/poet.md": "poet.html",
+    "docs/txn-n-batches.md": "txn-n-batches.html",
     "docs/docpress.json": "docpress.json"
   }
 }

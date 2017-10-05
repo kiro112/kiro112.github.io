@@ -9,6 +9,6 @@ A distributed ledger (also called shared ledger) is a consensus of replicated, s
 
 
 ## Basic Component
-- A data model that captures the current state of the ledger
-- A language of transactions that change the ledger state
-- A protocol used to build consensus among participants around which transactions will be accepted by the ledger.
+- A data model that captures the current __state__ of the ledger
+- A language of __transactions__ that change the ledger state
+- A protocol used to build __consensus__ among participants around which transactions will be accepted by the ledger.
