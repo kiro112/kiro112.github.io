@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="assets/style.css?t=615badd5">
     <link rel="stylesheet" href="http://ricostacruz.com/docpress-rsc/style.css">
     <script src="assets/script.js?t=42463e55"></script>
-    <title>Introduction - Sawtooth</title>
+    <title>Global State - Sawtooth</title>
     <meta name="viewport" content="width=device-width">
     <script>if (false || window.location.hostname.indexOf("ricostacruz.com") === window.location.hostname.length - 15) {
         (function(d,o,c,p,r,e,s){d['GoogleAnalyticsObject']=r;d[r]=d[r]||function(){(d[r].q=d[r].q||[]).push(arguments)},d[r].l=1*new Date();e=o.createElement(c),s=o.getElementsByTagName(c)[0];e.async=1;e.src=p;s.parentNode.insertBefore(e,s)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -21,7 +21,7 @@
           <ul class="submenu">
             <li class="menu-item -level-1"><a class="link title  link-index" href="index.html">Sawtooth</a>
             </li>
-            <li class="menu-item -level-1 -parent"><a class="link title -active link-introduction" href="introduction.html">Introduction</a>
+            <li class="menu-item -level-1 -parent"><a class="link title  link-introduction" href="introduction.html">Introduction</a>
               <ul class="submenu">
                 <li class="menu-item -level-2"><a class="link title  link-distributed-ledger" href="distributed-ledger.html">Sawtooth Ledger</a>
                 </li>
@@ -35,26 +35,28 @@
               <ul class="submenu">
                 <li class="menu-item -level-2"><a class="link title  link-txn-n-batches" href="txn-n-batches.html">Transactions and Batches</a>
                 </li>
-                <li class="menu-item -level-2"><a class="link title  link-global-state" href="global-state.html">Global State</a>
+                <li class="menu-item -level-2"><a class="link title -active link-global-state" href="global-state.html">Global State</a>
                 </li>
               </ul>
             </li>
           </ul>
         </li>
       </div>
-      <div class="body page-introduction">
+      <div class="body page-global-state">
         <div class="header-nav">
           <div class="right"><a class="iconlink" href="https://github.com/rstacruz/backbone-patterns" data-title="rstacruz/backbone-patterns">
               <!-- span.title Open in GitHub--><span class="icon -github"></span></a>
           </div>
         </div>
-        <div class="markdown-body"><h1 id="what-is-hyperledger-sawtooth">What is Hyperledger Sawtooth ?</h1>
-<p>Hyperledger Sawtooth is a modular platform for building, deploying, and running distributed ledgers. Distributed ledgers provide a digital record (such as asset ownership) that is maintained without a central authority or implementation.</p>
+        <div class="markdown-body"><h1 id="global-state">Global State</h1>
+<p>One goal of a distributed ledger like Sawtooth, indeed the defining goal, is to distribute a ledger among participating nodes.
+<em>The ability to ensure a consistent copy of data amongst nodes in Byzantine consensus is one of the core strengths of blockchain technology.</em></p>
+<p>Sawtooth represents state for all transaction families in a single instance of a <em>Radix Merkle Tree</em> on each validator. The process of block validation on each validator ensures that the same transactions result in the same state transitions and that the resulting data is the same for all participants in the network.</p>
+<p>The state is split into namespaces which allow flexibility for transaction family authors to define, share, and reuse global state data between transaction processors.</p>
 
         </div>
         <div class="footer-nav">
-          <div class="left"><a href="index.html"><span class="title">Sawtooth</span></a></div>
-          <div class="right"><a href="distributed-ledger.html"><span class="label">Next: </span><span class="title">Sawtooth Ledger</span></a></div>
+          <div class="left"><a href="txn-n-batches.html"><span class="title">Transactions and Batches</span></a></div>
         </div>
       </div>
     </div>

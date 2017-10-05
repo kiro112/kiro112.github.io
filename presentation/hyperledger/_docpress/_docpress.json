@@ -55,7 +55,35 @@
             "title": "Transactions and Batches",
             "source": "docs/txn-n-batches.md",
             "url": "txn-n-batches.html",
-            "slug": "txn-n-batches"
+            "slug": "txn-n-batches",
+            "headings": [
+              {
+                "title": "Structure",
+                "depth": 2,
+                "id": "structure"
+              },
+              {
+                "title": "Transaction Data Structure",
+                "depth": 2,
+                "id": "transaction-data-structure"
+              },
+              {
+                "title": "Batch Data Structure",
+                "depth": 2,
+                "id": "batch-data-structure"
+              },
+              {
+                "title": "Why Batches ?",
+                "depth": 2,
+                "id": "why-batches"
+              }
+            ]
+          },
+          {
+            "title": "Global State",
+            "source": "docs/global-state.md",
+            "url": "global-state.html",
+            "slug": "global-state"
           }
         ]
       }
@@ -110,7 +138,35 @@
       "source": "docs/txn-n-batches.md",
       "title": "Transactions and Batches - Sawtooth",
       "pageTitle": "Transactions and Batches",
-      "slug": "txn-n-batches"
+      "slug": "txn-n-batches",
+      "headings": [
+        {
+          "title": "Structure",
+          "depth": 2,
+          "id": "structure"
+        },
+        {
+          "title": "Transaction Data Structure",
+          "depth": 2,
+          "id": "transaction-data-structure"
+        },
+        {
+          "title": "Batch Data Structure",
+          "depth": 2,
+          "id": "batch-data-structure"
+        },
+        {
+          "title": "Why Batches ?",
+          "depth": 2,
+          "id": "why-batches"
+        }
+      ]
+    },
+    "global-state.html": {
+      "source": "docs/global-state.md",
+      "title": "Global State - Sawtooth",
+      "pageTitle": "Global State",
+      "slug": "global-state"
     }
   },
   "sources": {
@@ -120,6 +176,7 @@
     "docs/consensus.md": "consensus.html",
     "docs/poet.md": "poet.html",
     "docs/txn-n-batches.md": "txn-n-batches.html",
+    "docs/global-state.md": "global-state.html",
     "docs/docpress.json": "docpress.json"
   }
 }
