@@ -89,7 +89,35 @@
             "title": "Journal",
             "source": "docs/journal.md",
             "url": "journal.html",
-            "slug": "journal"
+            "slug": "journal",
+            "headings": [
+              {
+                "title": "The BlockStore",
+                "depth": 2,
+                "id": "the-blockstore"
+              },
+              {
+                "title": "The BlockCache",
+                "depth": 2,
+                "id": "the-blockcache"
+              },
+              {
+                "title": "The Completer",
+                "depth": 2,
+                "id": "the-completer"
+              },
+              {
+                "title": "The ChainController",
+                "depth": 2,
+                "id": "the-chaincontroller"
+              }
+            ]
+          },
+          {
+            "title": "REST API",
+            "source": "docs/rest-api.md",
+            "url": "rest-api.html",
+            "slug": "rest-api"
           }
         ]
       }
@@ -178,7 +206,35 @@
       "source": "docs/journal.md",
       "title": "Journal - Sawtooth",
       "pageTitle": "Journal",
-      "slug": "journal"
+      "slug": "journal",
+      "headings": [
+        {
+          "title": "The BlockStore",
+          "depth": 2,
+          "id": "the-blockstore"
+        },
+        {
+          "title": "The BlockCache",
+          "depth": 2,
+          "id": "the-blockcache"
+        },
+        {
+          "title": "The Completer",
+          "depth": 2,
+          "id": "the-completer"
+        },
+        {
+          "title": "The ChainController",
+          "depth": 2,
+          "id": "the-chaincontroller"
+        }
+      ]
+    },
+    "rest-api.html": {
+      "source": "docs/rest-api.md",
+      "title": "REST API - Sawtooth",
+      "pageTitle": "REST API",
+      "slug": "rest-api"
     }
   },
   "sources": {
@@ -190,6 +246,7 @@
     "docs/txn-n-batches.md": "txn-n-batches.html",
     "docs/global-state.md": "global-state.html",
     "docs/journal.md": "journal.html",
+    "docs/rest-api.md": "rest-api.html",
     "docs/docpress.json": "docpress.json"
   }
 }

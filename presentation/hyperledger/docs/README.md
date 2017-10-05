@@ -8,3 +8,4 @@
   * [Transactions and Batches](txn-n-batches.md)
   * [Global State](global-state.md)
   * [Journal](journal.md)
+  * [REST API](rest-api.md)
