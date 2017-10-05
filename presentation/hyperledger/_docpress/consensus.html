@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/style.css?t=615badd5">
+    <link rel="stylesheet" href="http://ricostacruz.com/docpress-rsc/style.css">
+    <script src="assets/script.js?t=42463e55"></script>
+    <title>Consensus - Sawtooth</title>
+    <meta name="viewport" content="width=device-width">
+    <script>if (false || window.location.hostname.indexOf("ricostacruz.com") === window.location.hostname.length - 15) {
+        (function(d,o,c,p,r,e,s){d['GoogleAnalyticsObject']=r;d[r]=d[r]||function(){(d[r].q=d[r].q||[]).push(arguments)},d[r].l=1*new Date();e=o.createElement(c),s=o.getElementsByTagName(c)[0];e.async=1;e.src=p;s.parentNode.insertBefore(e,s)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create',"UA-20473929-1",'auto')
+      }
+    </script>
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="menu toc-menu">
+        <li class="menu-item -level-0 -parent">
+          <ul class="submenu">
+            <li class="menu-item -level-1"><a class="link title  link-index" href="index.html">Sawtooth</a>
+            </li>
+            <li class="menu-item -level-1 -parent"><a class="link title  link-introduction" href="introduction.html">Introduction</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a class="link title  link-distributed-ledger" href="distributed-ledger.html">Sawtooth Ledger</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title -active link-consensus" href="consensus.html">Consensus</a>
+                  <ul class="headings heading-list">
+                    <li class="heading-item -depth-2"><a class="hlink link-two-general-approaches-have-been-proposed." href="#two-general-approaches-have-been-proposed.">Two general approaches have been proposed.</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-poet" href="poet.html">Proof of Elapsed Time (PoET)</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </div>
+      <div class="body page-consensus">
+        <div class="header-nav">
+          <div class="right"><a class="iconlink" href="https://github.com/rstacruz/backbone-patterns" data-title="rstacruz/backbone-patterns">
+              <!-- span.title Open in GitHub--><span class="icon -github"></span></a>
+          </div>
+        </div>
+        <div class="markdown-body"><h1 id="consensus">Consensus</h1>
+<p>Consensus is the process of building agreement among a group of mutually distrusting participants.</p>
+<h2 id="approach-proposed">Approach proposed</h2>
+<p>The first, often referred to as <strong>Nakamoto consensus</strong>, elects a leader through some form of &#x201C;lottery&#x201D;. The leader then proposes a block that can be added to a chain of previously committed blocks. In Bitcoin, the first participant to successfully solve a cryptographic puzzle wins the leader-election lottery. The elected leader broadcasts the new block to the rest of the participants who implicitly vote to accept the block by adding the block to a chain of accepted blocks and proposing subsequent transaction blocks that build on that chain.</p>
+<p>The second approach is based on traditional <strong>Byzantine Fault Tolerance (BFT)</strong> algorithms and uses multiple rounds of explicit votes to achieve consensus. Ripple and Stellar developed consensus protocols that extend traditional BFT for open participation. Ripple and Stellar developed consensus protocols that extend traditional BFT for open participation.</p>
+<p>Sawtooth abstracts the core concepts of consensus and isolates consensus from transaction semantics. The interface supports plugging in various consensus implementations. Sawtooth provides two such implementations:</p>
+<ul>
+<li><strong>dev_mode</strong> - a simplified random leader algorithm that is useful for developers and test networks that require only crash fault tolerance.</li>
+<li><strong>Proof of Elapsed Time (PoET)</strong> - is a Nakamoto-style consensus algorithm. It is designed to be a production-grade protocol capable of supporting large network populations.</li>
+</ul>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="distributed-ledger.html"><span class="title">Sawtooth Ledger</span></a></div>
+          <div class="right"><a href="poet.html"><span class="label">Next: </span><span class="title">Proof of Elapsed Time (PoET)</span></a></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

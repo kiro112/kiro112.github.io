@@ -14,10 +14,36 @@
         "slug": "introduction",
         "sections": [
           {
-            "title": "Distributed ledger",
+            "title": "Sawtooth Ledger",
             "source": "docs/distributed-ledger.md",
             "url": "distributed-ledger.html",
-            "slug": "distributed-ledger"
+            "slug": "distributed-ledger",
+            "headings": [
+              {
+                "title": "Basic Component",
+                "depth": 2,
+                "id": "basic-component"
+              }
+            ]
+          },
+          {
+            "title": "Consensus",
+            "source": "docs/consensus.md",
+            "url": "consensus.html",
+            "slug": "consensus",
+            "headings": [
+              {
+                "title": "Two general approaches have been proposed.",
+                "depth": 2,
+                "id": "two-general-approaches-have-been-proposed."
+              }
+            ]
+          },
+          {
+            "title": "Proof of Elapsed Time (PoET)",
+            "source": "docs/poet.md",
+            "url": "poet.html",
+            "slug": "poet"
           }
         ]
       }
@@ -38,15 +64,43 @@
     },
     "distributed-ledger.html": {
       "source": "docs/distributed-ledger.md",
-      "title": "Distributed ledger - Sawtooth",
-      "pageTitle": "Distributed ledger",
-      "slug": "distributed-ledger"
+      "title": "Sawtooth Ledger - Sawtooth",
+      "pageTitle": "Sawtooth Ledger",
+      "slug": "distributed-ledger",
+      "headings": [
+        {
+          "title": "Basic Component",
+          "depth": 2,
+          "id": "basic-component"
+        }
+      ]
+    },
+    "consensus.html": {
+      "source": "docs/consensus.md",
+      "title": "Consensus - Sawtooth",
+      "pageTitle": "Consensus",
+      "slug": "consensus",
+      "headings": [
+        {
+          "title": "Two general approaches have been proposed.",
+          "depth": 2,
+          "id": "two-general-approaches-have-been-proposed."
+        }
+      ]
+    },
+    "poet.html": {
+      "source": "docs/poet.md",
+      "title": "Proof of Elapsed Time (PoET) - Sawtooth",
+      "pageTitle": "Proof of Elapsed Time (PoET)",
+      "slug": "poet"
     }
   },
   "sources": {
     "README.md": "index.html",
     "docs/introduction.md": "introduction.html",
     "docs/distributed-ledger.md": "distributed-ledger.html",
+    "docs/consensus.md": "consensus.html",
+    "docs/poet.md": "poet.html",
     "docs/docpress.json": "docpress.json"
   }
 }

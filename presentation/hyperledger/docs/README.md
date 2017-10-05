@@ -1,4 +1,6 @@
 * [Sawtooth](../README.md)
 
 * [Introduction](introduction.md)
-  * [Distributed ledger](distributed-ledger.md)
+  * [Sawtooth Ledger](distributed-ledger.md)
+  * [Consensus](consensus.md)
+  * [Proof of Elapsed Time (PoET)](poet.md)
