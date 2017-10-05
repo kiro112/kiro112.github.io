@@ -84,6 +84,12 @@
             "source": "docs/global-state.md",
             "url": "global-state.html",
             "slug": "global-state"
+          },
+          {
+            "title": "Journal",
+            "source": "docs/journal.md",
+            "url": "journal.html",
+            "slug": "journal"
           }
         ]
       }
@@ -167,6 +173,12 @@
       "title": "Global State - Sawtooth",
       "pageTitle": "Global State",
       "slug": "global-state"
+    },
+    "journal.html": {
+      "source": "docs/journal.md",
+      "title": "Journal - Sawtooth",
+      "pageTitle": "Journal",
+      "slug": "journal"
     }
   },
   "sources": {
@@ -177,6 +189,7 @@
     "docs/poet.md": "poet.html",
     "docs/txn-n-batches.md": "txn-n-batches.html",
     "docs/global-state.md": "global-state.html",
+    "docs/journal.md": "journal.html",
     "docs/docpress.json": "docpress.json"
   }
 }

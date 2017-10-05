@@ -7,3 +7,4 @@
 * [Architecture]()
   * [Transactions and Batches](txn-n-batches.md)
   * [Global State](global-state.md)
+  * [Journal](journal.md)

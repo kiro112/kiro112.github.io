@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/style.css?t=615badd5">
+    <link rel="stylesheet" href="http://ricostacruz.com/docpress-rsc/style.css">
+    <script src="assets/script.js?t=42463e55"></script>
+    <title>Journal - Sawtooth</title>
+    <meta name="viewport" content="width=device-width">
+    <script>if (false || window.location.hostname.indexOf("ricostacruz.com") === window.location.hostname.length - 15) {
+        (function(d,o,c,p,r,e,s){d['GoogleAnalyticsObject']=r;d[r]=d[r]||function(){(d[r].q=d[r].q||[]).push(arguments)},d[r].l=1*new Date();e=o.createElement(c),s=o.getElementsByTagName(c)[0];e.async=1;e.src=p;s.parentNode.insertBefore(e,s)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create',"UA-20473929-1",'auto')
+      }
+    </script>
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="menu toc-menu">
+        <li class="menu-item -level-0 -parent">
+          <ul class="submenu">
+            <li class="menu-item -level-1"><a class="link title  link-index" href="index.html">Sawtooth</a>
+            </li>
+            <li class="menu-item -level-1 -parent"><a class="link title  link-introduction" href="introduction.html">Introduction</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a class="link title  link-distributed-ledger" href="distributed-ledger.html">Sawtooth Ledger</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-consensus" href="consensus.html">Consensus</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-poet" href="poet.html">Proof of Elapsed Time (PoET)</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">Architecture</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a class="link title  link-txn-n-batches" href="txn-n-batches.html">Transactions and Batches</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-global-state" href="global-state.html">Global State</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title -active link-journal" href="journal.html">Journal</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </div>
+      <div class="body page-journal">
+        <div class="header-nav">
+          <div class="right"><a class="iconlink" href="https://github.com/rstacruz/backbone-patterns" data-title="rstacruz/backbone-patterns">
+              <!-- span.title Open in GitHub--><span class="icon -github"></span></a>
+          </div>
+        </div>
+        <div class="markdown-body"><h1 id="journal">Journal</h1>
+<p>The Journal is responsible for maintaining and extending the BlockChain for the validator. This responsibility involves validating candidate blocks, evaluating valid blocks to determine if they are the correct chain head, and generating new blocks to extend the chain.</p>
+<p><img src="http://kiro112.github.io/presentation/hyperledger/images/journal_organization.svg" alt="Journal Organization"></p>
+<p>The Journal is the consumer of Blocks and Batches that arrive at the validator. These Blocks and Batches arrive via interconnect, either through the <strong>gossip</strong> protocol or the <strong>REST API</strong>. The newly-arrived Blocks and Batches are sent to the Journal, which routes them internally.</p>
+<p>The Journal divides up the processing of Blocks and Batches to different pipelines. Both objects are delivered initially to the <strong>Completer</strong>, which guarantees that all dependencies for the Blocks and Batches have been satisfied and delivered downstream. Completed Blocks are delivered to the <strong>Chain controller</strong> for validation and fork resolution. Completed Batches are delivered the <strong>BlockPublisher</strong> for validation and inclusion in a Block.</p>
+<p>The Journal is designed to be asynchronous, allowing incoming blocks to be processed in parallel by the ChainController, as well as allowing the BlockPublisher to proceed with claiming blocks even when the incoming block rate is high.</p>
+<p>It is also flexible enough to accept different consensus algorithms. The Journal implements a consensus interface that defines the entry points and responsibilities of a consensus algorithm.</p>
+<h2 id="the-blockstore">The BlockStore</h2>
+<p>The BlockStore contains all the blocks in the current block chain, that is the list of blocks from the current chain head back to the Genesis blocks.</p>
+<h2 id="the-blockcache">The BlockCache</h2>
+<p>The Block Cache holds the working set of blocks for the validator and tracks the processing state. This processing state is tracked as valid, invalid, or unknown. Valid blocks are blocks that have been proven to be valid by the ChainController. Invalid blocks are blocks that failed validation or have an invalid block as a predecessor. Unknown are blocks that have not yet completed validation, usually having just arrived from the Completer.</p>
+<p>The BlockCache is an in-memory construct. It is rebuilt by demand when the system is started.</p>
+<h2 id="the-completer">The Completer</h2>
+<p>The Completer is responsible for making sure Blocks and Batches are complete before they are delivered. Blocks are considered formally complete once all of their predecessors have been delivered to the ChainController and their batches field contains all the Batches specified in the BlockHeader&#x2019;s batch_ids list.</p>
+<h2 id="the-chaincontroller">The ChainController</h2>
+<p>The ChainController is responsible for determining which chain the validator is currently on and coordinating any change-of-chain activities that need to happen. Currently the only listener for chain updates is the BlockPublisher, so that it can build a new candidate block on the new chain head.</p>
+<h4 id="basic-flow-of-the-chaincontroller-as-a-single-block-is-processed">Basic flow of the ChainController as a single block is processed</h4>
+<p><img src="http://kiro112.github.io/presentation/hyperledger/images/journal_chain_controller.svg" alt="Journal Chain Control Flow"></p>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="global-state.html"><span class="title">Global State</span></a></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
