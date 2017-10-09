@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/style.css?t=615badd5">
+    <link rel="stylesheet" href="http://ricostacruz.com/docpress-rsc/style.css">
+    <script src="assets/script.js?t=42463e55"></script>
+    <title>Validator Network - Sawtooth</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="menu toc-menu">
+        <li class="menu-item -level-0 -parent">
+          <ul class="submenu">
+            <li class="menu-item -level-1"><a class="link title  link-index" href="index.html">Sawtooth</a>
+            </li>
+            <li class="menu-item -level-1 -parent"><a class="link title  link-introduction" href="introduction.html">Introduction</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a class="link title  link-distributed-ledger" href="distributed-ledger.html">Sawtooth Ledger</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-consensus" href="consensus.html">Consensus</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-poet" href="poet.html">Proof of Elapsed Time (PoET)</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">Architecture</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a class="link title  link-txn-n-batches" href="txn-n-batches.html">Transactions and Batches</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-global-state" href="global-state.html">Global State</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-journal" href="journal.html">Journal</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-rest-api" href="rest-api.html">REST API</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title -active link-validator-network" href="validator-network.html">Validator Network</a>
+                  <ul class="headings heading-list">
+                    <li class="heading-item -depth-2"><a class="hlink link-services" href="#services">Services</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </div>
+      <div class="body page-validator-network">
+        <div class="header-nav">
+          <div class="right">
+          </div>
+        </div>
+        <div class="markdown-body"><h1 id="validator-network">Validator Network</h1>
+<p>The network layer is responsible for communication between validators in a Sawtooth network, including performing initial connectivity, peer discovery, and message handling. Upon startup, validator instances begin listening on a specified interface and port for incoming connections. Upon connection and peering, validators exchange messages with each other based on the rules of a gossip or epidemic protocol.</p>
+<p>A primary design goal is to keep the network layer as self-contained as possible.</p>
+<h2 id="services">Services</h2>
+<p>The choice of 0MQ provides considerable flexibility in both available connectivity patterns and the underlying capabilities of the transport layer (IPv4, IPv6, etc.)</p>
+<p>We have adopted the 0MQ Asynchronous Client/Server Pattern which consists of a 0MQ ROUTER socket on the server side which listens on a provided endpoint, with a number of connected 0MQ DEALER sockets as the connected clients. The 0MQ guide describes the features of this pattern as follows:</p>
+<ul>
+<li>Clients connect to the server and send requests.</li>
+<li>For each request, the server sends 0 or more replies.</li>
+<li>Clients can send multiple requests without waiting for a reply.</li>
+<li>Servers can send multiple replies without waiting for new requests.</li>
+</ul>
+<p><img src="http://kiro112.github.io/presentation/hyperledger/images/multiple_dealer_to_router.svg" alt="Validator Network Img"></p>
+<h2 id="states">States</h2>
+<p>We define three states related to the connection between any two validator nodes:</p>
+<ul>
+<li><strong>Unconnected</strong></li>
+<li><strong>Connected</strong> - A connection is a required prerequisite for peering.</li>
+<li><strong>Peered</strong> - A bidirectional relationship that forms the base case for application level message passing (gossip).</li>
+</ul>
+<h2 id="wire-protocol">Wire Protocol</h2>
+<p>We have standardized on protobuf serialization for any structured messages that need to be passed over the network. All payloads to or from the application layer are treated as opaque.</p>
+<h2 id="peer-discovery">Peer Discovery</h2>
+<p>A bidirectional peering via a neighbor of neighbors approach gives reliable connectivity (messages delivered to all nodes &gt;99% of the time based on random construction of the network).</p>
+<p>Peer connections are established by collecting a suitable population of candidate peers through successive CONNECT/GET_PEERS calls (neighbors of neighbors). The connecting validator then selects a candidate peer randomly from the list and attempts to connect and peer with it. If this succeeds, and the connecting validator has reached minimum connectivity, the process halts. If minimum connectivity has not yet been reached, the validator continues attempting to connect to new candidate peers, refreshing its view of the neighbors of neighbors if it exhausts candidates.</p>
+<p><img src="http://kiro112.github.io/presentation/hyperledger/images/bidirectional_peering.png" alt="Bilateral Peering"></p>
+<p>The network component continues to perform a peer search if its number of peers is less than the minimum connectivity. The network component rejects peering attempts if its number of peers is equal to or greater than the maximum connectivity. Even if maximum peer connections is reached, a network service should still accept and respond to a reasonable number of connections (for the purposes of other node topology build outs, etc.)</p>
+<h2 id="related-components">Related Components</h2>
+<p><img src="http://kiro112.github.io/presentation/hyperledger/images/related_components.svg" alt="Related Components"></p>
+<h2 id="message-delivery">Message Delivery</h2>
+<p>The network delivers application messages (payloads received via BROADCAST or SEND) to the application layer. The network also performs a basic validation of messages prior to forwarding by calling a handler in the Message Validation component.</p>
+<p>When the network receives a REQUEST message, it calls a provided handler (a &#x201C;Responder&#x201D;, for example) to determine if the request can be satisfied. If so, the expectation is that the application layer generates a SEND message with a response that satisfies the request. In this condition, the network layer does not continue to propagate the REQUEST message to the network.</p>
+<p>In the case where a node could not satisfy the request, the node stores who it received the request from and BROADCASTs the request on to its peers. If that node receives a SEND message with the response to the request, it forwards the SEND message back to the original requester.</p>
+<p>The network accepts application payloads for BROADCAST, SEND, and REQUEST from the application layer.</p>
+<h2 id="network-layer-security">Network Layer Security</h2>
+<p>0MQ includes a TLS like certificate exchange mechanism and protocol encryption capability which is transparent to the socket implementation. Support for socket level encryption is currently implemented with hardcoded server keys, to avoid needing separate identities for each validator&#x2019;s server socket. This is appropriate for a public network. For each client, ephemeral certificates are generated on connect.</p>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="rest-api.html"><span class="title">REST API</span></a></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

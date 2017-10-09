@@ -118,6 +118,19 @@
             "source": "docs/rest-api.md",
             "url": "rest-api.html",
             "slug": "rest-api"
+          },
+          {
+            "title": "Validator Network",
+            "source": "docs/validator-network.md",
+            "url": "validator-network.html",
+            "slug": "validator-network",
+            "headings": [
+              {
+                "title": "Services",
+                "depth": 2,
+                "id": "services"
+              }
+            ]
           }
         ]
       }
@@ -235,6 +248,19 @@
       "title": "REST API - Sawtooth",
       "pageTitle": "REST API",
       "slug": "rest-api"
+    },
+    "validator-network.html": {
+      "source": "docs/validator-network.md",
+      "title": "Validator Network - Sawtooth",
+      "pageTitle": "Validator Network",
+      "slug": "validator-network",
+      "headings": [
+        {
+          "title": "Services",
+          "depth": 2,
+          "id": "services"
+        }
+      ]
     }
   },
   "sources": {
@@ -247,6 +273,7 @@
     "docs/global-state.md": "global-state.html",
     "docs/journal.md": "journal.html",
     "docs/rest-api.md": "rest-api.html",
+    "docs/validator-network.md": "validator-network.html",
     "docs/docpress.json": "docpress.json"
   }
 }
