@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/style.css?t=615badd5">
+    <link rel="stylesheet" href="http://ricostacruz.com/docpress-rsc/style.css">
+    <script src="assets/script.js?t=42463e55"></script>
+    <title>Transaction Family Specification - Sawtooth</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="menu toc-menu">
+        <li class="menu-item -level-0 -parent">
+          <ul class="submenu">
+            <li class="menu-item -level-1"><a class="link title  link-index" href="index.html">Sawtooth</a>
+            </li>
+            <li class="menu-item -level-1 -parent"><a class="link title  link-introduction" href="introduction.html">Introduction</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a class="link title  link-distributed-ledger" href="distributed-ledger.html">Sawtooth Ledger</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-consensus" href="consensus.html">Consensus</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-poet" href="poet.html">Proof of Elapsed Time (PoET)</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">Architecture</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a class="link title  link-txn-n-batches" href="txn-n-batches.html">Transactions and Batches</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-global-state" href="global-state.html">Global State</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-journal" href="journal.html">Journal</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-rest-api" href="rest-api.html">REST API</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-validator-network" href="validator-network.html">Validator Network</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1"><a class="link title -active link-transaction-family-spec" href="transaction-family-spec.html">Transaction Family Specification</a>
+              <ul class="headings heading-list">
+                <li class="heading-item -depth-2"><a class="hlink link-settings-transaction-family-specification" href="#settings-transaction-family-specification">Settings Transaction Family Specification</a>
+                </li>
+                <li class="heading-item -depth-2"><a class="hlink link-integerkey-transaction-family-specification" href="#integerkey-transaction-family-specification">IntegerKey Transaction Family Specification</a>
+                </li>
+                <li class="heading-item -depth-2"><a class="hlink link-xo-transaction-family-specification" href="#xo-transaction-family-specification">XO Transaction Family Specification</a>
+                </li>
+                <li class="heading-item -depth-2"><a class="hlink link-sawtooth-burrow-evm-transaction-family-specification" href="#sawtooth-burrow-evm-transaction-family-specification">Sawtooth Burrow-EVM Transaction Family Specification</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </div>
+      <div class="body page-transaction-family-spec">
+        <div class="header-nav">
+          <div class="right">
+          </div>
+        </div>
+        <div class="markdown-body"><h1 id="transaction-family-specification">Transaction Family Specification</h1>
+<h2 id="settings-transaction-family-specification">Settings Transaction Family Specification</h2>
+<p>The settings transaction family provides a methodology for storing on-chain configuration settings.</p>
+<p>The settings stored in state as a result of this transaction family play a critical role in the operation of a validator. For example, the consensus module uses these settings; in the case of PoET, one cross-network setting is target wait time (which must be the same across validators), and this setting is stored as sawtooth.poet.target_wait_time. Other parts of the system use these settings similarly; for example, the list of enabled transaction families is used by the transaction processing platform.</p>
+<p>This design supports two authorization options:</p>
+<ol>
+<li>a single authorized key which can make changes, and</li>
+<li>multiple authorized keys. In the case of multiple keys, a percentage of votes signed by the keys is required to make a change.</li>
+</ol>
+<h2 id="integerkey-transaction-family-specification">IntegerKey Transaction Family Specification</h2>
+<p>The IntegerKey transaction family allows users to set, increment, and decrement the value of entries stored in a state dictionary.</p>
+<p>An IntegerKey family transaction request is defined by the following values:</p>
+<ul>
+<li>A <strong>verb</strong> which describes what action the transaction takes</li>
+<li>A <strong>name</strong> of the entry that is to be set or changed</li>
+<li>A <strong>value</strong> by which the entry will be set or changed</li>
+</ul>
+<h2 id="xo-transaction-family-specification">XO Transaction Family Specification</h2>
+<p>The XO transaction family allows users to play a simple board game known variously as tic-tac-toe, noughts and crosses, and XO.</p>
+<h2 id="sawtooth-burrow-evm-transaction-family-specification">Sawtooth Burrow-EVM Transaction Family Specification</h2>
+<p>The Sawtooth Burrow-EVM transaction family enables the creation and execution of smart contracts within the Hyperledger Sawtooth framework. It integrates the Hyperledger Burrow implementation of the Ethereum Virtual Machine (EVM) into the Hyperledger Sawtooth framework using the Sawtooth Go SDK.</p>
+<p>The primary problems to solve in order to integrate the Burrow EVM into Sawtooth are:</p>
+<ol>
+<li>Define and implement an efficient mapping between EVM World State addresses and Sawtooth Global State addresses.</li>
+<li>Define and implement an efficient method for maintaining accounts and account storage in Sawtooth Global State.</li>
+<li>Define and implement an &#x201C;EVM-Wrapper&#x201D; at the Transaction Processor level for handling additional &#x201C;Ethereum-like&#x201D; and &#x201C;Burrow-like&#x201D; features not implemented by the EVM, including:</li>
+</ol>
+<ul>
+<li>Handling account creation transactions and storing the resulting code in global state.</li>
+<li>Managing and enforcing account permissions.</li>
+<li>Maintaining account balances and transferring funds between accounts.</li>
+<li>Checking transaction nonces against account nonces and deriving new contract account addresses.</li>
+</ul>
+<ol start="4">
+<li>Define and implement an efficient API for:</li>
+</ol>
+<ul>
+<li>Submitting transactions to the network that load and execute EVM byte code in a way that is compatible with existing tools.</li>
+<li>Querying state using smart contracts without requiring that state be modified.</li>
+</ul>
+<ol start="5">
+<li>Define and implement an event subscription system for monitoring the EVM namespace that can be used with solidity events.</li>
+</ol>
+<blockquote>
+<p>Note:
+This is a proof of concept implementation that attempts to solve problems 1, 2, and part of 3. Later versions of the spec will include solutions to the remaining problems including optimizations, handling permissions, event subscription, and incentives.</p>
+</blockquote>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="validator-network.html"><span class="title">Validator Network</span></a></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

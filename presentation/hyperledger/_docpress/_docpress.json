@@ -129,8 +129,66 @@
                 "title": "Services",
                 "depth": 2,
                 "id": "services"
+              },
+              {
+                "title": "States",
+                "depth": 2,
+                "id": "states"
+              },
+              {
+                "title": "Wire Protocol",
+                "depth": 2,
+                "id": "wire-protocol"
+              },
+              {
+                "title": "Peer Discovery",
+                "depth": 2,
+                "id": "peer-discovery"
+              },
+              {
+                "title": "Related Components",
+                "depth": 2,
+                "id": "related-components"
+              },
+              {
+                "title": "Message Delivery",
+                "depth": 2,
+                "id": "message-delivery"
+              },
+              {
+                "title": "Network Layer Security",
+                "depth": 2,
+                "id": "network-layer-security"
               }
             ]
+          }
+        ]
+      },
+      {
+        "title": "Transaction Family Specification",
+        "source": "docs/transaction-family-spec.md",
+        "url": "transaction-family-spec.html",
+        "slug": "transaction-family-spec",
+        "headings": [
+          {
+            "title": "Settings Transaction Family Specification",
+            "depth": 2,
+            "id": "settings-transaction-family-specification"
+          },
+          {
+            "title": "IntegerKey Transaction Family Specification",
+            "depth": 2,
+            "id": "integerkey-transaction-family-specification"
+          },
+          {
+            "title": "XO Transaction Family Specification",
+            "depth": 2,
+            "id": "xo-transaction-family-specification"
+          },
+          {
+            "title": "Sawtooth Burrow-EVM Transaction Family Specification",
+            "depth": 2,
+            "id": "sawtooth-burrow-evm-transaction-family-specification"
           }
         ]
       }
@@ -259,6 +317,64 @@
           "title": "Services",
           "depth": 2,
           "id": "services"
+        },
+        {
+          "title": "States",
+          "depth": 2,
+          "id": "states"
+        },
+        {
+          "title": "Wire Protocol",
+          "depth": 2,
+          "id": "wire-protocol"
+        },
+        {
+          "title": "Peer Discovery",
+          "depth": 2,
+          "id": "peer-discovery"
+        },
+        {
+          "title": "Related Components",
+          "depth": 2,
+          "id": "related-components"
+        },
+        {
+          "title": "Message Delivery",
+          "depth": 2,
+          "id": "message-delivery"
+        },
+        {
+          "title": "Network Layer Security",
+          "depth": 2,
+          "id": "network-layer-security"
+        }
+      ]
+    },
+    "transaction-family-spec.html": {
+      "source": "docs/transaction-family-spec.md",
+      "title": "Transaction Family Specification - Sawtooth",
+      "pageTitle": "Transaction Family Specification",
+      "slug": "transaction-family-spec",
+      "headings": [
+        {
+          "title": "Settings Transaction Family Specification",
+          "depth": 2,
+          "id": "settings-transaction-family-specification"
+        },
+        {
+          "title": "IntegerKey Transaction Family Specification",
+          "depth": 2,
+          "id": "integerkey-transaction-family-specification"
+        },
+        {
+          "title": "XO Transaction Family Specification",
+          "depth": 2,
+          "id": "xo-transaction-family-specification"
+        },
+        {
+          "title": "Sawtooth Burrow-EVM Transaction Family Specification",
+          "depth": 2,
+          "id": "sawtooth-burrow-evm-transaction-family-specification"
         }
       ]
     }
@@ -274,6 +390,7 @@
     "docs/journal.md": "journal.html",
     "docs/rest-api.md": "rest-api.html",
     "docs/validator-network.md": "validator-network.html",
+    "docs/transaction-family-spec.md": "transaction-family-spec.html",
     "docs/docpress.json": "docpress.json"
   }
 }
