@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<!--[if lte IE 9]><html class="ie ie9 lte9" lang="en"><![endif]-->
+<!--[if !IE]><!--><html lang="en"><!--<![endif]-->
+<head dir="ltr">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>
+   B9lab-Certified Hyperledger Fabric Developer Course - July | B9lab Academy
+  </title>
+
+  
+  <script type="text/javascript" src="/static/js/i18n/en/djangojs.b28203373cc1.js"></script>
+
+  <link rel="icon" type="image/x-icon" href="/static/edx-b9lab-theme/images/favicon.e0cf15fd2e28.ico" />
+  <link href="/static/edx-b9lab-theme/css/lms-style-vendor.4ccaa7f84216.css" rel="stylesheet" type="text/css" />
+  <link href="/static/edx-b9lab-theme/css/lms-main-v1.de9c074d355a.css" rel="stylesheet" type="text/css" />
+
+
+  <script type="text/javascript" src="/static/edx-b9lab-theme/js/lms-main_vendor.9ffa92b26c4f.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/static/edx-b9lab-theme/js/lms-application.596021cdc57d.js" charset="utf-8"></script>
+
+
+
+  <script>
+    window.baseUrl = "/static/";
+    (function (require) {
+      require.config({
+          baseUrl: window.baseUrl
+      });
+    }).call(this, require || RequireJS.require);
+  </script>
+  
+  <script type="text/javascript" src="/static/lms/js/require-config.cd72e66c1a3e.js"></script>
+  
+    <script type="text/javascript">
+        (function (require) {
+          require.config({
+              paths: {
+                'js/courseware/courseware_factory': 'js/courseware/courseware_factory.01c762a7c9e6',
+                'draggabilly': 'js/vendor/draggabilly.26caba6f7187',
+                'js/courseware/toggle_element_visibility': 'js/courseware/toggle_element_visibility.22ad04bb0497',
+                'js/courseware/course_home_events': 'js/courseware/course_home_events.efe56112dd91',
+                'js/courseware/link_clicked_events': 'js/courseware/link_clicked_events',
+                'moment': 'common/js/vendor/moment-with-locales.084396f4103c',
+                'moment-timezone': 'common/js/vendor/moment-timezone-with-data.b062d5eadf09',
+                'js/student_account/logistration_factory': 'js/student_account/logistration_factory.fdbb256dea8d',
+                'js/groups/views/cohorts_dashboard_factory': 'js/groups/views/cohorts_dashboard_factory.eb8701884901',
+                'js/dateutil_factory': 'js/dateutil_factory.f141a7899e5d',
+                'js/courseware/accordion_events': 'js/courseware/accordion_events.6064c7809de5',
+                'js/bookmarks/views/bookmark_button': 'js/bookmarks/views/bookmark_button.bca63457af5c',
+                'js/views/message_banner': 'js/views/message_banner.099aec538f98',
+                'js/student_profile/views/learner_profile_factory': 'js/student_profile/views/learner_profile_factory.c70d54366733'
+            }
+          });
+        }).call(this, require || RequireJS.require);
+    </script>
+  
+
+    
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/lms-modules.95e020694261.js" charset="utf-8"></script>
+
+
+
+  
+
+  
+
+    <link href="/static/edx-b9lab-theme/css/lms-style-course-vendor.60799ae7d9f8.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+
+    <link href="/static/edx-b9lab-theme/css/lms-course.617ceac4dd9c.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+  
+
+
+
+<meta property="og:url" content="http://academy.b9lab.com" />
+<meta property="og:title" content="B9lab Academy" />
+<meta property="og:image" content="/static/edx-b9lab-theme/images/b9lab-academy-meta.b10dca9c2ebb.png" />
+<meta property="og:description" content="B9lab Academy Offers world class online training in blockchain and decentralised applications for developers, technical experts and analysts." />
+<meta property="og:keywords" content="B9lab, academy, blockchain, ethereum, certified, online course, online training, developer, experts, analysts" />
+
+
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+<!-- bootstrap! -->
+<!-- local reference for offline testing only -->
+<!-- <link rel="stylesheet" href="/static/edx-b9lab-theme/css/bootstrap.e60e9bcfcac0.css" > -->
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.css">
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.js"></script>
+
+
+<!-- Ednote download and host highlight.js locally? -->     
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atom-one-dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- Ednote by isy: check if this triggers on ready, otherwise needs to be moved -->
+    
+<script src="/static/edx-b9lab-theme/js/cookiebanner.aa9e72239da4.js" id="cookiebanner"
+    data-link="#f89820"
+    data-message="We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. Find out more about how we use cookies in our"
+    data-linkmsg="Privacy Policy."
+    data-moreinfo="/privacy">
+</script>
+
+<script src="/static/edx-b9lab-theme/js/academy.e83c874e8455.js"> </script>
+    
+<script>
+  // check for unsupported browsers; display warning message if an old browser
+  // is in use
+
+  $(function(){
+    // This function returns Internet Explorer's major version number,
+    // or 0 for others. It works by finding the "MSIE " string and
+    // extracting the version number following the space, up to the decimal
+    // point, ignoring the minor version number
+    // for more info, see: https://support.microsoft.com/en-us/kb/167820
+    function msieversion()
+    {
+      var ua = window.navigator.userAgent
+      var msie = ua.indexOf ( "MSIE " )
+
+      if ( msie > 0 )      // If Internet Explorer, return version number
+         return parseInt (ua.substring (msie+5, ua.indexOf (".", msie )))
+      else                 // If another browser, return 0
+         return 0
+    }
+
+    function displayBrowserWarning()
+    {
+      $('#browserWarning').show();
+    }
+
+    var ieversion = msieversion();
+    // make sure that we are using IE > 9
+    if (ieversion > 0 && ieversion < 11)
+    {
+      displayBrowserWarning();
+    }
+
+  });
+</script>
+
+
+<script>
+  $(document).ready(function(){
+    // General functions
+    $('.eq-height').matchHeight();
+
+    // Academy js init
+    Academy.settings.enable_debug_log = false;
+    
+    Academy.init();
+  })
+  
+</script>
+
+
+
+
+  
+
+
+  
+
+
+<!-- begin Segment -->
+<script type="text/javascript">
+  // Asynchronously load Segment's analytics.js library
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+  analytics.load("jQhOlBYO1HViQrpgdU9VzBctC3SvSJ51");
+  // analytics.page(); */ We do NOT call page here, because we might want to hide the intercom messenger. This is now called from academy.js trackUser function */
+  }}();
+  // Note: user tracking moved to segment-io-footer.html
+</script>
+<!-- end Segment -->
+
+
+  <meta name="path_prefix" content="">
+  <meta name="google-site-verification" content="_mipQ4AtZQDNmbtOkwehQDOgCxUUV2fb_C0b6wbiRHY" />
+
+
+
+</head>
+
+<body class="ltr view-in-course view-course-info  lang_en">
+
+
+<div id="page-prompt"></div>
+  <div class="window-wrap" dir="ltr">
+    <a class="nav-skip" href="#main">Skip to main content</a>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+  <header class="global" aria-label="Global Navigation">
+    
+    <nav id="secondary-nav" class="container-fluid">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#secondary-nav-items">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">
+                
+              <img class="b9lab-academy-logo" src="/static/edx-b9lab-theme/images/b9lab-academy-logo.1e555680be8e.svg" alt="Home Page">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+<!--[if lte IE 8]>
+<div class="ie-banner" aria-hidden="true"><strong>Warning:</strong> Your browser is not fully supported. We strongly recommend using <a href="https://www.google.com/intl/en/chrome/browser/" target="_blank">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>.</div>
+<![endif]-->
+
+
+
+
+
+
+
+
+
+<script async>
+  $(function(){
+    var button = document.getElementById("dropdown");
+
+    $(button).click(function(){
+      var menu = document.getElementById("dropdown-menu");
+
+      var caret=$(button).children('.caret');
+
+      if (menu.style.display !== "inline") {
+          menu.style.display = "inline";
+          $(caret).hide();
+      }
+      else {
+        menu.style.display = "none";
+        $(caret).show();
+      }
+    });
+  })
+</script>
+
+
+    <div class="content-wrapper" id="content">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<div class="container-fluid" id="course-title-header">
+    <img src="/asset-v1:B9lab+HLF-12+2018-07+type@asset+block@asset-v1_B9lab_HLF-11_2018-06_type_asset_block_hlf-logo-03-01.png" hidden class="hidden" id="course-image" />
+    <div class="container">
+        <div class="row">
+        <h1><span class="provider">B9lab-Certified Hyperledger Fabric Developer Course - July</span></h1>
+        <div class="hidden" style="display:none" id="__course_number__">HLF-12</div>
+        </div>
+    </div>
+</div>
+
+
+
+  <div class="container">
+    <div class="row">
+      <nav class="info wrapper-course-material col-md-12" aria-label="Course Material">
+        <div class="course-material">
+          <ol class="tabs course-tabs">
+            <li class="tab">
+              <a href="/home.html" class="active">
+                <b>Home</b>
+                <span class="sr">, current location</span>
+              </a>
+            </li>
+            <li class="tab">
+              <a href="/course/" class="">
+                <b>Course</b>
+              </a>
+            </li>
+          </ol>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    (function (require) {
+        require(['/static/js/courseware/toggle_element_visibility.22ad04bb0497.js?raw'], function () {
+          require(['js/courseware/toggle_element_visibility'], function (ToggleElementVisibility) {
+            
+          ToggleElementVisibility();
+  
+          });
+        });
+    }).call(this, require || RequireJS.require);
+  </script>
+
+  
+  
+  <script type="text/javascript">
+    (function (require) {
+        require(['/static/js/courseware/course_home_events.efe56112dd91.js?raw'], function () {
+          require(['js/courseware/course_home_events'], function (CourseHomeEvents) {
+            
+          CourseHomeEvents();
+  
+          });
+        });
+    }).call(this, require || RequireJS.require);
+  </script>
+
+
+  
+
+  
+
+  <main id="main" aria-label="Content" tabindex="-1">
+      <div class="container">
+        <div class="last-viewed-section">
+        </div>
+        <div class="info-wrapper">
+          <section class="updates">
+
+            
+<div class="recent-updates">
+    <article class="updates-article">
+        <h5 class="date" id="msg-date-0">June 15, 2018</h5>
+        <button
+            class="toggle-visibility-button"
+            data-hide="Hide"
+            data-show="Show"
+            aria-describedby="msg-date-0"
+            aria-controls="msg-content-0"
+            aria-expanded="true"
+        ></button>
+      <div class="toggle-visibility-element article-content " id="msg-content-0">
+      <style>
+  .info-headline {
+    font-size: 24px !important;
+    margin-top: 60px !important;
+  }
+</style>
+
+<h1 class="info-headline" id="welcome-and-thanks-for-joining-this-course-">Welcome and thanks for joining this course!</h1>
+<p>We hope you are as excited as we are! In weeks ahead you will become familiar with one of today’s most relevant managed blockchains. In this in depth course about Hyperledger Fabric we will work together on different aspects of blockchain technology and Hyperledger Fabric in particular. You will learn how Hyperledger Fabric works and how YOU can work with it! b9lab has invested a lot of time digging into blockchain and its recent developments. Due to its significant progress, the decision to create a course about Hyperledger Fabric was clear. We are excited to guide you through one of the most promising and fascinating managed blockchains!
+</p>
+
+<h1 class="info-headline" id="course-duration-and-delivery"> Course Duration &amp; Delivery</h1>
+<p>This course is an in-depth journey into blockchain theory, how Hyperledger Fabric works with a lot of hands-on experimentation. The course starts on <strong>12th of July 2018</strong>. You can choose your individual learning path during the whole course duration till <strong>6th of September 2018</strong>. </p>
+<p>You can follow the course at a flexible pace. But be aware that we are delivering the course material weekly and the discussions going on on slack will mostly be referring to the corresponding week. We estimate a workload of 8 to 12 hours per week.</p> 
+<p>Our course is delivered through a mixture of reading material, videos, a quiz at the end of each module, various exercises and further readings to deepen your knowledge in specific areas. Each week, on <b>Thursday at 5.00pm UTC</b>, we deliver new content to you.</p>
+
+<p><img src="https://academy.b9lab.com/assets/courseware/v1/16c353ee184d08546a9c132e6d1be9ef/asset-v1:B9lab+ETH-15+2017-08+type@asset+block/Academy_Mockup.png" style="width: 500px; display: block; margin: 0 auto;"></p>
+<h1 class="info-headline" id="support-and-communication">Teaching &amp; Communication</h1>
+<p>Teaching and communication in the course will take place in a dedicated Slack channel. We invite you to collaborate with your classmates and instructors, Anil and Rob, who will help you with questions and invite you to engage in discussing course topics. Their role is to guide you through the course and assist you in reaching your learning objectives.</p>
+<p>
+<img src="https://academy.b9lab.com/assets/courseware/v1/35df583e8e071e8de196949b1ecd0df9/asset-v1:B9lab+ETH-15+2017-08+type@asset+block/Slack_Mockup.png" style="width: 500px; display: block; margin: 0 auto;"></p>
+<h1 class="info-headline" id="exam-and-certification">Exam &amp; Certification</h1>
+<p>All the courseware is part of the exam (except further reading).</p>
+<p>At the end of the 8 weeks tutored course, you can decide on the date of your exam. The exam consists of a theoretical part and a practical part. You will have a period of 12 weeks within which you can pass the exam whenever you feel ready. Submission deadline of the final exam is 29th of November 2018.
+</p>
+<p>The pass mark is fairly high and requires an average of 80% or more. Successful participants receive a certificate that is verified on the Ethereum platform.
+</p>
+<p>You can see how that looks like in the <a href="https://certificates.b9lab.com/">B9lab Certificate Center</a>
+
+<p><img src="https://academy.b9lab.com/assets/courseware/v1/f914f6a922133f67bb5dddf6eb3a8b65/asset-v1:B9lab+ETH-15+2017-08+type@asset+block/cert-mockup.png" style="width: 500px; display: block; margin: 0 auto;"></p>
+<p><p>
+Looking forward to seeing you in the course starting on Wednesday, 12th of July!
+</p><p>
+
+
+<strong>Anil &amp; Rob!</strong></p>
+      </div>
+    </article>
+</div>
+
+
+<div class="old-updates hidden toggle-visibility-element" id="old-updates">
+</div>
+
+
+          </section>
+          <section aria-label="Handout Navigation" class="handouts">
+
+            <h1 class="handouts-header">Course Curriculum</h1>
+            <h4>MODULE 1: What is Blockchain</h4>
+<ul><font size="-1">
+<li>Basics</li>
+<li>Public Blockchains</li>
+<li>Consensus</li>
+<li>Cryptography Fundamentals</li>
+<li>Getting Started with Golang</li>
+</font></ul>
+
+<h4>MODULE 2: Fabric</h4>
+<font size="-1"><ul>
+<li>Managed Blockchains</li>
+<li>Hyperledger Project</li>
+<li>Fabric Definitions</li>
+<li>Smart Contracts</li>
+<li>Use Cases</li>
+<li>Golang Basic Types</li>
+</ul></font>
+
+<h4>MODULE 3: First Run</h4>
+<font size="-1"><ul>
+<li>HLF First Network</li>
+<li>Command Line Interface</li>
+<li>HLF Dev Mode</li>
+<li>Golang Interfaces</li>
+<li>First chaincode</li>
+</ul></font>
+
+<h4>MODULE 4: Sketch a Network</h4>
+<font size="-1"><ul>
+<li>Certificates</li>
+<li>Network</li>
+<li>Chaincode</li>
+<li>Golang Control Structures</li>
+</ul></font>
+
+<h4>MODULE 5: Clients</h4>
+<font size="-1"><ul>
+<li>NodeJS SDK</li>
+<li>Other SDKs</li>
+<li>Golang Arrays</li>
+</ul></font>
+
+<h4>MODULE 6: Certificate Authority</h4>
+<font size="-1"><ul>
+<li>Fabric CA</li>
+<li>Membership Service Providers</li>
+<li>Golang Core Packages</li>
+</ul></font>
+
+<h4>MODULE 7: Frameworks &amp; Tools</h4>
+<font size="-1"><ul>
+<li>Hyperledger Composer</li>
+<li>Kafka OS</li>
+<li>Chaintool</li>
+<li>Golang Concurrency</li>
+</ul></font>
+
+<h4>MODULE 8: Ethics</h4>
+<font size="-1"><ul>
+<li>Neutrality</li>
+<li>Decentralisation</li>
+<li>Golang Testing</li>
+</ul></font>
+
+
+          </section>
+        </div>
+    </div>
+  </main>
+
+      
+    </div>
+
+        
+
+
+
+
+
+
+
+
+
+<div class="wrapper-footer">
+  <footer class="container">
+    <div class="row">
+      <nav>
+        <div class="col-md-4 text-center">
+          <a href="/">
+            <img class="b9lab-academy-logo"  src="/static/edx-b9lab-theme/images/b9lab-academy-logo.1e555680be8e.svg" alt="B9lab Academy" >
+          </a>
+        </div>
+        <div class="col-md-4">
+          <ol class="list-inline text-center footer-link-list">
+            <li><a href="/about">About</a></li>
+            <li><a href="http://help.b9lab.com/">FAQ</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/tos">Terms of Service</a></li>
+            <li><a href="/honor">Code of Conduct</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/privacy#cookie-policy">Cookie Policy</a></li>
+          </ol>
+          <div class="copyright">&copy; 2018 B9lab Ltd. | All Rights Reserved</div>
+        </div>
+      </nav>
+
+      <div class="built-on col-md-4 text-center">
+        <span>
+          <a href="http://openedx.org" target="_blank">
+            <img src="https://files.edx.org/openedx-logos/edx-openedx-logo-tag-light.png" width="150" height="50" alt="Powered by Open edX" />
+          </a>
+        </span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+<script type="text/javascript" src="https://static.leaddyno.com/js"></script>
+<script>
+  Academy.debugLog("[JS LOAD] load LEADDYNO");
+  // If you use multiple sub-domains, set the root domain here
+  LeadDyno.domain = "academy.b9lab.com";
+  LeadDyno.key = "1a446511b0324d38c161d3e7ab7776ec6372dc4e"
+  LeadDyno.recordVisit();
+</script>
+
+<script type="text/javascript">
+  window.FCSP = "85173f8f54669c6e3c95843900411a5a";
+</script>
+
+
+
+  </div>
+
+  
+  
+
+  
+    <!-- end segment footer -->
+
+  <script type="text/javascript" src="/static/js/vendor/noreferrer.aa62a3e70ffa.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/static/js/utils/navigation.323bf3e1ae16.js" charset="utf-8"></script>
+  
+</body>
+</html>
+
+
+
+<!-- Performance beacon for onload times -->

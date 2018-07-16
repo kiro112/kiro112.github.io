@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<!--[if lte IE 9]><html class="ie ie9 lte9" lang="en"><![endif]-->
+<!--[if !IE]><!--><html lang="en"><!--<![endif]-->
+<head dir="ltr">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+        Introduction | B9lab-Certified Hyperledger Fabric Developer Course - July Courseware | B9lab Academy
+    </title>
+
+
+    <script type="text/javascript" src="/static/js/i18n/en/djangojs.b28203373cc1.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="/static/edx-b9lab-theme/images/favicon.e0cf15fd2e28.ico" /> 
+    <link href="/static/edx-b9lab-theme/css/lms-style-vendor.4ccaa7f84216.css" rel="stylesheet" type="text/css" />
+    <link href="/static/edx-b9lab-theme/css/lms-main-v1.de9c074d355a.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/lms-main_vendor.9ffa92b26c4f.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/lms-application.596021cdc57d.js" charset="utf-8"></script>
+
+
+
+    <script>
+        window.baseUrl = "/static/";
+        (function (require) {
+          require.config({
+              baseUrl: window.baseUrl
+          });
+        }).call(this, require || RequireJS.require);
+    </script>
+
+    <script type="text/javascript" src="/static/lms/js/require-config.cd72e66c1a3e.js"></script>
+  
+    <script type="text/javascript">
+        (function (require) {
+          require.config({
+              paths: {
+                'js/courseware/courseware_factory': 'js/courseware/courseware_factory.01c762a7c9e6',
+                'draggabilly': 'js/vendor/draggabilly.26caba6f7187',
+                'js/courseware/toggle_element_visibility': 'js/courseware/toggle_element_visibility.22ad04bb0497',
+                'js/courseware/course_home_events': 'js/courseware/course_home_events.efe56112dd91',
+                'js/courseware/link_clicked_events': 'js/courseware/link_clicked_events',
+                'moment': 'common/js/vendor/moment-with-locales.084396f4103c',
+                'moment-timezone': 'common/js/vendor/moment-timezone-with-data.b062d5eadf09',
+                'js/student_account/logistration_factory': 'js/student_account/logistration_factory.fdbb256dea8d',
+                'js/groups/views/cohorts_dashboard_factory': 'js/groups/views/cohorts_dashboard_factory.eb8701884901',
+                'js/dateutil_factory': 'js/dateutil_factory.f141a7899e5d',
+                'js/courseware/accordion_events': 'js/courseware/accordion_events.6064c7809de5',
+                'js/bookmarks/views/bookmark_button': 'js/bookmarks/views/bookmark_button.bca63457af5c',
+                'js/views/message_banner': 'js/views/message_banner.099aec538f98',
+                'js/student_profile/views/learner_profile_factory': 'js/student_profile/views/learner_profile_factory.c70d54366733'
+            }
+          });
+        }).call(this, require || RequireJS.require);
+    </script>
+  
+    
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/lms-modules.95e020694261.js" charset="utf-8"></script>
+
+    <link href="/static/edx-b9lab-theme/css/lms-style-course-vendor.60799ae7d9f8.css" rel="stylesheet" type="text/css" />
+
+    <link href="/static/edx-b9lab-theme/css/lms-course.617ceac4dd9c.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="/static/js/jquery.autocomplete.3bd10d7510d2.js"></script>
+    <script type="text/javascript" src="/static/js/src/tooltip_manager.e3531e99ed92.js"></script>
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/discussion_vendor.fb43d3027963.js" charset="utf-8"></script>
+    <link href="/static/css/vendor/jquery.autocomplete.09a0b34739a2.css" rel="stylesheet" type="text/css">
+    <meta property="og:url" content="http://academy.b9lab.com" />
+    <meta property="og:title" content="B9lab Academy" />
+    <meta property="og:image" content="/static/edx-b9lab-theme/images/b9lab-academy-meta.b10dca9c2ebb.png" />
+    <meta property="og:description" content="B9lab Academy Offers world class online training in blockchain and decentralised applications for developers, technical experts and analysts." />
+    <meta property="og:keywords" content="B9lab, academy, blockchain, ethereum, certified, online course, online training, developer, experts, analysts" />
+
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+    <!-- bootstrap! -->
+    <!-- local reference for offline testing only -->
+    <!-- <link rel="stylesheet" href="/static/edx-b9lab-theme/css/bootstrap.e60e9bcfcac0.css" > -->
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.js"></script>
+
+
+    <!-- Ednote download and host highlight.js locally? -->     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atom-one-dark.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- Ednote by isy: check if this triggers on ready, otherwise needs to be moved -->
+        
+
+    <script src="/static/edx-b9lab-theme/js/academy.e83c874e8455.js"> </script>
+      
+
+
+</head>
+
+<body class="ltr view-in-course view-courseware courseware  lang_en">
+
+
+<div id="page-prompt"></div>
+  <div class="window-wrap" dir="ltr">
+
+
+  <header class="global" aria-label="Global Navigation">
+    
+    <nav id="secondary-nav" class="container-fluid">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#secondary-nav-items">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">
+                
+                <img class="b9lab-academy-logo" src="/static/edx-b9lab-theme/images/b9lab-academy-logo.1e555680be8e.svg" alt="Home Page">
+
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+<!--[if lte IE 8]>
+<div class="ie-banner" aria-hidden="true"><strong>Warning:</strong> Your browser is not fully supported. We strongly recommend using <a href="https://www.google.com/intl/en/chrome/browser/" target="_blank">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>.</div>
+<![endif]-->
+
+
+
+
+<div class="content-wrapper" id="content">
+      
+    <div class="container-fluid" id="course-title-header">
+        <img src="/asset-v1:B9lab+HLF-12+2018-07+type@asset+block@asset-v1_B9lab_HLF-11_2018-06_type_asset_block_hlf-logo-03-01.png" hidden class="hidden" id="course-image" />
+        <div class="container">
+            <div class="row">
+            <h1><span class="provider">B9lab-Certified Hyperledger Fabric Developer Course - July</span></h1>
+            <div class="hidden" style="display:none" id="__course_number__">HLF-12</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+    <div class="row">
+      <nav class="info wrapper-course-material col-md-12" aria-label="Course Material">
+        <div class="course-material">
+          <ol class="tabs course-tabs">
+            <li class="tab">
+              <a href="/home.html" class="">
+                <b>Home</b>
+                <span class="sr">, current location</span>
+              </a>
+            </li>
+            <li class="tab">
+              <a href="/course/" class="active">
+                <b>Course</b>
+              </a>
+            </li>
+          </ol>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="course-wrapper">           
+
+        <div class="col-md-3 no-right-pad">
+            <div class="course-index">
+                <div class="wrapper-course-modes"></div>
+                <div class="accordion">
+                  <nav class="course-navigation" aria-label="Course">
+                    <a href="/courses/" role="button" class="button-chapter chapter active" id="blockchain-parent" aria-controls="blockchain-child" aria-expanded="false">
+                        <span class="group-heading active" aria-label="Blockchain current chapter">
+                            <span class="icon fa fa-caret-right" aria-hidden="true"></span>
+                            Blockchain
+                        </span>
+                    </a>
+                    <div class="chapter-content-container" id="blockchain-child" tabindex="-1" role="group" aria-label="Blockchain submenu">
+                        <div class="chapter-menu">
+                            <div class="menu-item">
+                                <a class="accordion-nav" href="/course/">
+                                    <p class="accordion-display-name">Introduction</p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/basics.html">
+                                    <p class="accordion-display-name">Basics </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/public-blockchain.html">
+                                    <p class="accordion-display-name">Public Blockchains </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/consensus.html">
+                                    <p class="accordion-display-name">Consensus </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/chain-of-blocks.html">
+                                    <p class="accordion-display-name">Chain of Blocks </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/fundamentals.html">
+                                    <p class="accordion-display-name">Fundamentals </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/metamask.html">
+                                    <p class="accordion-display-name">Metamask </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  active">
+                                <a class="accordion-nav" href="/course/go-install.html">
+                                    <p class="accordion-display-name">Go Install </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            </div>
+        </div>
+
+        <section class="col-md-9 no-left-pad">
+          <div class="course-content" id="course-content">
+
+
+            <div class="xblock xblock-student_view xblock-student_view-vertical" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:B9lab+HLF-12+2018-07" data-request-token="f6d255c288ce11e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@vertical+block@e2cbc8eaab5d4ebb86550ae9deb75169" data-block-type="vertical">
+
+
+
+
+          <div class="vert-mod">
+              <div class="vert vert-0" data-id="block-v1:B9lab+HLF-12+2018-07+type@html+block@4041084103aa4346b56ebf2e449bc634">
+                <div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="f6d255c288ce11e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@html+block@4041084103aa4346b56ebf2e449bc634" data-type="HTMLModule" data-course-id="course-v1:B9lab+HLF-12+2018-07">
+                  <script type="json/xblock-args" class="xblock-json-init-args">
+                    {"xmodule-type": "HTMLModule"}
+                </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="xblock xblock-student_view xblock-student_view-vertical" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:B9lab+HLF-12+2018-07" data-request-token="eb48891488d411e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@vertical+block@7e9bbb85526e451a8de2af63596e2091" data-block-type="vertical">
+  
+
+  <h3 class="unit-title">Unit</h3>
+
+    
+
+
+<div class="bookmark-button-wrapper">
+  <button class="bookmark-button b9-button-green natural "
+    aria-pressed="false"
+    data-bookmark-id="rvbulalacao,block-v1:B9lab+HLF-12+2018-07+type@vertical+block@7e9bbb85526e451a8de2af63596e2091">
+     <span class="sr bookmark-sr">Click to add</span>
+      <b>Bookmark</b>
+    </button>
+</div>
+
+
+<div class="vert-mod">
+  <div class="vert vert-0" data-id="block-v1:B9lab+HLF-12+2018-07+type@html+block@60fd05cb9c5b4057b8e74b56cc69e6ea">
+    <div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="eb48891488d411e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@html+block@60fd05cb9c5b4057b8e74b56cc69e6ea" data-type="HTMLModule" data-course-id="course-v1:B9lab+HLF-12+2018-07">
+  <script type="json/xblock-args" class="xblock-json-init-args">
+    {"xmodule-type": "HTMLModule"}
+  </script>
+  <h2>Go</h2>
+
+<h3>Overview</h3>
+
+<p>Golang(Go) is an open source, statically typed and compiled programming language introduced by Google and first released in 2012. It has a BSD-style license. Its Git repository is located at <a href="https://go.googlesource.com/go">https://go.googlesource.com/go</a>.</p>
+
+<p>We will use Go for writing chaincode for Hyperledger Fabric. If you&#39;ve never seen Go before, you will become familiar with it as you progress through this course. Later, we will explore chaincode in more detail. For now it is enough to know that Go is the high-level language and chaincode is the compiled form that actually runs on HLF. </p>
+
+<p>One can write chaincode in any language but the most supported language for HLF is Go.</p>
+
+<p>We will start with the basics. This week, you will install Go and learn some general things about it.</p>
+
+<h3>Install</h3>
+
+<p>Installing Go depends on your machine. See the <a href="https://golang.org/doc/install">Getting Started Page</a> and follow the instructions to install Go. Feel free to use your Slack channel for installation questions.</p>
+
+<div class="b9-tip">
+  <a href="https://github.com/travis-ci/gimme">gimme</a> is a useful script for Go.
+</div>
+
+<h3>Workflow</h3>
+
+<p>Go has a different workflow from most other programming tools. You will work with a single workspace and you will have all Go code contained in this workspace. The <code class='hljs hl-inline'>GOPATH</code> environment variable specifies the location of your workspace. You can print it by typing <code class='hljs hl-inline'>$ go env GOPATH</code> in your console. For more information about <code class='hljs hl-inline'>GOPATH</code> type <code class='hljs hl-inline'>$ go help gopath</code>. </p>
+
+<p>A version control system is helpful because we have one workspace. We will use Git for this. </p>
+
+<h3>Hello World!</h3>
+
+<p>Let&#39;s start with the ever-popular &quot;Hello, World!&quot; program. Let&#39;s see, how it looks in Go:</p>
+<pre><code class='hljs golang'>
+package main
+
+import &quot;fmt&quot;
+
+func main() {
+    fmt.Printf(&quot;Hello, World!\n&quot;)
+}
+</code></pre>
+<p>Every Go program starts with the package declaration. Each package consists of one or more Go source files in a single directory. If the name of the package is <code class='hljs hl-inline'>main</code>, Go will create an executable file.</p>
+
+<p>After that, we import the package <code class='hljs hl-inline'>fmt</code>. Note that the package name is the last element of the package&#39;s file path. For an example, if we import the package &quot;lib/math&quot;, then we use it as &quot;math&quot;.</p>
+
+<p><code class='hljs hl-inline'>fmt</code> implements input and output, and is part of Go&#39;s standard library. We will describe some of it&#39;s functions later in more detail. </p>
+
+<p>Execution will start in the function called <code class='hljs hl-inline'>main()</code>. </p>
+
+<p>This function simply calls the Go I/O function <code class='hljs hl-inline'>Printf()</code> from the package <code class='hljs hl-inline'>fmt</code>. </p>
+
+<div class="b9-info">
+  Function names determine visibility outside of packages. <code>Printf</code>'s first character is upper case and this means it's visible outside of <code>fmt</code>. Packages' names are always written in lower case, like <code>fmt</code> (short for format). 
+</div>
+
+<p>Now, let&#39;s compile this program. Create the file <code class='hljs hl-inline'>hello.go</code> in the <code class='hljs hl-inline'>$GOPATH/src/hello</code> directory. In a terminal:</p>
+<pre><code class='hljs '>
+$ cd $GOPATH/src/hello
+$ go build
+</code></pre>
+<p>If all goes well, <code class='hljs hl-inline'>go</code> will build the executable. Go only prints errors. So, you will see no output and another command prompt unless something goes wrong.</p>
+
+<p>Now test your programm:</p>
+<pre><code class='hljs '>
+./hello
+</code></pre>
+<p>Quick tip:</p>
+
+<div class="b9-info">
+Go will install the executable in <code>$GOPATH/bin/</code> if you use <code>go install</code> instead of <code>go build</code>.
+</div>
+
+<h3>Further reading</h3>
+
+<ul>
+<li>Go&#39;s Getting Started Page: <a href="https://golang.org/doc/install">https://golang.org/doc/install</a></li>
+<li>How to write Go Code: <a href="https://golang.org/doc/code.html#PackageNames">https://golang.org/doc/code.html#PackageNames</a></li>
+<li>Understanding Golang Packages: <a href="https://thenewstack.io/understanding-golang-packages/">https://thenewstack.io/understanding-golang-packages/</a></li>
+</ul>
+
+</div>
+
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <main id="main" aria-label="Content" tabindex="-1">
+
+              <div class="xblock xblock-student_view xblock-student_view-sequential xmodule_display xmodule_SequenceModule" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="sequential" data-request-token="f6d255c288ce11e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@sequential+block@b4d210fbbecd4e2794b23a00c192c3f8" data-type="Sequence" data-course-id="course-v1:B9lab+HLF-12+2018-07">
+  <script type="json/xblock-args" class="xblock-json-init-args">
+    {"xmodule-type": "Sequence"}
+  </script>
+  
+
+
+<div id="sequence_b4d210fbbecd4e2794b23a00c192c3f8" class="sequence" data-id="block-v1:B9lab+HLF-12+2018-07+type@sequential+block@b4d210fbbecd4e2794b23a00c192c3f8" data-position="1" data-ajax-url="/courses/course-v1:B9lab+HLF-12+2018-07/xblock/block-v1:B9lab+HLF-12+2018-07+type@sequential+block@b4d210fbbecd4e2794b23a00c192c3f8/handler/xmodule_handler" data-next-url="/courses/course-v1:B9lab+HLF-12+2018-07/courseware/7a8c4c27cf1144a9ba0e9beb435312a9/c8a9679ecee3482cb7ede043418064a3/?child=first" data-prev-url="None">
+  <div class="sequence-nav">
+    <button class="sequence-nav-button button-previous">
+      <span class="icon fa fa-chevron-prev" aria-hidden="true"></span>
+      <span>Previous</span>
+    </button>
+    <nav class="sequence-list-wrapper" aria-label="Unit">
+      <ol id="sequence-list">
+        <li>
+        <button class="seq_other inactive nav-item"
+           data-id="block-v1:B9lab+HLF-12+2018-07+type@vertical+block@e2cbc8eaab5d4ebb86550ae9deb75169"
+           data-element="1"
+           data-page-title="Unit"
+           data-path="Blockchain &gt; Introduction &gt; Unit"
+           id="tab_0">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>Unit<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+      </ol>
+    </nav>
+    <button class="sequence-nav-button button-next">
+      <span>Next</span>
+      <span class="icon fa fa-chevron-next" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <div class="sr-is-focusable" tabindex="-1"></div>
+
+  <div id="seq_contents_0"
+    aria-labelledby="tab_0"
+    aria-hidden="false"
+    class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+
+  </div>
+  <div id="seq_content"></div>
+
+  <nav class="sequence-bottom" aria-label="Section">
+    <button class="sequence-nav-button button-previous">
+      <span class="icon fa fa-chevron-prev" aria-hidden="true"></span>
+      <span>Previous</span>
+    </button>
+    <button class="sequence-nav-button button-next">
+      <span>Next</span>
+      <span class="icon fa fa-chevron-next" aria-hidden="true"></span>
+    </button>
+  </nav>
+</div>
+
+</div>
+
+            </main>
+          </div>
+        </section>
+
+        <section class="courseware-results-wrapper col-md-9">
+            <div id="loading-message" aria-live="polite" aria-relevant="all"></div>
+            <div id="error-message" aria-live="polite"></div>
+            <div class="courseware-results search-results col-md-12" data-course-id="course-v1:B9lab+HLF-12+2018-07" data-lang-code="en"></div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+
+  
+<div id="accessibile-confirm-modal" class="modal" aria-hidden="true">
+  <div class="inner-wrapper" role="dialog" aria-labelledby="accessibile-confirm-title">
+    <button class="close-modal">
+      <span class="icon fa fa-remove" aria-hidden="true"></span>
+      <span class="sr">
+        Close
+      </span>
+    </button>
+
+    <header>
+      <h2 id="accessibile-confirm-title">
+          Confirm
+        <span class="sr">,
+          modal open
+        </span>
+      </h2>
+    </header>
+    <div role="alertdialog" class="status message" tabindex="-1">
+        <p class="message-title"></p>
+    </div>
+    <hr aria-hidden="true" />
+    <div class="actions">
+        <button class="dismiss ok-button">OK</button>
+        <button class="dismiss cancel-button" data-dismiss="leanModal">Cancel</button>
+    </div>
+  </div>
+  <a href="#accessibile-confirm-modal" rel="leanModal" id="confirm_open_button" style="display:none">open</a>
+</div>
+
+<script type="text/javascript">
+var accessible_confirm = function(message, callback) {
+    $("#accessibile-confirm-modal .cancel-button").click(function(){
+        $("#accessibile-confirm-modal .close-modal").click();
+    });
+    $("#accessibile-confirm-modal .ok-button").click(function(){
+        $("#accessibile-confirm-modal .close-modal").click();
+        callback();
+    });
+
+    accessible_modal("#accessibile-confirm-modal #confirm_open_button", "#accessibile-confirm-modal .close-modal", "#accessibile-confirm-modal", ".content-wrapper");
+    $("#accessibile-confirm-modal #confirm_open_button").click();
+    $("#accessibile-confirm-modal .message-title").html(message);
+};
+</script>
+
+
+
+      
+    </div>
+
+        
+
+
+
+
+
+
+
+
+
+<div class="wrapper-footer">
+  <footer class="container">
+    <div class="row">
+      <nav>
+        <div class="col-md-4 text-center">
+          <a href="/">
+            <img class="b9lab-academy-logo"  src="/static/edx-b9lab-theme/images/b9lab-academy-logo.1e555680be8e.svg" alt="B9lab Academy" >
+          </a>
+        </div>
+        <div class="col-md-4">
+          <ol class="list-inline text-center footer-link-list">
+            <li><a href="/about">About</a></li>
+            <li><a href="http://help.b9lab.com/">FAQ</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/tos">Terms of Service</a></li>
+            <li><a href="/honor">Code of Conduct</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/privacy#cookie-policy">Cookie Policy</a></li>
+          </ol>
+          <div class="copyright">&copy; 2018 B9lab Ltd. | All Rights Reserved</div>
+        </div>
+      </nav>
+
+      <div class="built-on col-md-4 text-center">
+        <span>
+          <a href="http://openedx.org" target="_blank">
+            <img src="https://files.edx.org/openedx-logos/edx-openedx-logo-tag-light.png" width="150" height="50" alt="Powered by Open edX" />
+          </a>
+        </span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script type="text/javascript">
+  // load userdata for tracking
+    
+    userdata = {
+      id              : "12442",
+      email           : "rvbulalacao@codedisruptors.com",
+      fullname        : "Rommel Bulalacao",
+      username        : "rvbulalacao",
+      country         : "PH",
+      intercom_hash   : "c12caad53dbee60fa66aace08606463362a132fcf747481001096f09acf95227"
+    }
+    Academy.setUserData(userdata);
+    
+</script>
+
+<script type="text/javascript">
+  segment_key = "jQhOlBYO1HViQrpgdU9VzBctC3SvSJ51"
+  if (!window.analytics && !analytics) {
+    console.log("secondary segment load");
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
+    analytics.load(segment_key);
+    analytics.page();
+
+    }}();
+  }
+</script>
+
+
+<script type="text/javascript" src="https://static.leaddyno.com/js"></script>
+<script>
+  Academy.debugLog("[JS LOAD] load LEADDYNO");
+  // If you use multiple sub-domains, set the root domain here
+  LeadDyno.domain = "academy.b9lab.com";
+  LeadDyno.key = "1a446511b0324d38c161d3e7ab7776ec6372dc4e"
+  LeadDyno.recordVisit();
+</script>
+
+<script type="text/javascript">
+  window.FCSP = "85173f8f54669c6e3c95843900411a5a";
+</script>
+
+
+
+  </div>
+
+  
+  <script type="text/javascript" src="/static/common/js/vendor/jquery.scrollTo.525edcc52fe8.js"></script>
+  <script type="text/javascript" src="/static/js/vendor/flot/jquery.flot.d3d45ff0c6a8.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.2/katex.min.css" integrity="sha384-XFgyVzCwumZgSg6F85gbh6ev/BVWgP7QAb1V3GOchWQPifusZTU0ODnQsysBK61F" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.2/katex.min.js" integrity="sha384-RpxfKy6OA0Us+WtIGBbrVlfwW4HuETdB9CD8KbG6qSbYbCanfnyid62sojNvydoB" crossorigin="anonymous"></script>
+  <script src="/static/edx-b9lab-theme/js/coursewareui.df89ff787f95.js"> </script>
+
+  <script type="text/javascript" src="/static/js/vendor/codemirror-compressed.dd4b74f7c5fe.js"></script>
+
+  
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/lms-courseware.94e582ddac20.js" charset="utf-8"></script>
+
+
+  
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/discussion.3c41b636c9cd.js" charset="utf-8"></script>
+
+
+
+  
+    
+      <script type="text/javascript" src="/static/js/courseware/courseware_factory.01c762a7c9e6.js?raw"></script>
+    <script type="text/javascript">
+        (function (require) {
+            require(['js/courseware/courseware_factory'], function (CoursewareFactory) {
+                
+    CoursewareFactory();
+  
+            });
+        }).call(this, require || RequireJS.require);
+    </script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    // Fast Preview was introduced in 2.5. However, it
+    // causes undesirable flashing/font size changes when
+    // MathJax is used for interactive preview (equation editor).
+    // Setting processSectionDelay to 0 (see below) fully eliminates
+    // fast preview, but to reduce confusion, we are also setting
+    // the option as displayed in the context menu to false.
+    // When upgrading to 2.6, check if this variable name changed.
+    window.MathJax = {
+      menuSettings: {CHTMLpreview: false}
+    };
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [
+        ["\\(","\\)"],
+        ['[mathjaxinline]','[/mathjaxinline]']
+      ],
+      displayMath: [
+        ["\\[","\\]"],
+        ['[mathjax]','[/mathjax]']
+      ]
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+
+  // In order to eliminate all flashing during interactive
+  // preview, it is necessary to set processSectionDelay to 0
+  // (remove delay between input and output phases). This
+  // effectively disables fast preview, regardless of
+  // the fast preview setting as shown in the context menu.
+  MathJax.Hub.processSectionDelay = 0;
+
+  MathJax.Hub.signal.Interest(function(message) {
+    if(message[0] === "End Math") {
+        set_mathjax_display_div_settings();
+    }
+  });
+  function set_mathjax_display_div_settings() {
+    $('.MathJax_Display').each(function( index ) {
+      this.setAttribute('tabindex', '0');
+      this.setAttribute('aria-live', 'off');
+      this.removeAttribute('role');
+      this.removeAttribute('aria-readonly');
+    });
+  }
+</script>
+
+
+<!-- This must appear after all mathjax-config blocks, so it is after the imports from the other templates.
+     It can't be run through static.url because MathJax uses crazy url introspection to do lazy loading of
+     MathJax extension libraries -->
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_SVG"></script> -->
+
+
+
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/discussion.3c41b636c9cd.js" charset="utf-8"></script>
+
+
+
+
+<script type="text/javascript">
+        RequireJS.define(
+            'common/js/discussion/discussion',
+            [],
+            function() {
+                return window['Discussion'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/content',
+            [],
+            function() {
+                return window['Content'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/views/discussion_inline_view',
+            [],
+            function() {
+                return window['DiscussionInlineView'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/views/discussion_thread_view',
+            [],
+            function() {
+                return window['DiscussionThreadView'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/views/discussion_thread_list_view',
+            [],
+            function() {
+                return window['DiscussionThreadListView'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/views/discussion_thread_profile_view',
+            [],
+            function() {
+                return window['DiscussionThreadProfileView'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/utils',
+            [],
+            function() {
+                return window['DiscussionUtil'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/models/discussion_course_settings',
+            [],
+            function() {
+                return window['DiscussionCourseSettings'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/models/discussion_user',
+            [],
+            function() {
+                return window['DiscussionUser'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/views/new_post_view',
+            [],
+            function() {
+                return window['NewPostView'];
+            }
+        );
+</script>
+
+
+  <script type="text/javascript">
+    var $$course_id = "course\u002Dv1:B9lab+HLF\u002D12+2018\u002D07";
+  </script>
+
+<script src='/static/xblock/resources/xmodule.vertical_block/public/js/vertical_student_view.7c27fd5e4fd0.js' type='application/javascript'></script>
+
+
+  <script type="text/javascript" src="/static/js/vendor/noreferrer.aa62a3e70ffa.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/static/js/utils/navigation.323bf3e1ae16.js" charset="utf-8"></script>
+  
+</body>
+</html>
+
+
+
+<!-- Performance beacon for onload times -->

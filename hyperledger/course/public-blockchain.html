@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<!--[if lte IE 9]><html class="ie ie9 lte9" lang="en"><![endif]-->
+<!--[if !IE]><!--><html lang="en"><!--<![endif]-->
+<head dir="ltr">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+        Introduction | B9lab-Certified Hyperledger Fabric Developer Course - July Courseware | B9lab Academy
+    </title>
+
+
+    <script type="text/javascript" src="/static/js/i18n/en/djangojs.b28203373cc1.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="/static/edx-b9lab-theme/images/favicon.e0cf15fd2e28.ico" /> 
+    <link href="/static/edx-b9lab-theme/css/lms-style-vendor.4ccaa7f84216.css" rel="stylesheet" type="text/css" />
+    <link href="/static/edx-b9lab-theme/css/lms-main-v1.de9c074d355a.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/lms-main_vendor.9ffa92b26c4f.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/lms-application.596021cdc57d.js" charset="utf-8"></script>
+
+
+
+    <script>
+        window.baseUrl = "/static/";
+        (function (require) {
+          require.config({
+              baseUrl: window.baseUrl
+          });
+        }).call(this, require || RequireJS.require);
+    </script>
+
+    <script type="text/javascript" src="/static/lms/js/require-config.cd72e66c1a3e.js"></script>
+  
+    <script type="text/javascript">
+        (function (require) {
+          require.config({
+              paths: {
+                'js/courseware/courseware_factory': 'js/courseware/courseware_factory.01c762a7c9e6',
+                'draggabilly': 'js/vendor/draggabilly.26caba6f7187',
+                'js/courseware/toggle_element_visibility': 'js/courseware/toggle_element_visibility.22ad04bb0497',
+                'js/courseware/course_home_events': 'js/courseware/course_home_events.efe56112dd91',
+                'js/courseware/link_clicked_events': 'js/courseware/link_clicked_events',
+                'moment': 'common/js/vendor/moment-with-locales.084396f4103c',
+                'moment-timezone': 'common/js/vendor/moment-timezone-with-data.b062d5eadf09',
+                'js/student_account/logistration_factory': 'js/student_account/logistration_factory.fdbb256dea8d',
+                'js/groups/views/cohorts_dashboard_factory': 'js/groups/views/cohorts_dashboard_factory.eb8701884901',
+                'js/dateutil_factory': 'js/dateutil_factory.f141a7899e5d',
+                'js/courseware/accordion_events': 'js/courseware/accordion_events.6064c7809de5',
+                'js/bookmarks/views/bookmark_button': 'js/bookmarks/views/bookmark_button.bca63457af5c',
+                'js/views/message_banner': 'js/views/message_banner.099aec538f98',
+                'js/student_profile/views/learner_profile_factory': 'js/student_profile/views/learner_profile_factory.c70d54366733'
+            }
+          });
+        }).call(this, require || RequireJS.require);
+    </script>
+  
+    
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/lms-modules.95e020694261.js" charset="utf-8"></script>
+
+    <link href="/static/edx-b9lab-theme/css/lms-style-course-vendor.60799ae7d9f8.css" rel="stylesheet" type="text/css" />
+
+    <link href="/static/edx-b9lab-theme/css/lms-course.617ceac4dd9c.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="/static/js/jquery.autocomplete.3bd10d7510d2.js"></script>
+    <script type="text/javascript" src="/static/js/src/tooltip_manager.e3531e99ed92.js"></script>
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/discussion_vendor.fb43d3027963.js" charset="utf-8"></script>
+    <link href="/static/css/vendor/jquery.autocomplete.09a0b34739a2.css" rel="stylesheet" type="text/css">
+    <meta property="og:url" content="http://academy.b9lab.com" />
+    <meta property="og:title" content="B9lab Academy" />
+    <meta property="og:image" content="/static/edx-b9lab-theme/images/b9lab-academy-meta.b10dca9c2ebb.png" />
+    <meta property="og:description" content="B9lab Academy Offers world class online training in blockchain and decentralised applications for developers, technical experts and analysts." />
+    <meta property="og:keywords" content="B9lab, academy, blockchain, ethereum, certified, online course, online training, developer, experts, analysts" />
+
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+    <!-- bootstrap! -->
+    <!-- local reference for offline testing only -->
+    <!-- <link rel="stylesheet" href="/static/edx-b9lab-theme/css/bootstrap.e60e9bcfcac0.css" > -->
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.js"></script>
+
+
+    <!-- Ednote download and host highlight.js locally? -->     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atom-one-dark.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- Ednote by isy: check if this triggers on ready, otherwise needs to be moved -->
+        
+
+    <script src="/static/edx-b9lab-theme/js/academy.e83c874e8455.js"> </script>
+      
+
+
+</head>
+
+<body class="ltr view-in-course view-courseware courseware  lang_en">
+
+
+<div id="page-prompt"></div>
+  <div class="window-wrap" dir="ltr">
+
+
+  <header class="global" aria-label="Global Navigation">
+    
+    <nav id="secondary-nav" class="container-fluid">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#secondary-nav-items">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">
+                
+                <img class="b9lab-academy-logo" src="/static/edx-b9lab-theme/images/b9lab-academy-logo.1e555680be8e.svg" alt="Home Page">
+
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+<!--[if lte IE 8]>
+<div class="ie-banner" aria-hidden="true"><strong>Warning:</strong> Your browser is not fully supported. We strongly recommend using <a href="https://www.google.com/intl/en/chrome/browser/" target="_blank">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>.</div>
+<![endif]-->
+
+
+
+
+<div class="content-wrapper" id="content">
+      
+    <div class="container-fluid" id="course-title-header">
+        <img src="/asset-v1:B9lab+HLF-12+2018-07+type@asset+block@asset-v1_B9lab_HLF-11_2018-06_type_asset_block_hlf-logo-03-01.png" hidden class="hidden" id="course-image" />
+        <div class="container">
+            <div class="row">
+            <h1><span class="provider">B9lab-Certified Hyperledger Fabric Developer Course - July</span></h1>
+            <div class="hidden" style="display:none" id="__course_number__">HLF-12</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+    <div class="row">
+      <nav class="info wrapper-course-material col-md-12" aria-label="Course Material">
+        <div class="course-material">
+          <ol class="tabs course-tabs">
+            <li class="tab">
+              <a href="/home.html" class="">
+                <b>Home</b>
+                <span class="sr">, current location</span>
+              </a>
+            </li>
+            <li class="tab">
+              <a href="/course/" class="active">
+                <b>Course</b>
+              </a>
+            </li>
+          </ol>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="course-wrapper">           
+
+
+
+        <div class="col-md-3 no-right-pad">
+            <div class="course-index">
+                <div class="wrapper-course-modes"></div>
+                <div class="accordion">
+                  <nav class="course-navigation" aria-label="Course">
+                    <a href="/courses/" role="button" class="button-chapter chapter active" id="blockchain-parent" aria-controls="blockchain-child" aria-expanded="false">
+                        <span class="group-heading active" aria-label="Blockchain current chapter">
+                            <span class="icon fa fa-caret-right" aria-hidden="true"></span>
+                            Blockchain
+                        </span>
+                    </a>
+                    <div class="chapter-content-container" id="blockchain-child" tabindex="-1" role="group" aria-label="Blockchain submenu">
+                        <div class="chapter-menu">
+                            <div class="menu-item">
+                                <a class="accordion-nav" href="/course/">
+                                    <p class="accordion-display-name">Introduction</p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/basics.html">
+                                    <p class="accordion-display-name">Basics </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  active">
+                                <a class="accordion-nav" href="/course/public-blockchain.html">
+                                    <p class="accordion-display-name">Public Blockchains </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/consensus.html">
+                                    <p class="accordion-display-name">Consensus </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/chain-of-blocks.html">
+                                    <p class="accordion-display-name">Chain of Blocks </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/fundamentals.html">
+                                    <p class="accordion-display-name">Fundamentals </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/metamask.html">
+                                    <p class="accordion-display-name">Metamask </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/go-install.html">
+                                    <p class="accordion-display-name">Go Install </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            </div>
+        </div>
+
+        <section class="col-md-9 no-left-pad">
+          <div class="course-content" id="course-content">
+
+
+            <div class="xblock xblock-student_view xblock-student_view-vertical" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:B9lab+HLF-12+2018-07" data-request-token="f6d255c288ce11e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@vertical+block@e2cbc8eaab5d4ebb86550ae9deb75169" data-block-type="vertical">
+
+
+
+
+          <div class="vert-mod">
+              <div class="vert vert-0" data-id="block-v1:B9lab+HLF-12+2018-07+type@html+block@4041084103aa4346b56ebf2e449bc634">
+                <div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="f6d255c288ce11e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@html+block@4041084103aa4346b56ebf2e449bc634" data-type="HTMLModule" data-course-id="course-v1:B9lab+HLF-12+2018-07">
+                  <script type="json/xblock-args" class="xblock-json-init-args">
+                    {"xmodule-type": "HTMLModule"}
+                </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="xblock xblock-student_view xblock-student_view-vertical" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:B9lab+HLF-12+2018-07" data-request-token="58ccb3ae88d311e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@vertical+block@8724dca75ee646579ea57828167cf88e" data-block-type="vertical">
+  
+
+                  <h3 class="unit-title">Unit</h3>
+
+                    
+
+
+                <div class="bookmark-button-wrapper">
+                  <button class="bookmark-button b9-button-green natural "
+                    aria-pressed="false"
+                    data-bookmark-id="rvbulalacao,block-v1:B9lab+HLF-12+2018-07+type@vertical+block@8724dca75ee646579ea57828167cf88e">
+                     <span class="sr bookmark-sr">Click to add</span>
+                      <b>Bookmark</b>
+                    </button>
+                </div>
+
+
+                <div class="vert-mod">
+                  <div class="vert vert-0" data-id="block-v1:B9lab+HLF-12+2018-07+type@html+block@d3c20c4a071d4e7391c0424e3366a88f">
+                    <div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="58ccb3ae88d311e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@html+block@d3c20c4a071d4e7391c0424e3366a88f" data-type="HTMLModule" data-course-id="course-v1:B9lab+HLF-12+2018-07">
+                  <script type="json/xblock-args" class="xblock-json-init-args">
+                    {"xmodule-type": "HTMLModule"}
+                  </script>
+                  <h2>A Brief History of Blockchain</h2>
+
+                <p>In order to understand whether blockchain technology is a good fit for your project it is important to understand where it comes from and who is driving it.</p>
+
+                <p><img src="https://s3-eu-west-1.amazonaws.com/b9-academy-assets/course-assets/HLF-0/timeline.png"></p>
+
+                <h3>1990s</h3>
+
+                <p>The first work on the foundations of what becomes blockchain technology much later was undertaken in 1991 by Stuart Haber and W. Scott Stornetta. They first worked on the concept of append-only, cryptographically secured logs. This work was followed by publications in 1996 by Ross J. Anderson and 1998 by <a href="https://www.schneier.com/crypto-gram/">Bruce Schneier</a> and <a href="https://www.nist.gov/people/john-m-kelsey">John Kelsey</a>. In 1994 computer scientist Nick Szabo first described the concept of <a href="http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart.contracts.html">smart contracts</a> and in 1998 described BitGold, a conceptual predecessor to Bitcoin.</p>
+
+                <h3>2000s</h3>
+
+                <p>The first large scale, successful public blockchain network was Bitcoin. The first Bitcoin whitepaper was released on October 31, 2008. It proposed a data structure for the Bitcoin blockchain and laid out the decentralised consensus mechanism. </p>
+
+                <p>To this day we don&#39;t know who is behind the white paper or the first implementation of the client. The person or group used the pseudonym Satoshi Nakamoto, sparking plenty of conspiracy theories. Several individuals have claimed to be to be Nakamoto. But to this date none of the claims have been verified.</p>
+
+                <p>What is certain is that the community initially working on the network and the client can be characterised as generally pro-capitalism, anti-regulation and monopoly, as well as pro-free-trade. Many of those developing and driving the technology have also heralded its potential to reduce corruption and perceived human failures by pushing processes out of human reach.
+                All this may not seem important but it is. It means that blockchain as it was built and envisaged initially is not built for banks, governments or incumbent holders of monopolies. This has an influence on the direction of the technology and remains a strong influence on the development of the technology.</p>
+
+                <p>Given its censorship resistance blockchain technology has been seized by other groups interested in circumventing government, law enforcement or regulatory control, both on the radical right and left fringes as well as among activists persecuted by their governments.</p>
+
+                <h3>2010s</h3>
+
+                <p>As soon as it became clear that the technology presents a very attractive base infrastructure for payments, other groups and organisations adapted the technology for their purposes or developed new approaches using the same basic principles but adapting them to more traditional use cases.</p>
+
+                <p>In 2014 Vitalik Buterin started what is now known as the second wave of blockchain technology by publishing the paper underlying the Ethereum blockchain protocol, <a href="https://github.com/ethereum/wiki/wiki/White-Paper">A Next Generation Smart Contract &amp; Decentralised Application Platform (Vitalik Buterin, Ethereum’s creator)</a>. Beyond being a distributed ledger, the Ethereum white paper proposed the development of a distributed computation platform.</p>
+
+                <p>The Ethereum project raised roughly $20 million in one of the most successful crowdfunds up to that point. The first public network was up and running in 2015. In the same time it spawned the first managed blockchain network approach when the company Eris forked a version of Ethereum and expanded it to implement a layer of permissions, as well as making it easier to deploy custom, access controlled networks.</p>
+
+                <p>Late 2015 saw the establishment of the <a href="https://www.hyperledger.org/">Hyperledger foundation</a>, an industry consortium with a focus on enterprise blockchain technology for managed networks.</p>
+
+                <p>In 2017 the <a href="https://entethalliance.org/">Ethereum Enterprise Alliance</a> was formed as an industry consortium to adapt Ethereum for enterprise use.</p>
+
+                <p>Today we can see two broader trends in the development and adoption of blockchain technology.</p>
+
+                <h2>Public Blockchains</h2>
+
+                <p>The most obvious way of operating blockchain protocols comes in the form of a public network. This is what blockchain technology was originally invented for and remains arguably its most powerful use.</p>
+
+                <p>A proof-of-work based public blockchain network, such as Bitcoin or Ethereum, has a few specific attributes:</p>
+
+                <ul>
+                <li><strong>Accessibility</strong> - All you need to connect to Bitcoin or Ethereum is the client software and an internet connection. No AML, KYC, identity checks or subscription payment.</li>
+                <li><strong>No hierarchy</strong> - All nodes are equal. No individual node has more authority than another. All miners are equal.</li>
+                <li><strong>Cryptoeconomic incentives</strong> - Because of the lack of central authority there is no absolute defence against malicious behaviour. Instead, the network is usually constructed in a way that incentivises behaviour beneficial to the network and disincentivises behaviour detrimental to the network. Among these incentives are transaction fees, miner rewards and prohibitively expensive costs associated with attacking the network.</li>
+                <li><strong>Full decentralisation</strong> - Most public networks are completely decentralised because they are non-hierarchical and fully accessible. That also means the playing field for market participants is fairly level and traditional business models may not work well in such a setting.</li>
+                </ul>
+
+                <p>The two most popular examples of functioning public networks are Bitcoin and Ethereum.</p>
+
+                <h3>Introduction to Bitcoin</h3>
+
+                <p>Since 2009 the most successful and popular public blockchain network has been Bitcoin. Bitcoin was first introduced with the publication of the original paper <a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: A peer-to-peer electronic cash system (2008)</a> by Satoshi Nakamoto. In this paper, Nakamoto describes Bitcoin as a peer-to-peer version of electronic cash. He suggest that proof-of-work can be used to find the truth in a partially synchronous system without involving trusted parties. Using this method, the set of participants controlling the majority of the computing power determines the truth.</p>
+
+                <p>Let us look at this in more detail. Nakamoto does not use the term block chain in his paper, but he describes the concept by explaining transactions in Bitcoin. The transaction process requires the signing of the transaction with the hash of the previous transaction and the public key of the receiver. This is called the chain of ownership. Transactions can contain several inputs and outputs.</p>
+
+                <p><img src="https://s3-eu-west-1.amazonaws.com/b9-academy-assets/course-assets/HLF-0/bitcoin-block-headers.svg"></p>
+
+                <p><strong>Figure 1</strong>: Each block includes the previous hash and a nonce (a random set of <code class='hljs hl-inline'>1</code>s and <code class='hljs hl-inline'>0</code>s). The protocol calls for a hash beginning with a specific number of binary <code class='hljs hl-inline'>0</code>s, when hashing the block. An attacker trying to change a transaction in a block must then mine this and the following blocks. Reproduced from Bitcoin paper.</p>
+
+                <p>To prevent double-spending, Bitcoin uses a timestamp server. The miner is looking for a nonce, which results in a block hash beginning with the right number of binary <code class='hljs hl-inline'>0</code>s (See <strong>Figure 1</strong>). It is difficult to find a nonce that fulfils this condition and it is easy to verify that it does. It becomes exponentially more difficult to alter history as more blocks are appended. </p>
+
+                <p>In order to promote an alternative version of history, an attacker must find a nonce for the block to change, and for every subsequent block thereafter because the network recognises that the longest valid chain contains the proof of the most work. The longest chain is deemed the truth. </p>
+
+                <p>There is a residual probability that a slower attacker can catch up, since getting nonce works by brute force. This possibility decreases exponentially with the number of blocks, a.k.a. confirmations. The protocol includes a reward for mining, which is the first special transaction in the block. It can be expected, that the nodes will use their CPU power honestly to get the reward. Because of the fact that transactions are announced publicly, the public keys of the parties are not private.</p>
+
+                <h3>Introduction to Ethereum</h3>
+
+                <p>Ethereum emerged from a range of proposals rejected by the Bitcoin community. The most important difference, as compared to Bitcoin, is the implementation of distributed code execution through the Ethereum Virtual Machine. This code execution platform is <a href="https://en.wikipedia.org/wiki/Turing_completeness">Turing-complete</a>. The EVM enables the deployment of so-called smart contracts via transactions.</p>
+
+                <p>Ethereum has a much faster block time than Bitcoin (currently around 15s), made practical thanks to its implementation of the GHOST protocol.<a href="https://blog.ethereum.org/2014/07/11/">[1]</a> Ethereum implements a variation of Bitcoin&#39;s proof-of-work consensus algorithm called Ethash, which is intended to be ASIC-resistant and GPU friendly<a href="https://github.com/ethereum/wiki/wiki/Ethash-Design-Rationale">[2]</a>. Core developers of the Ethereum project are planning to propose switching to the proof-of-stake consensus algorithm in the future. </p>
+
+                <p>Let us have a look at the Ethereum protocol to understand how it differs from Bitcoin. Our reference is the yellow paper <a href="http://gavwood.com/paper.pdf">Ethereum: A Secure Decentralised Generalised Transaction Ledger (2014) by</a> Dr. Gavin Wood.</p>
+
+                <p>The Ethereum network is a virtual state machine, the Ethereum Virtual Machine (EVM). The implementation of such a state machine with blockchain is revolutionary in itself. To achieve Turing-completeness frameworks must overcome the &quot;halting problem&quot; which is difficult, especially in a distributed, hierarchy-free computing platform. In case this isn&#39;t clear, the halting problem is about what to do in the case that a process runs amok. Well-known solutions such as a hardware reset don&#39;t apply to a worldwide state machine that can&#39;t be restarted.</p>
+
+                <p>Ethereum’s solution is to introduce “gas” as a fee for each computational step. Every block has a maximum gas limit. This limits the number of computational steps that can be executed per block. When paid for, gas is given a price.  Individual users control this price at the transaction level, and are free to specify any gasPrice. That is, users bid for network computation. When the accounting is done, the EVM converts this transaction gasPrice and gas consumed into Ether spent. Ether is the native Ethereum currency, which is issued via the mining process. The Ethereum protocol defines the gas cost for each operation in the EVM.</p>
+
+                <p>A smart contract in the EVM is practically an autonomous agent with an internal account. While external actors, e.g. human, sign transactions, contracts execute deterministic code. <em>They have no alternative.</em> Correct execution of smart contract code is part of the transaction validation process. The most popular high-level language for writing such a contract is Solidity.</p>
+
+                <p><img src="https://s3-eu-west-1.amazonaws.com/b9-academy-assets/course-assets/HLF-0/ethereum-ghost.svg"></p>
+
+                <p><strong>Figure 2</strong>: A well-understood challenge related to reduced block time stems from network latency. Since nodes do not know about discovered blocks at the same time, at any given time a portion of the miners will be working on already solved, i.e. old, blocks. If these miners find a solution, they might not be rewarded. The rate at which such transient &quot;forks&quot; occur increases predictably with shorter block times. While Bitcoin addresses this efficiency issue with a relatively long block time (ten minutes), Ethereum addresses this concern with a partial reward strategy. Valid blocks that aren&#39;t ultimately included in the prevailing chain are still included on the side and known as &quot;uncles&quot;. Miners of uncles receive a smaller reward than regular block miners. </p>
+
+                <p>The precise mechanism employed by Ethereum is called GHOST. GHOST includes so-called uncles that are propagated into the network, too late to rise to the level of network consensus (see Figure 2). This increases the total difficulty of the chain, makes smaller block times (about 14-18 seconds) possible and rewards miners of uncles for contributing to the overall strength of the network. </p>
+                </div>
+
+                  </div>
+                  <div class="vert vert-1" data-id="block-v1:B9lab+HLF-12+2018-07+type@video+block@97912caae14e4efa81cec24784be0683">
+                    <div class="xblock xblock-student_view xblock-student_view-video xmodule_display xmodule_VideoModule" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="video" data-request-token="58ccb3ae88d311e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@video+block@97912caae14e4efa81cec24784be0683" data-type="Video" data-course-id="course-v1:B9lab+HLF-12+2018-07">
+                  <script type="json/xblock-args" class="xblock-json-init-args">
+                    {"xmodule-type": "Video"}
+                  </script>
+                  
+
+
+                    <h3 class="hd hd-2">Explaining the Blockchain Computer</h3>
+                    <iframe width="550" height="415"
+                        src="https://www.youtube.com/embed/Za5lPKNV_Mk?autoplay=0">
+                    </iframe>
+
+                </div>
+
+                  </div>
+                  <div class="vert vert-2" data-id="block-v1:B9lab+HLF-12+2018-07+type@html+block@4be15015334f427b8fccf3e05784d3d8">
+                    <div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="58ccb3ae88d311e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@html+block@4be15015334f427b8fccf3e05784d3d8" data-type="HTMLModule" data-course-id="course-v1:B9lab+HLF-12+2018-07">
+                  <script type="json/xblock-args" class="xblock-json-init-args">
+                    {"xmodule-type": "HTMLModule"}
+                  </script>
+                  <h3>Learn More</h3>
+
+                <ul>
+                <li><a href="https://blog.ethereum.org/2014/07/11/toward-a-12-second-block-time/">Vitalik on 12 second block time</a></li>
+                <li><a href="https://blog.ethereum.org/2015/11/15/merkling-in-ethereum/">Merkling in Ethereum</a></li>
+                </ul>
+
+                <h3>Books</h3>
+
+                <ul>
+                <li><a href="https://www.amazon.co.uk/Blockchain-Blueprint-Economy-Melanie-Swan/dp/1491920491">Blockchain: Blueprint for a New Economy by Melanie Swan.</a></li>
+                <li><a href="https://www.bitcoinbook.info/">Mastering Bitcoin by Andreas Antonopolous</a></li>
+                </ul>
+
+                </div>
+
+                  </div>
+                </div>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <main id="main" aria-label="Content" tabindex="-1">
+
+              <div class="xblock xblock-student_view xblock-student_view-sequential xmodule_display xmodule_SequenceModule" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="sequential" data-request-token="f6d255c288ce11e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@sequential+block@b4d210fbbecd4e2794b23a00c192c3f8" data-type="Sequence" data-course-id="course-v1:B9lab+HLF-12+2018-07">
+  <script type="json/xblock-args" class="xblock-json-init-args">
+    {"xmodule-type": "Sequence"}
+  </script>
+  
+
+
+<div id="sequence_b4d210fbbecd4e2794b23a00c192c3f8" class="sequence" data-id="block-v1:B9lab+HLF-12+2018-07+type@sequential+block@b4d210fbbecd4e2794b23a00c192c3f8" data-position="1" data-ajax-url="/courses/course-v1:B9lab+HLF-12+2018-07/xblock/block-v1:B9lab+HLF-12+2018-07+type@sequential+block@b4d210fbbecd4e2794b23a00c192c3f8/handler/xmodule_handler" data-next-url="/courses/course-v1:B9lab+HLF-12+2018-07/courseware/7a8c4c27cf1144a9ba0e9beb435312a9/c8a9679ecee3482cb7ede043418064a3/?child=first" data-prev-url="None">
+  <div class="sequence-nav">
+    <button class="sequence-nav-button button-previous">
+      <span class="icon fa fa-chevron-prev" aria-hidden="true"></span>
+      <span>Previous</span>
+    </button>
+    <nav class="sequence-list-wrapper" aria-label="Unit">
+      <ol id="sequence-list">
+        <li>
+        <button class="seq_other inactive nav-item"
+           data-id="block-v1:B9lab+HLF-12+2018-07+type@vertical+block@e2cbc8eaab5d4ebb86550ae9deb75169"
+           data-element="1"
+           data-page-title="Unit"
+           data-path="Blockchain &gt; Introduction &gt; Unit"
+           id="tab_0">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>Unit<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+      </ol>
+    </nav>
+    <button class="sequence-nav-button button-next">
+      <span>Next</span>
+      <span class="icon fa fa-chevron-next" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <div class="sr-is-focusable" tabindex="-1"></div>
+
+  <div id="seq_contents_0"
+    aria-labelledby="tab_0"
+    aria-hidden="false"
+    class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+
+  </div>
+  <div id="seq_content"></div>
+
+  <nav class="sequence-bottom" aria-label="Section">
+    <button class="sequence-nav-button button-previous">
+      <span class="icon fa fa-chevron-prev" aria-hidden="true"></span>
+      <span>Previous</span>
+    </button>
+    <button class="sequence-nav-button button-next">
+      <span>Next</span>
+      <span class="icon fa fa-chevron-next" aria-hidden="true"></span>
+    </button>
+  </nav>
+</div>
+
+</div>
+
+            </main>
+          </div>
+        </section>
+
+        <section class="courseware-results-wrapper col-md-9">
+            <div id="loading-message" aria-live="polite" aria-relevant="all"></div>
+            <div id="error-message" aria-live="polite"></div>
+            <div class="courseware-results search-results col-md-12" data-course-id="course-v1:B9lab+HLF-12+2018-07" data-lang-code="en"></div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+
+  
+<div id="accessibile-confirm-modal" class="modal" aria-hidden="true">
+  <div class="inner-wrapper" role="dialog" aria-labelledby="accessibile-confirm-title">
+    <button class="close-modal">
+      <span class="icon fa fa-remove" aria-hidden="true"></span>
+      <span class="sr">
+        Close
+      </span>
+    </button>
+
+    <header>
+      <h2 id="accessibile-confirm-title">
+          Confirm
+        <span class="sr">,
+          modal open
+        </span>
+      </h2>
+    </header>
+    <div role="alertdialog" class="status message" tabindex="-1">
+        <p class="message-title"></p>
+    </div>
+    <hr aria-hidden="true" />
+    <div class="actions">
+        <button class="dismiss ok-button">OK</button>
+        <button class="dismiss cancel-button" data-dismiss="leanModal">Cancel</button>
+    </div>
+  </div>
+  <a href="#accessibile-confirm-modal" rel="leanModal" id="confirm_open_button" style="display:none">open</a>
+</div>
+
+<script type="text/javascript">
+var accessible_confirm = function(message, callback) {
+    $("#accessibile-confirm-modal .cancel-button").click(function(){
+        $("#accessibile-confirm-modal .close-modal").click();
+    });
+    $("#accessibile-confirm-modal .ok-button").click(function(){
+        $("#accessibile-confirm-modal .close-modal").click();
+        callback();
+    });
+
+    accessible_modal("#accessibile-confirm-modal #confirm_open_button", "#accessibile-confirm-modal .close-modal", "#accessibile-confirm-modal", ".content-wrapper");
+    $("#accessibile-confirm-modal #confirm_open_button").click();
+    $("#accessibile-confirm-modal .message-title").html(message);
+};
+</script>
+
+
+
+      
+    </div>
+
+        
+
+
+
+
+
+
+
+
+
+<div class="wrapper-footer">
+  <footer class="container">
+    <div class="row">
+      <nav>
+        <div class="col-md-4 text-center">
+          <a href="/">
+            <img class="b9lab-academy-logo"  src="/static/edx-b9lab-theme/images/b9lab-academy-logo.1e555680be8e.svg" alt="B9lab Academy" >
+          </a>
+        </div>
+        <div class="col-md-4">
+          <ol class="list-inline text-center footer-link-list">
+            <li><a href="/about">About</a></li>
+            <li><a href="http://help.b9lab.com/">FAQ</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/tos">Terms of Service</a></li>
+            <li><a href="/honor">Code of Conduct</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/privacy#cookie-policy">Cookie Policy</a></li>
+          </ol>
+          <div class="copyright">&copy; 2018 B9lab Ltd. | All Rights Reserved</div>
+        </div>
+      </nav>
+
+      <div class="built-on col-md-4 text-center">
+        <span>
+          <a href="http://openedx.org" target="_blank">
+            <img src="https://files.edx.org/openedx-logos/edx-openedx-logo-tag-light.png" width="150" height="50" alt="Powered by Open edX" />
+          </a>
+        </span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script type="text/javascript">
+  // load userdata for tracking
+    
+    userdata = {
+      id              : "12442",
+      email           : "rvbulalacao@codedisruptors.com",
+      fullname        : "Rommel Bulalacao",
+      username        : "rvbulalacao",
+      country         : "PH",
+      intercom_hash   : "c12caad53dbee60fa66aace08606463362a132fcf747481001096f09acf95227"
+    }
+    Academy.setUserData(userdata);
+    
+</script>
+
+<script type="text/javascript">
+  segment_key = "jQhOlBYO1HViQrpgdU9VzBctC3SvSJ51"
+  if (!window.analytics && !analytics) {
+    console.log("secondary segment load");
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
+    analytics.load(segment_key);
+    analytics.page();
+
+    }}();
+  }
+</script>
+
+
+<script type="text/javascript" src="https://static.leaddyno.com/js"></script>
+<script>
+  Academy.debugLog("[JS LOAD] load LEADDYNO");
+  // If you use multiple sub-domains, set the root domain here
+  LeadDyno.domain = "academy.b9lab.com";
+  LeadDyno.key = "1a446511b0324d38c161d3e7ab7776ec6372dc4e"
+  LeadDyno.recordVisit();
+</script>
+
+<script type="text/javascript">
+  window.FCSP = "85173f8f54669c6e3c95843900411a5a";
+</script>
+
+
+
+  </div>
+
+  
+  <script type="text/javascript" src="/static/common/js/vendor/jquery.scrollTo.525edcc52fe8.js"></script>
+  <script type="text/javascript" src="/static/js/vendor/flot/jquery.flot.d3d45ff0c6a8.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.2/katex.min.css" integrity="sha384-XFgyVzCwumZgSg6F85gbh6ev/BVWgP7QAb1V3GOchWQPifusZTU0ODnQsysBK61F" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.2/katex.min.js" integrity="sha384-RpxfKy6OA0Us+WtIGBbrVlfwW4HuETdB9CD8KbG6qSbYbCanfnyid62sojNvydoB" crossorigin="anonymous"></script>
+  <script src="/static/edx-b9lab-theme/js/coursewareui.df89ff787f95.js"> </script>
+
+  <script type="text/javascript" src="/static/js/vendor/codemirror-compressed.dd4b74f7c5fe.js"></script>
+
+  
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/lms-courseware.94e582ddac20.js" charset="utf-8"></script>
+
+
+  
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/discussion.3c41b636c9cd.js" charset="utf-8"></script>
+
+
+
+  
+    
+      <script type="text/javascript" src="/static/js/courseware/courseware_factory.01c762a7c9e6.js?raw"></script>
+    <script type="text/javascript">
+        (function (require) {
+            require(['js/courseware/courseware_factory'], function (CoursewareFactory) {
+                
+    CoursewareFactory();
+  
+            });
+        }).call(this, require || RequireJS.require);
+    </script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    // Fast Preview was introduced in 2.5. However, it
+    // causes undesirable flashing/font size changes when
+    // MathJax is used for interactive preview (equation editor).
+    // Setting processSectionDelay to 0 (see below) fully eliminates
+    // fast preview, but to reduce confusion, we are also setting
+    // the option as displayed in the context menu to false.
+    // When upgrading to 2.6, check if this variable name changed.
+    window.MathJax = {
+      menuSettings: {CHTMLpreview: false}
+    };
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [
+        ["\\(","\\)"],
+        ['[mathjaxinline]','[/mathjaxinline]']
+      ],
+      displayMath: [
+        ["\\[","\\]"],
+        ['[mathjax]','[/mathjax]']
+      ]
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+
+  // In order to eliminate all flashing during interactive
+  // preview, it is necessary to set processSectionDelay to 0
+  // (remove delay between input and output phases). This
+  // effectively disables fast preview, regardless of
+  // the fast preview setting as shown in the context menu.
+  MathJax.Hub.processSectionDelay = 0;
+
+  MathJax.Hub.signal.Interest(function(message) {
+    if(message[0] === "End Math") {
+        set_mathjax_display_div_settings();
+    }
+  });
+  function set_mathjax_display_div_settings() {
+    $('.MathJax_Display').each(function( index ) {
+      this.setAttribute('tabindex', '0');
+      this.setAttribute('aria-live', 'off');
+      this.removeAttribute('role');
+      this.removeAttribute('aria-readonly');
+    });
+  }
+</script>
+
+
+<!-- This must appear after all mathjax-config blocks, so it is after the imports from the other templates.
+     It can't be run through static.url because MathJax uses crazy url introspection to do lazy loading of
+     MathJax extension libraries -->
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_SVG"></script> -->
+
+
+
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/discussion.3c41b636c9cd.js" charset="utf-8"></script>
+
+
+
+
+<script type="text/javascript">
+        RequireJS.define(
+            'common/js/discussion/discussion',
+            [],
+            function() {
+                return window['Discussion'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/content',
+            [],
+            function() {
+                return window['Content'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/views/discussion_inline_view',
+            [],
+            function() {
+                return window['DiscussionInlineView'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/views/discussion_thread_view',
+            [],
+            function() {
+                return window['DiscussionThreadView'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/views/discussion_thread_list_view',
+            [],
+            function() {
+                return window['DiscussionThreadListView'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/views/discussion_thread_profile_view',
+            [],
+            function() {
+                return window['DiscussionThreadProfileView'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/utils',
+            [],
+            function() {
+                return window['DiscussionUtil'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/models/discussion_course_settings',
+            [],
+            function() {
+                return window['DiscussionCourseSettings'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/models/discussion_user',
+            [],
+            function() {
+                return window['DiscussionUser'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/views/new_post_view',
+            [],
+            function() {
+                return window['NewPostView'];
+            }
+        );
+</script>
+
+
+  <script type="text/javascript">
+    var $$course_id = "course\u002Dv1:B9lab+HLF\u002D12+2018\u002D07";
+  </script>
+
+<script src='/static/xblock/resources/xmodule.vertical_block/public/js/vertical_student_view.7c27fd5e4fd0.js' type='application/javascript'></script>
+
+
+  <script type="text/javascript" src="/static/js/vendor/noreferrer.aa62a3e70ffa.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/static/js/utils/navigation.323bf3e1ae16.js" charset="utf-8"></script>
+  
+</body>
+</html>
+
+
+
+<!-- Performance beacon for onload times -->

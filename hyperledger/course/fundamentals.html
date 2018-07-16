@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<!--[if lte IE 9]><html class="ie ie9 lte9" lang="en"><![endif]-->
+<!--[if !IE]><!--><html lang="en"><!--<![endif]-->
+<head dir="ltr">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+        Introduction | B9lab-Certified Hyperledger Fabric Developer Course - July Courseware | B9lab Academy
+    </title>
+
+
+    <script type="text/javascript" src="/static/js/i18n/en/djangojs.b28203373cc1.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="/static/edx-b9lab-theme/images/favicon.e0cf15fd2e28.ico" /> 
+    <link href="/static/edx-b9lab-theme/css/lms-style-vendor.4ccaa7f84216.css" rel="stylesheet" type="text/css" />
+    <link href="/static/edx-b9lab-theme/css/lms-main-v1.de9c074d355a.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/lms-main_vendor.9ffa92b26c4f.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/lms-application.596021cdc57d.js" charset="utf-8"></script>
+
+
+
+    <script>
+        window.baseUrl = "/static/";
+        (function (require) {
+          require.config({
+              baseUrl: window.baseUrl
+          });
+        }).call(this, require || RequireJS.require);
+    </script>
+
+    <script type="text/javascript" src="/static/lms/js/require-config.cd72e66c1a3e.js"></script>
+  
+    <script type="text/javascript">
+        (function (require) {
+          require.config({
+              paths: {
+                'js/courseware/courseware_factory': 'js/courseware/courseware_factory.01c762a7c9e6',
+                'draggabilly': 'js/vendor/draggabilly.26caba6f7187',
+                'js/courseware/toggle_element_visibility': 'js/courseware/toggle_element_visibility.22ad04bb0497',
+                'js/courseware/course_home_events': 'js/courseware/course_home_events.efe56112dd91',
+                'js/courseware/link_clicked_events': 'js/courseware/link_clicked_events',
+                'moment': 'common/js/vendor/moment-with-locales.084396f4103c',
+                'moment-timezone': 'common/js/vendor/moment-timezone-with-data.b062d5eadf09',
+                'js/student_account/logistration_factory': 'js/student_account/logistration_factory.fdbb256dea8d',
+                'js/groups/views/cohorts_dashboard_factory': 'js/groups/views/cohorts_dashboard_factory.eb8701884901',
+                'js/dateutil_factory': 'js/dateutil_factory.f141a7899e5d',
+                'js/courseware/accordion_events': 'js/courseware/accordion_events.6064c7809de5',
+                'js/bookmarks/views/bookmark_button': 'js/bookmarks/views/bookmark_button.bca63457af5c',
+                'js/views/message_banner': 'js/views/message_banner.099aec538f98',
+                'js/student_profile/views/learner_profile_factory': 'js/student_profile/views/learner_profile_factory.c70d54366733'
+            }
+          });
+        }).call(this, require || RequireJS.require);
+    </script>
+  
+    
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/lms-modules.95e020694261.js" charset="utf-8"></script>
+
+    <link href="/static/edx-b9lab-theme/css/lms-style-course-vendor.60799ae7d9f8.css" rel="stylesheet" type="text/css" />
+
+    <link href="/static/edx-b9lab-theme/css/lms-course.617ceac4dd9c.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="/static/js/jquery.autocomplete.3bd10d7510d2.js"></script>
+    <script type="text/javascript" src="/static/js/src/tooltip_manager.e3531e99ed92.js"></script>
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/discussion_vendor.fb43d3027963.js" charset="utf-8"></script>
+    <link href="/static/css/vendor/jquery.autocomplete.09a0b34739a2.css" rel="stylesheet" type="text/css">
+    <meta property="og:url" content="http://academy.b9lab.com" />
+    <meta property="og:title" content="B9lab Academy" />
+    <meta property="og:image" content="/static/edx-b9lab-theme/images/b9lab-academy-meta.b10dca9c2ebb.png" />
+    <meta property="og:description" content="B9lab Academy Offers world class online training in blockchain and decentralised applications for developers, technical experts and analysts." />
+    <meta property="og:keywords" content="B9lab, academy, blockchain, ethereum, certified, online course, online training, developer, experts, analysts" />
+
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+    <!-- bootstrap! -->
+    <!-- local reference for offline testing only -->
+    <!-- <link rel="stylesheet" href="/static/edx-b9lab-theme/css/bootstrap.e60e9bcfcac0.css" > -->
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.js"></script>
+
+
+    <!-- Ednote download and host highlight.js locally? -->     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atom-one-dark.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- Ednote by isy: check if this triggers on ready, otherwise needs to be moved -->
+        
+
+    <script src="/static/edx-b9lab-theme/js/academy.e83c874e8455.js"> </script>
+      
+
+
+</head>
+
+<body class="ltr view-in-course view-courseware courseware  lang_en">
+
+
+<div id="page-prompt"></div>
+  <div class="window-wrap" dir="ltr">
+
+
+  <header class="global" aria-label="Global Navigation">
+    
+    <nav id="secondary-nav" class="container-fluid">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#secondary-nav-items">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">
+                
+                <img class="b9lab-academy-logo" src="/static/edx-b9lab-theme/images/b9lab-academy-logo.1e555680be8e.svg" alt="Home Page">
+
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+<!--[if lte IE 8]>
+<div class="ie-banner" aria-hidden="true"><strong>Warning:</strong> Your browser is not fully supported. We strongly recommend using <a href="https://www.google.com/intl/en/chrome/browser/" target="_blank">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>.</div>
+<![endif]-->
+
+
+
+
+<div class="content-wrapper" id="content">
+      
+    <div class="container-fluid" id="course-title-header">
+        <img src="/asset-v1:B9lab+HLF-12+2018-07+type@asset+block@asset-v1_B9lab_HLF-11_2018-06_type_asset_block_hlf-logo-03-01.png" hidden class="hidden" id="course-image" />
+        <div class="container">
+            <div class="row">
+            <h1><span class="provider">B9lab-Certified Hyperledger Fabric Developer Course - July</span></h1>
+            <div class="hidden" style="display:none" id="__course_number__">HLF-12</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+    <div class="row">
+      <nav class="info wrapper-course-material col-md-12" aria-label="Course Material">
+        <div class="course-material">
+          <ol class="tabs course-tabs">
+            <li class="tab">
+              <a href="/home.html" class="">
+                <b>Home</b>
+                <span class="sr">, current location</span>
+              </a>
+            </li>
+            <li class="tab">
+              <a href="/course/" class="active">
+                <b>Course</b>
+              </a>
+            </li>
+          </ol>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="course-wrapper">           
+
+        <div class="col-md-3 no-right-pad">
+            <div class="course-index">
+                <div class="wrapper-course-modes"></div>
+                <div class="accordion">
+                  <nav class="course-navigation" aria-label="Course">
+                    <a href="/courses/" role="button" class="button-chapter chapter active" id="blockchain-parent" aria-controls="blockchain-child" aria-expanded="false">
+                        <span class="group-heading active" aria-label="Blockchain current chapter">
+                            <span class="icon fa fa-caret-right" aria-hidden="true"></span>
+                            Blockchain
+                        </span>
+                    </a>
+                    <div class="chapter-content-container" id="blockchain-child" tabindex="-1" role="group" aria-label="Blockchain submenu">
+                        <div class="chapter-menu">
+                            <div class="menu-item">
+                                <a class="accordion-nav" href="/course/">
+                                    <p class="accordion-display-name">Introduction</p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/basics.html">
+                                    <p class="accordion-display-name">Basics </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/public-blockchain.html">
+                                    <p class="accordion-display-name">Public Blockchains </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/consensus.html">
+                                    <p class="accordion-display-name">Consensus </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/chain-of-blocks.html">
+                                    <p class="accordion-display-name">Chain of Blocks </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  active">
+                                <a class="accordion-nav" href="/course/fundamentals.html">
+                                    <p class="accordion-display-name">Fundamentals </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/metamask.html">
+                                    <p class="accordion-display-name">Metamask </p>
+                                </a>
+                            </div>
+                            <div class="menu-item  ">
+                                <a class="accordion-nav" href="/course/go-install.html">
+                                    <p class="accordion-display-name">Go Install </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            </div>
+        </div>
+        <section class="col-md-9 no-left-pad">
+          <div class="course-content" id="course-content">
+
+
+            <div class="xblock xblock-student_view xblock-student_view-vertical" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:B9lab+HLF-12+2018-07" data-request-token="f6d255c288ce11e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@vertical+block@e2cbc8eaab5d4ebb86550ae9deb75169" data-block-type="vertical">
+
+
+
+
+          <div class="vert-mod">
+              <div class="vert vert-0" data-id="block-v1:B9lab+HLF-12+2018-07+type@html+block@4041084103aa4346b56ebf2e449bc634">
+                <div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="f6d255c288ce11e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@html+block@4041084103aa4346b56ebf2e449bc634" data-type="HTMLModule" data-course-id="course-v1:B9lab+HLF-12+2018-07">
+                  <script type="json/xblock-args" class="xblock-json-init-args">
+                    {"xmodule-type": "HTMLModule"}
+                </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="xblock xblock-student_view xblock-student_view-vertical" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:B9lab+HLF-12+2018-07" data-request-token="89e5fdbe88d411e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@vertical+block@04f92bb4303443aba2f1c0bdb659e8be" data-block-type="vertical">
+  
+
+  <h3 class="unit-title">Unit</h3>
+
+    
+
+
+<div class="bookmark-button-wrapper">
+  <button class="bookmark-button b9-button-green natural "
+    aria-pressed="false"
+    data-bookmark-id="rvbulalacao,block-v1:B9lab+HLF-12+2018-07+type@vertical+block@04f92bb4303443aba2f1c0bdb659e8be">
+     <span class="sr bookmark-sr">Click to add</span>
+      <b>Bookmark</b>
+    </button>
+</div>
+
+
+<div class="vert-mod">
+  <div class="vert vert-0" data-id="block-v1:B9lab+HLF-12+2018-07+type@html+block@57a31e08d39a4bb19859a89624e55dbb">
+    <div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="89e5fdbe88d411e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@html+block@57a31e08d39a4bb19859a89624e55dbb" data-type="HTMLModule" data-course-id="course-v1:B9lab+HLF-12+2018-07">
+  <script type="json/xblock-args" class="xblock-json-init-args">
+    {"xmodule-type": "HTMLModule"}
+  </script>
+  <h2>Fundamentals</h2>
+
+<h3>Public key cryptosystems</h3>
+
+<p>Modern cryptographic systems leverage computer capabilities to make accessible the power of certain mathematical functions.</p>
+
+<h4>Public / private key</h4>
+
+<p>Such keys always come in pairs and offer various capabilities. Those capabilities are based on cryptographic mathematics. As their name suggest, the public key is meant to be distributed to whoever is relevant, while the private key is to be jealously guarded, akin to having your house address public, but keeping the key to your house private.</p>
+
+<p>Let&#39;s have a look at examples, which you may know under the names:</p>
+
+<ul>
+<li>RSA</li>
+<li>PGP, GnuPG</li>
+</ul>
+
+<p>Example (Linux):</p>
+<pre><code class='hljs '>
+// Create SECP256K1 private key with explicit parameters for backward compatibility
+$ openssl ecparam -name secp256k1 -genkey -noout -out secp256k1-key.pem -param_enc explicit
+// Create public key
+$ openssl ec -in secp256k1-key.pem -pubout -out secp256k1-key-pub.pem
+// Show public key
+$ openssl ec -in secp256k1-key-pub.pem -pubin -text -noout
+
+// Create RSA private key
+$ openssl genrsa -des3 -out rsa-key.pem 2048
+Generating RSA private key, 2048 bit long modulus
+.....................................................+++
+...........+++
+e is 65537 (0x10001)
+Enter pass phrase for rsa-key.pem:
+Verifying - Enter pass phrase for rsa-key.pem:
+// Create public key
+$ openssl rsa -in rsa-key.pem -outform PEM -pubout -out rsa-key-pub.pem
+Enter pass phrase for rsa-key.pem:
+writing RSA key
+</code></pre>
+<p>This is like a password that is used to encrypt your private key on disk. If the private key was not encrypted, it would be at greater risk of theft. Since you are just testing here, you can put nothing or a simple word. But remember that whenever you create keys in the future, you need to protect them with a proper password.</p>
+
+<p>Note that you may need openssl version 1.0 or newer.</p>
+
+<h4>Encrypt and decrypt</h4>
+
+<p>Alice wants to send a message to Bob, and for Bob&#39;s eyes only:</p>
+
+<ul>
+<li>Bob gives Alice his public key</li>
+<li>Alice uses Bob&#39;s public key to encrypt the message</li>
+<li>Alice sends Bob the encrypted message</li>
+<li>Bob decrypts the message with his private key</li>
+</ul>
+
+<p><img src="https://s3-eu-west-1.amazonaws.com/b9-academy-assets/course-assets/HLF-0/keys-001.png"></p>
+
+<p>Example:</p>
+<pre><code class='hljs bash'>
+// Encrypt file
+$ openssl pkeyutl -encrypt -pubin -inkey rsa-key-pub.pem -in helloworld.txt -out helloworld.enc
+// Decrypt file
+$ openssl pkeyutl -decrypt -inkey rsa-key.pem -in helloworld.enc -out helloworld2.txt
+</code></pre>
+<p>If you receive an error, try with <code class='hljs hl-inline'>openssl rsautl</code> instead.</p>
+
+<h4>Sign and verify</h4>
+
+<p>Alice wants to make sure that Bob&#39;s public announcement is indeed from Bob:</p>
+
+<ul>
+<li>Bob gives Alice his public key</li>
+<li>Bob signs his announcement with his private key</li>
+<li>Bob sends Alice his announcement and its signature</li>
+<li>Alice verifies the signature with Bob&#39;s public key</li>
+</ul>
+
+<p><img src="https://s3-eu-west-1.amazonaws.com/b9-academy-assets/course-assets/HLF-0/keys-002.png"></p>
+
+<p>Example:</p>
+<pre><code class='hljs bash'>
+// Sign file hash
+$ openssl dgst -sha256 -sign secp256k1-key.pem -out helloworld-bin.sha256 helloworld.txt
+// Encode signature in Base64
+$ openssl base64 -in helloworld-bin.sha256 -out helloworld.sha256
+
+// Decode signature form Base64
+$ openssl base64 -d -in helloworld.sha256 -out helloworld-bin-decoded.sha256
+// Verify signature
+$ openssl dgst -sha256 -verify secp256k1-key-pub.pem -signature helloworld-bin-decoded.sha256 helloworld.txt
+Verified OK
+</code></pre>
+<h4>Mix and match</h4>
+
+<p>It is possible to mix both ideas, whereby Alice encrypts her message with Bob&#39;s public key, then signs the encrypt file with her private key. Upon reception, Bob verifies the signature with Alice&#39;s public key, then decrypts the file with his private key.</p>
+
+<p><img src="https://s3-eu-west-1.amazonaws.com/b9-academy-assets/course-assets/HLF-0/keys-003.png"></p>
+
+<h3>Key management, PKI</h3>
+
+<p>If you look again at the Alice and Bob examples, you will notice that there is a vulnerability in &quot;Bob gives Alice his public key&quot;. A malicious Charlie could intercept Bob&#39;s public key and pass on his own public key to Alice.
+Key management and public key infrastructure (PKI) is an important aspect of cryptography that helps mitigate this risk.</p>
+
+<h3>Theory</h3>
+
+<h4>RSA</h4>
+
+<p>RSA(Rives, Shamir, Adleman) is a public-key cryptosystem that was first published in 1977.</p>
+
+<p>The premise is that if you have a public key <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo separator="true">,</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(pubKey,n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mopen">(</span><span class="mord mathit">p</span><span class="mord mathit">u</span><span class="mord mathit">b</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span> and a private key <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">priKey</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span> then you can:</p>
+
+<ul>
+<li>encrypt a message with the following:</li>
+</ul>
+
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><msup><mi>e</mi><mrow><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow></msup><mo>≡</mo><mi>e</mi><mi>n</mi><mi>c</mi><mi>M</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo><mo>mod</mo><mspace width="0.333333em"></mspace><mi>n</mi></mo></mrow><annotation encoding="application/x-tex">message ^{pubKey} \equiv encMessage \mod n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8491079999999999em;"></span><span class="strut bottom" style="height:1.043548em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">p</span><span class="mord mathit mtight">u</span><span class="mord mathit mtight">b</span><span class="mord mathit mtight" style="margin-right:0.07153em;">K</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span></span></span></span></span></span></span></span></span><span class="mrel">≡</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mord mathit">c</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">e</span><span><span class="mspace twelvemuspace"></span>m</span>od<span class="mord mathit"><span class="mspace sixmuspace"></span><span class="mord mathit">n</span></span></span></span></span></p>
+
+<ul>
+<li>decrypt the encrypted message with the following:</li>
+</ul>
+
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>e</mi><mi>n</mi><mi>c</mi><mi>M</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><msup><mi>e</mi><mrow><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow></msup><mo>≡</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo><mo>mod</mo><mspace width="0.333333em"></mspace><mi>n</mi></mo></mrow><annotation encoding="application/x-tex">encMessage ^{priKey} \equiv  message \mod n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8413309999999999em;"></span><span class="strut bottom" style="height:1.035771em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mord mathit">c</span><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">p</span><span class="mord mathit mtight" style="margin-right:0.02778em;">r</span><span class="mord mathit mtight">i</span><span class="mord mathit mtight" style="margin-right:0.07153em;">K</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span></span></span></span></span></span></span></span></span><span class="mrel">≡</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">e</span><span><span class="mspace twelvemuspace"></span>m</span>od<span class="mord mathit"><span class="mspace sixmuspace"></span><span class="mord mathit">n</span></span></span></span></span></p>
+
+<p>Or that in fact there exist <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo separator="true">,</mo><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo separator="true">,</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(priKey,pubKey,n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mopen">(</span><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mord mathit">p</span><span class="mord mathit">u</span><span class="mord mathit">b</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span> such that <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><msup><mi>e</mi><mrow><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow></msup><msup><mo>)</mo><mrow><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow></msup><mo>≡</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo><mo>mod</mo><mspace width="0.333333em"></mspace><mi>n</mi></mo></mrow><annotation encoding="application/x-tex">(message ^{pubKey}) ^ {priKey} \equiv message \mod n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8491079999999999em;"></span><span class="strut bottom" style="height:1.0991079999999998em;vertical-align:-0.25em;"></span><span class="base"><span class="mopen">(</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">p</span><span class="mord mathit mtight">u</span><span class="mord mathit mtight">b</span><span class="mord mathit mtight" style="margin-right:0.07153em;">K</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span></span></span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">p</span><span class="mord mathit mtight" style="margin-right:0.02778em;">r</span><span class="mord mathit mtight">i</span><span class="mord mathit mtight" style="margin-right:0.07153em;">K</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span></span></span></span></span></span></span></span></span><span class="mrel">≡</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">e</span><span><span class="mspace twelvemuspace"></span>m</span>od<span class="mord mathit"><span class="mspace sixmuspace"></span><span class="mord mathit">n</span></span></span></span></span>, with the additional hurdle that calculating <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">priKey</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span> out of <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo separator="true">,</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(pubKey,n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mopen">(</span><span class="mord mathit">p</span><span class="mord mathit">u</span><span class="mord mathit">b</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span> is computationally expensive and in practice impossible.</p>
+
+<p>Let&#39;s work this in detail.</p>
+
+<h4>How</h4>
+
+<p>How to calculate a <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo separator="true">,</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(pubKey,n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mopen">(</span><span class="mord mathit">p</span><span class="mord mathit">u</span><span class="mord mathit">b</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span> and a <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">priKey</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span> ? </p>
+
+<ul>
+<li>First we have to choose two prime numbers <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">q</span></span></span></span>. Then we can calculate <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>(</mo><mi>p</mi><mo separator="true">,</mo><mi>q</mi><mo>)</mo><mo>=</mo><mi>p</mi><mo>⋅</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">n(p,q)=p \cdot q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathit">p</span><span class="mbin">⋅</span><span class="mord mathit" style="margin-right:0.03588em;">q</span></span></span></span>.</li>
+<li>After that, we calculate Euler&#39;s totient function </li>
+</ul>
+
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϕ</mi><mo>(</mo><mi>n</mi><mo>(</mo><mi>p</mi><mo separator="true">,</mo><mi>q</mi><mo>)</mo><mo>)</mo><mo>=</mo><mo>(</mo><mi>p</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>⋅</mo><mo>(</mo><mi>q</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">\phi(n(p,q))= (p-1)\cdot(q-1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">ϕ</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mclose">)</span><span class="mclose">)</span><span class="mrel">=</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span><span class="mbin">⋅</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span> only if p and q are prime numbers. Otherwise, it is a NP problem.</p>
+
+<ul>
+<li>Now we can use a random <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">pubKey</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span><span class="mord mathit">u</span><span class="mord mathit">b</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span>, which is not a divisor of <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϕ</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\phi(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">ϕ</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span> and is smaller than <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϕ</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\phi(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">ϕ</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>.</li>
+</ul>
+
+<p>Calculating <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">priKey</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span> means calculating <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">b</span></span></span></span> in following equation:</p>
+
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>⋅</mo><mi>ϕ</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>+</mo><mi>b</mi><mo>⋅</mo><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a \cdot \phi(n)+b \cdot pubKey=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">a</span><span class="mbin">⋅</span><span class="mord mathit">ϕ</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathit">b</span><span class="mbin">⋅</span><span class="mord mathit">p</span><span class="mord mathit">u</span><span class="mord mathit">b</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span></p>
+
+<p>Where we can use the extended euclidean algorithm. Now we can delete <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo separator="true">,</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">p,q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">q</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϕ</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\phi(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">ϕ</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>.</p>
+
+<h4>Example</h4>
+
+<p>Let&#39;s have a look on an example. </p>
+
+<ul>
+<li>We use <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>=</mo><mn>2</mn><mn>3</mn><mn>9</mn><mn>9</mn></mrow><annotation encoding="application/x-tex">p=2399</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span><span class="mrel">=</span><span class="mord mathrm">2</span><span class="mord mathrm">3</span><span class="mord mathrm">9</span><span class="mord mathrm">9</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi><mo>=</mo><mn>2</mn><mn>6</mn><mn>3</mn><mn>7</mn><mn>1</mn></mrow><annotation encoding="application/x-tex">q=26371</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mrel">=</span><span class="mord mathrm">2</span><span class="mord mathrm">6</span><span class="mord mathrm">3</span><span class="mord mathrm">7</span><span class="mord mathrm">1</span></span></span></span>, which are prime numbers.
+Then we have <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>=</mo><mn>6</mn><mn>3</mn><mn>2</mn><mn>6</mn><mn>4</mn><mn>0</mn><mn>2</mn><mn>9</mn></mrow><annotation encoding="application/x-tex">n=63264029</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span><span class="mrel">=</span><span class="mord mathrm">6</span><span class="mord mathrm">3</span><span class="mord mathrm">2</span><span class="mord mathrm">6</span><span class="mord mathrm">4</span><span class="mord mathrm">0</span><span class="mord mathrm">2</span><span class="mord mathrm">9</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϕ</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mn>6</mn><mn>3</mn><mn>2</mn><mn>3</mn><mn>5</mn><mn>2</mn><mn>6</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">\phi(n)= 63235260</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">ϕ</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">6</span><span class="mord mathrm">3</span><span class="mord mathrm">2</span><span class="mord mathrm">3</span><span class="mord mathrm">5</span><span class="mord mathrm">2</span><span class="mord mathrm">6</span><span class="mord mathrm">0</span></span></span></span>.</li>
+<li>Now, we have to set a <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo>&lt;</mo><mi>ϕ</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">pubKey&lt; \phi(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mord mathit">u</span><span class="mord mathit">b</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mrel">&lt;</span><span class="mord mathit">ϕ</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>. So we use <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo>=</mo><mn>5</mn><mn>4</mn><mn>8</mn><mn>3</mn><mn>3</mn></mrow><annotation encoding="application/x-tex">pubKey=54833</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span><span class="mord mathit">u</span><span class="mord mathit">b</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mrel">=</span><span class="mord mathrm">5</span><span class="mord mathrm">4</span><span class="mord mathrm">8</span><span class="mord mathrm">3</span><span class="mord mathrm">3</span></span></span></span>.</li>
+<li>That gives us with extended euclid a <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo>=</mo><mn>6</mn><mn>5</mn><mn>8</mn><mn>9</mn><mn>5</mn><mn>7</mn><mn>7</mn></mrow><annotation encoding="application/x-tex">priKey=6589577</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mrel">=</span><span class="mord mathrm">6</span><span class="mord mathrm">5</span><span class="mord mathrm">8</span><span class="mord mathrm">9</span><span class="mord mathrm">5</span><span class="mord mathrm">7</span><span class="mord mathrm">7</span></span></span></span></li>
+</ul>
+
+<p>Now we delete <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo separator="true">,</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">p,q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">q</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϕ</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\phi(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">ϕ</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>. If we want to encrypt the <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo>=</mo><mn>9</mn><mn>8</mn><mn>7</mn><mn>4</mn><mn>5</mn><mn>8</mn><mn>7</mn></mrow><annotation encoding="application/x-tex">message=9874587</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">e</span><span class="mrel">=</span><span class="mord mathrm">9</span><span class="mord mathrm">8</span><span class="mord mathrm">7</span><span class="mord mathrm">4</span><span class="mord mathrm">5</span><span class="mord mathrm">8</span><span class="mord mathrm">7</span></span></span></span> we get:</p>
+
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9</mn><mn>8</mn><mn>7</mn><mn>4</mn><mn>5</mn><mn>8</mn><msup><mn>7</mn><mrow><mn>5</mn><mn>4</mn><mn>8</mn><mn>3</mn><mn>3</mn></mrow></msup><mo>≡</mo><mn>3</mn><mn>6</mn><mn>8</mn><mn>9</mn><mn>8</mn><mn>1</mn><mn>0</mn><mn>7</mn><mo><mo>mod</mo><mspace width="0.333333em"></mspace><mn>6</mn></mo><mn>3</mn><mn>2</mn><mn>6</mn><mn>4</mn><mn>0</mn><mn>2</mn><mn>9</mn></mrow><annotation encoding="application/x-tex">9874587^{54833} \equiv 36898107 \mod 63264029 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base"><span class="mord mathrm">9</span><span class="mord mathrm">8</span><span class="mord mathrm">7</span><span class="mord mathrm">4</span><span class="mord mathrm">5</span><span class="mord mathrm">8</span><span class="mord"><span class="mord mathrm">7</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathrm mtight">5</span><span class="mord mathrm mtight">4</span><span class="mord mathrm mtight">8</span><span class="mord mathrm mtight">3</span><span class="mord mathrm mtight">3</span></span></span></span></span></span></span></span></span><span class="mrel">≡</span><span class="mord mathrm">3</span><span class="mord mathrm">6</span><span class="mord mathrm">8</span><span class="mord mathrm">9</span><span class="mord mathrm">8</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">7</span><span><span class="mspace twelvemuspace"></span>m</span>od<span class="mord mathrm"><span class="mspace sixmuspace"></span><span class="mord mathrm">6</span></span><span class="mord mathrm">3</span><span class="mord mathrm">2</span><span class="mord mathrm">6</span><span class="mord mathrm">4</span><span class="mord mathrm">0</span><span class="mord mathrm">2</span><span class="mord mathrm">9</span></span></span></span></p>
+
+<p>If you have the <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">priKey</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span>, then you can calculate the message:
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn><mn>6</mn><mn>8</mn><mn>9</mn><mn>8</mn><mn>1</mn><mn>0</mn><msup><mn>7</mn><mrow><mn>6</mn><mn>5</mn><mn>8</mn><mn>9</mn><mn>5</mn><mn>7</mn><mn>7</mn></mrow></msup><mo>≡</mo><mn>9</mn><mn>8</mn><mn>7</mn><mn>4</mn><mn>5</mn><mn>8</mn><mn>7</mn><mo><mo>mod</mo><mspace width="0.333333em"></mspace><mn>6</mn></mo><mn>3</mn><mn>2</mn><mn>6</mn><mn>4</mn><mn>0</mn><mn>2</mn><mn>9</mn></mrow><annotation encoding="application/x-tex">36898107^{6589577} \equiv 9874587 \mod 63264029</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base"><span class="mord mathrm">3</span><span class="mord mathrm">6</span><span class="mord mathrm">8</span><span class="mord mathrm">9</span><span class="mord mathrm">8</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord"><span class="mord mathrm">7</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathrm mtight">6</span><span class="mord mathrm mtight">5</span><span class="mord mathrm mtight">8</span><span class="mord mathrm mtight">9</span><span class="mord mathrm mtight">5</span><span class="mord mathrm mtight">7</span><span class="mord mathrm mtight">7</span></span></span></span></span></span></span></span></span><span class="mrel">≡</span><span class="mord mathrm">9</span><span class="mord mathrm">8</span><span class="mord mathrm">7</span><span class="mord mathrm">4</span><span class="mord mathrm">5</span><span class="mord mathrm">8</span><span class="mord mathrm">7</span><span><span class="mspace twelvemuspace"></span>m</span>od<span class="mord mathrm"><span class="mspace sixmuspace"></span><span class="mord mathrm">6</span></span><span class="mord mathrm">3</span><span class="mord mathrm">2</span><span class="mord mathrm">6</span><span class="mord mathrm">4</span><span class="mord mathrm">0</span><span class="mord mathrm">2</span><span class="mord mathrm">9</span></span></span></span></p>
+
+<h4>Why it works</h4>
+
+<p>There is a proof with Fermat&#39;s little theorem, that <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><msup><mi>e</mi><mrow><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow></msup><msup><mo>)</mo><mrow><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow></msup><mo>≡</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo><mo>mod</mo><mspace width="0.333333em"></mspace><mi>n</mi></mo></mrow><annotation encoding="application/x-tex">(message ^ {pubKey}) ^ {priKey} \equiv message \mod n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8491079999999999em;"></span><span class="strut bottom" style="height:1.0991079999999998em;vertical-align:-0.25em;"></span><span class="base"><span class="mopen">(</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">p</span><span class="mord mathit mtight">u</span><span class="mord mathit mtight">b</span><span class="mord mathit mtight" style="margin-right:0.07153em;">K</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span></span></span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">p</span><span class="mord mathit mtight" style="margin-right:0.02778em;">r</span><span class="mord mathit mtight">i</span><span class="mord mathit mtight" style="margin-right:0.07153em;">K</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span></span></span></span></span></span></span></span></span><span class="mrel">≡</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">e</span><span><span class="mspace twelvemuspace"></span>m</span>od<span class="mord mathit"><span class="mspace sixmuspace"></span><span class="mord mathit">n</span></span></span></span></span> is true.</p>
+
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>⋅</mo><mi>ϕ</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>+</mo><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo>⋅</mo><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a \cdot \phi(n)+ priKey \cdot pubKey=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">a</span><span class="mbin">⋅</span><span class="mord mathit">ϕ</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mbin">⋅</span><span class="mord mathit">p</span><span class="mord mathit">u</span><span class="mord mathit">b</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span> means:</p>
+
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo>⋅</mo><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo>≡</mo><mn>1</mn><mo><mo>mod</mo><mspace width="0.333333em"></mspace><mi>ϕ</mi></mo><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">priKey \cdot pubKey\equiv 1 \mod \phi(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mbin">⋅</span><span class="mord mathit">p</span><span class="mord mathit">u</span><span class="mord mathit">b</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mrel">≡</span><span class="mord mathrm">1</span><span><span class="mspace twelvemuspace"></span>m</span>od<span class="mord mathit"><span class="mspace sixmuspace"></span><span class="mord mathit">ϕ</span></span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span></p>
+
+<p>And because <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϕ</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mo>(</mo><mi>p</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>(</mo><mi>q</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">\phi(n)=(p-1)(q-1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">ϕ</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span><span class="mrel">=</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span>
+It follows <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo>⋅</mo><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo>−</mo><mn>1</mn><mo>=</mo><mi>h</mi><mo>(</mo><mi>p</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>=</mo><mi>k</mi><mo>(</mo><mi>q</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">priKey \cdot pubKey-1=h(p-1)=k(q-1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mbin">⋅</span><span class="mord mathit">p</span><span class="mord mathit">u</span><span class="mord mathit">b</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mrel">=</span><span class="mord mathit">h</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span></p>
+
+<p>And then:</p>
+
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><msup><mi>e</mi><mrow><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow></msup><msup><mo>)</mo><mrow><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow></msup></mrow><annotation encoding="application/x-tex">(message^{pubKey})^{priKey} </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8491079999999999em;"></span><span class="strut bottom" style="height:1.0991079999999998em;vertical-align:-0.25em;"></span><span class="base"><span class="mopen">(</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">p</span><span class="mord mathit mtight">u</span><span class="mord mathit mtight">b</span><span class="mord mathit mtight" style="margin-right:0.07153em;">K</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span></span></span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">p</span><span class="mord mathit mtight" style="margin-right:0.02778em;">r</span><span class="mord mathit mtight">i</span><span class="mord mathit mtight" style="margin-right:0.07153em;">K</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span></span></span></span></span></span></span></span></span></span></span></span></p>
+
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><msup><mi>e</mi><mrow><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo>⋅</mo><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow></msup></mrow><annotation encoding="application/x-tex">=message^{pubKey \cdot priKey} </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8491079999999999em;"></span><span class="strut bottom" style="height:1.043548em;vertical-align:-0.19444em;"></span><span class="base"><span class="mrel">=</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">p</span><span class="mord mathit mtight">u</span><span class="mord mathit mtight">b</span><span class="mord mathit mtight" style="margin-right:0.07153em;">K</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span><span class="mbin mtight">⋅</span><span class="mord mathit mtight">p</span><span class="mord mathit mtight" style="margin-right:0.02778em;">r</span><span class="mord mathit mtight">i</span><span class="mord mathit mtight" style="margin-right:0.07153em;">K</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span></span></span></span></span></span></span></span></span></span></span></span></p>
+
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo>⋅</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><msup><mi>e</mi><mrow><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo>⋅</mo><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">=message \cdot message^{pubKey \cdot priKey-1} </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8491079999999999em;"></span><span class="strut bottom" style="height:1.043548em;vertical-align:-0.19444em;"></span><span class="base"><span class="mrel">=</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">e</span><span class="mbin">⋅</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">p</span><span class="mord mathit mtight">u</span><span class="mord mathit mtight">b</span><span class="mord mathit mtight" style="margin-right:0.07153em;">K</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span><span class="mbin mtight">⋅</span><span class="mord mathit mtight">p</span><span class="mord mathit mtight" style="margin-right:0.02778em;">r</span><span class="mord mathit mtight">i</span><span class="mord mathit mtight" style="margin-right:0.07153em;">K</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span><span class="mbin mtight">−</span><span class="mord mathrm mtight">1</span></span></span></span></span></span></span></span></span></span></span></span></p>
+
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo>⋅</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><msup><mi>e</mi><mrow><mi>h</mi><mo>(</mo><mi>p</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">=message \cdot message^{h(p-1)} </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:1.0824399999999998em;vertical-align:-0.19444em;"></span><span class="base"><span class="mrel">=</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">e</span><span class="mbin">⋅</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">h</span><span class="mopen mtight">(</span><span class="mord mathit mtight">p</span><span class="mbin mtight">−</span><span class="mord mathrm mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span></p>
+
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo>⋅</mo><mo>(</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><msup><mi>e</mi><mrow><mi>p</mi><mo>−</mo><mn>1</mn></mrow></msup><msup><mo>)</mo><mrow><mi>h</mi></mrow></msup></mrow><annotation encoding="application/x-tex">=message \cdot (message^{p-1})^{h} </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="base"><span class="mrel">=</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">e</span><span class="mbin">⋅</span><span class="mopen">(</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">p</span><span class="mbin mtight">−</span><span class="mord mathrm mtight">1</span></span></span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">h</span></span></span></span></span></span></span></span></span></span></span></span></p>
+
+<p>Fermat&#39;s little theorem is: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><msup><mi>e</mi><mrow><mi>p</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>≡</mo><mn>1</mn><mo><mo>mod</mo><mspace width="0.333333em"></mspace><mi>p</mi></mo></mrow><annotation encoding="application/x-tex">message^{p-1}\equiv 1 \mod p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">p</span><span class="mbin mtight">−</span><span class="mord mathrm mtight">1</span></span></span></span></span></span></span></span></span><span class="mrel">≡</span><span class="mord mathrm">1</span><span><span class="mspace twelvemuspace"></span>m</span>od<span class="mord mathit"><span class="mspace sixmuspace"></span><span class="mord mathit">p</span></span></span></span></span> if <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span></span></span></span> does not divide <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">message</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">e</span></span></span></span>.  If <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo>≡</mo><mn>0</mn><mo><mo>mod</mo><mspace width="0.333333em"></mspace><mi>p</mi></mo></mrow><annotation encoding="application/x-tex">message \equiv 0 \mod p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">e</span><span class="mrel">≡</span><span class="mord mathrm">0</span><span><span class="mspace twelvemuspace"></span>m</span>od<span class="mord mathit"><span class="mspace sixmuspace"></span><span class="mord mathit">p</span></span></span></span></span> then <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><msup><mi>e</mi><mrow><mi>p</mi><mi>q</mi></mrow></msup><mo>≡</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo><mo>mod</mo><mspace width="0.333333em"></mspace><mi>p</mi></mo></mrow><annotation encoding="application/x-tex">message^{pq} \equiv message \mod p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">p</span><span class="mord mathit mtight" style="margin-right:0.03588em;">q</span></span></span></span></span></span></span></span></span><span class="mrel">≡</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">e</span><span><span class="mspace twelvemuspace"></span>m</span>od<span class="mord mathit"><span class="mspace sixmuspace"></span><span class="mord mathit">p</span></span></span></span></span>
+Otherwise:</p>
+
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo>⋅</mo><mo>(</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><msup><mi>e</mi><mrow><mi>p</mi><mo>−</mo><mn>1</mn></mrow></msup><msup><mo>)</mo><mrow><mi>h</mi></mrow></msup><mo>≡</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo>⋅</mo><msup><mn>1</mn><mrow><mi>h</mi></mrow></msup><mo>≡</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo><mo>mod</mo><mspace width="0.333333em"></mspace><mi>p</mi></mo></mrow><annotation encoding="application/x-tex">message \cdot (message^{p-1})^{h} \equiv message \cdot 1^{h} \equiv message \mod p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">e</span><span class="mbin">⋅</span><span class="mopen">(</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">p</span><span class="mbin mtight">−</span><span class="mord mathrm mtight">1</span></span></span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">h</span></span></span></span></span></span></span></span></span><span class="mrel">≡</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">e</span><span class="mbin">⋅</span><span class="mord"><span class="mord mathrm">1</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">h</span></span></span></span></span></span></span></span></span><span class="mrel">≡</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">e</span><span><span class="mspace twelvemuspace"></span>m</span>od<span class="mord mathit"><span class="mspace sixmuspace"></span><span class="mord mathit">p</span></span></span></span></span></p>
+
+<p>If we do the same steps for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">q</span></span></span></span>, we show, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><msup><mi>e</mi><mrow><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow></msup><msup><mo>)</mo><mrow><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow></msup><mo>≡</mo><mi>m</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo><mo>mod</mo><mspace width="0.333333em"></mspace><mi>p</mi><mo>⋅</mo><mi>q</mi></mo></mrow><annotation encoding="application/x-tex">(message ^ {pubKey}) ^ {priKey} \equiv message \mod {p \cdot q}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8491079999999999em;"></span><span class="strut bottom" style="height:1.0991079999999998em;vertical-align:-0.25em;"></span><span class="base"><span class="mopen">(</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">p</span><span class="mord mathit mtight">u</span><span class="mord mathit mtight">b</span><span class="mord mathit mtight" style="margin-right:0.07153em;">K</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span></span></span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">p</span><span class="mord mathit mtight" style="margin-right:0.02778em;">r</span><span class="mord mathit mtight">i</span><span class="mord mathit mtight" style="margin-right:0.07153em;">K</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span></span></span></span></span></span></span></span></span><span class="mrel">≡</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">s</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">e</span><span><span class="mspace twelvemuspace"></span>m</span>od<span class="mord mathit"><span class="mspace sixmuspace"></span><span class="mord mathit">p</span></span><span class="mbin">⋅</span><span class="mord mathit" style="margin-right:0.03588em;">q</span></span></span></span> This is, why RSA works.</p>
+
+<h4>Trivial zero knowledge Proof</h4>
+
+<p>RSA fits  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>⋅</mo><mi>E</mi><mo>(</mo><mi>y</mi><mo>)</mo><mo>=</mo><msup><mi>x</mi><mi>e</mi></msup><mo>⋅</mo><msup><mi>y</mi><mi>e</mi></msup><mo>=</mo><msup><mi>e</mi><mrow><mi>x</mi><mi>y</mi></mrow></msup><mo>=</mo><mi>E</mi><mo>(</mo><mi>x</mi><mi>y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">E(x) \cdot E(y)=x^e \cdot y^e=e^{xy}=E(xy)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mbin">⋅</span><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">e</span></span></span></span></span></span></span></span><span class="mbin">⋅</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">e</span></span></span></span></span></span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">x</span><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span></span></span></span></span></span></span></span></span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>
+That means we can prove, if <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>⋅</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x \cdot y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.44445em;"></span><span class="strut bottom" style="height:0.63889em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">x</span><span class="mbin">⋅</span><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span> calculated well, without knowing x or y.</p>
+
+<p>In our example, if we use <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn><mn>2</mn></mrow><annotation encoding="application/x-tex">x=12</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">x</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mord mathrm">2</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><mn>2</mn><mn>4</mn></mrow><annotation encoding="application/x-tex">y=24</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mrel">=</span><span class="mord mathrm">2</span><span class="mord mathrm">4</span></span></span></span>, then we get <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>2</mn><mo>⋅</mo><mn>2</mn><mn>4</mn><mo>=</mo><mn>2</mn><mn>8</mn><mn>8</mn></mrow><annotation encoding="application/x-tex">12 \cdot 24=288</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord mathrm">1</span><span class="mord mathrm">2</span><span class="mbin">⋅</span><span class="mord mathrm">2</span><span class="mord mathrm">4</span><span class="mrel">=</span><span class="mord mathrm">2</span><span class="mord mathrm">8</span><span class="mord mathrm">8</span></span></span></span>  for the output and we get <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>(</mo><mn>1</mn><mn>2</mn><mo>)</mo><mo>⋅</mo><mi>E</mi><mo>(</mo><mn>2</mn><mn>4</mn><mo>)</mo><mo>≡</mo><mi>E</mi><mo>(</mo><mn>2</mn><mn>8</mn><mn>8</mn><mo>)</mo><mo>≡</mo><mn>6</mn><mn>0</mn><mn>8</mn><mn>2</mn><mn>2</mn><mn>3</mn><mn>6</mn><mn>4</mn><mo><mo>mod</mo><mspace width="0.333333em"></mspace><mn>6</mn></mo><mn>3</mn><mn>2</mn><mn>6</mn><mn>4</mn><mn>0</mn><mn>2</mn><mn>9</mn></mrow><annotation encoding="application/x-tex">E(12) \cdot E(24) \equiv E(288) \equiv 60822364  \mod 63264029 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mord mathrm">2</span><span class="mclose">)</span><span class="mbin">⋅</span><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathrm">2</span><span class="mord mathrm">4</span><span class="mclose">)</span><span class="mrel">≡</span><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathrm">2</span><span class="mord mathrm">8</span><span class="mord mathrm">8</span><span class="mclose">)</span><span class="mrel">≡</span><span class="mord mathrm">6</span><span class="mord mathrm">0</span><span class="mord mathrm">8</span><span class="mord mathrm">2</span><span class="mord mathrm">2</span><span class="mord mathrm">3</span><span class="mord mathrm">6</span><span class="mord mathrm">4</span><span><span class="mspace twelvemuspace"></span>m</span>od<span class="mord mathrm"><span class="mspace sixmuspace"></span><span class="mord mathrm">6</span></span><span class="mord mathrm">3</span><span class="mord mathrm">2</span><span class="mord mathrm">6</span><span class="mord mathrm">4</span><span class="mord mathrm">0</span><span class="mord mathrm">2</span><span class="mord mathrm">9</span></span></span></span> with same <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>p</mi><mi>u</mi><mi>b</mi><mi>K</mi><mi>e</mi><mi>y</mi><mo separator="true">,</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(pubKey,n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mopen">(</span><span class="mord mathit">p</span><span class="mord mathit">u</span><span class="mord mathit">b</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>r</mi><mi>i</mi><mi>K</mi><mi>e</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">priKey</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span> like in the above section. So if we give someone <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>(</mo><mn>1</mn><mn>2</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">E(12)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mord mathrm">2</span><span class="mclose">)</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>(</mo><mn>2</mn><mn>4</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">E(24)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathrm">2</span><span class="mord mathrm">4</span><span class="mclose">)</span></span></span></span> and our output <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mn>8</mn><mn>8</mn></mrow><annotation encoding="application/x-tex">288</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord mathrm">2</span><span class="mord mathrm">8</span><span class="mord mathrm">8</span></span></span></span>, he can verify, if the calculation is done well, without knowing <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">x</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span>.</p>
+
+<p>Another trivial example are digital Signatures with RSA. They are zero-knowledge proofs, because, you are proving, that you have a private key, which is the pair to the public key, without giving any information about your private key. </p>
+
+<h4>Cryptographic hash functions</h4>
+
+<p>Such a hash function:</p>
+
+<ul>
+<li>converts an input, a.k.a. the message, into an output, a.k.a the hash</li>
+<li>does the conversion in a reasonable amount of time</li>
+<li>is such that it is practically impossible to re-generate the message out of the hash</li>
+<li>is such that the tiniest change in the message, changes the hash beyond recognition</li>
+<li>is such that it is practically impossible to find 2 different messages with the same hash</li>
+</ul>
+
+<p>With such a function, you can:</p>
+
+<ul>
+<li> prove that you have a message without disclosing the content of the message, for instance:
+
+<ul>
+<li>to prove you know your password</li>
+<li>to prove you previously wrote a message</li>
+</ul></li>
+<li>rest assured the message was not altered</li>
+<li>index your messages</li>
+</ul>
+
+<p>MD5 is such a function:</p>
+<pre><code class='hljs bash'>
+$ echo &quot;The quick brown fox jumps over the lazy dog&quot; | md5
+37c4b87edffc5d198ff5a185cee7ee09
+</code></pre>
+<p>On Linux, it is <code class='hljs hl-inline'>md5sum</code>. Now let&#39;s introduce a typo:</p>
+<pre><code class='hljs bash'>
+$ echo &quot;The quick brown fox jump over the lazy dog&quot; | md5
+4ba496f4eec6ca17253cf8b7129e43be
+</code></pre>
+<p>Notice how the 2 hashes have nothing in common.</p>
+
+<p><code class='hljs hl-inline'>MD5</code> is no longer considered a hard-to-crack hash function. Bitcoin uses <code class='hljs hl-inline'>SHA-256</code>. Ethereum uses <code class='hljs hl-inline'>Keccak-256</code>and <code class='hljs hl-inline'>Keccak-512</code>.</p>
+
+<p>It is possible to index content by its hash, in essence creating a hashtable. If you have used IPFS or BitTorrent&#39;s magnet links, among others, then you have used a hashtable.</p>
+
+<h3>Digital Certificates</h3>
+
+<p>Digital certificates are used (among other things) to prove an identity. They are given by a recognised Certification Authority(CA).  A widespread procedure is the public key certificate. It proves the ownership of a public key. We will describe below the standard X.509.</p>
+
+<p>The standard X.509 is defined by the Telecommunication Standardization Sector(ITU-T) of the International Telecommunication Union(ITU).<a href="https://en.wikipedia.org/wiki/X.509">[1]</a> It offers format and semantics for public key certificates. <a href="https://www.ietf.org/rfc/rfc5280.txt">X.509</a> is profiled in the formal language ASN.1. Common use cases are validation of documents and securing of communication. For an example, X.509 is used in TLS/SSL. Its origin is in the X.500 standard from year 1988. Since version 3, X.509 enables flexible topologies, like bridges and meshes. Invalid certificates are listed in certificate revocation lists. (CRLs) CRL is vulnerable against DOS attacks.</p>
+
+<p>A X.509 certificate contains information such as version number, serial number, signature algorithm, validity period, subject name, public key algorithm, subject public key, certificate signature algorithm, certificate signature and extensions. An extension has a type, a corresponding value and a critical flag. Non-critical extensions are only informational.</p>
+
+<h4>Signature</h4>
+
+<p>The concept of digital signatures is simple. If a given message is first hashed and then encrypted by a private key, one can verify the signature by decryption with corresponding public key. We need to hash the message to avoid the creation of signatures by mixing the messages and corresponding signatures. (See RSA chapter) This way, we know, that the sender has the private key to the given public key. However, this is not truly an identification. Here comes the CA. The CA signs a certificate to prove the identity of the owner of a public key.  The certificate includes as described above the subject name. This must be verified by the CA. So, the identity is given, if one can verify the CA’s signature and trust the CA.</p>
+
+<p>Here&#39;s a Hyperledger Fabric example certificate:
+<img src="https://s3-eu-west-1.amazonaws.com/b9-academy-assets/course-assets/HLF-0/cert.png"></p>
+
+<h3>Learn More</h3>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Zero-knowledge_proof">Zero-knowledge proof</a></li>
+<li><a href="https://wiki.openssl.org/index.php/Command_Line_Elliptic_Curve_Operations">EC Operations</a></li>
+<li><a href="http://osxdaily.com/2012/01/30/encrypt-and-decrypt-files-with-openssl/">Encrypt and Decrypt</a></li>
+<li><a href="https://gist.github.com/ezimuel/3cb601853db6ebc4ee49">Sign and verify</a></li>
+</ul>
+
+</div>
+
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <main id="main" aria-label="Content" tabindex="-1">
+
+              <div class="xblock xblock-student_view xblock-student_view-sequential xmodule_display xmodule_SequenceModule" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="sequential" data-request-token="f6d255c288ce11e8be100a059cba8688" data-runtime-version="1" data-usage-id="block-v1:B9lab+HLF-12+2018-07+type@sequential+block@b4d210fbbecd4e2794b23a00c192c3f8" data-type="Sequence" data-course-id="course-v1:B9lab+HLF-12+2018-07">
+  <script type="json/xblock-args" class="xblock-json-init-args">
+    {"xmodule-type": "Sequence"}
+  </script>
+  
+
+
+<div id="sequence_b4d210fbbecd4e2794b23a00c192c3f8" class="sequence" data-id="block-v1:B9lab+HLF-12+2018-07+type@sequential+block@b4d210fbbecd4e2794b23a00c192c3f8" data-position="1" data-ajax-url="/courses/course-v1:B9lab+HLF-12+2018-07/xblock/block-v1:B9lab+HLF-12+2018-07+type@sequential+block@b4d210fbbecd4e2794b23a00c192c3f8/handler/xmodule_handler" data-next-url="/courses/course-v1:B9lab+HLF-12+2018-07/courseware/7a8c4c27cf1144a9ba0e9beb435312a9/c8a9679ecee3482cb7ede043418064a3/?child=first" data-prev-url="None">
+  <div class="sequence-nav">
+    <button class="sequence-nav-button button-previous">
+      <span class="icon fa fa-chevron-prev" aria-hidden="true"></span>
+      <span>Previous</span>
+    </button>
+    <nav class="sequence-list-wrapper" aria-label="Unit">
+      <ol id="sequence-list">
+        <li>
+        <button class="seq_other inactive nav-item"
+           data-id="block-v1:B9lab+HLF-12+2018-07+type@vertical+block@e2cbc8eaab5d4ebb86550ae9deb75169"
+           data-element="1"
+           data-page-title="Unit"
+           data-path="Blockchain &gt; Introduction &gt; Unit"
+           id="tab_0">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>Unit<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+      </ol>
+    </nav>
+    <button class="sequence-nav-button button-next">
+      <span>Next</span>
+      <span class="icon fa fa-chevron-next" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <div class="sr-is-focusable" tabindex="-1"></div>
+
+  <div id="seq_contents_0"
+    aria-labelledby="tab_0"
+    aria-hidden="false"
+    class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+
+  </div>
+  <div id="seq_content"></div>
+
+  <nav class="sequence-bottom" aria-label="Section">
+    <button class="sequence-nav-button button-previous">
+      <span class="icon fa fa-chevron-prev" aria-hidden="true"></span>
+      <span>Previous</span>
+    </button>
+    <button class="sequence-nav-button button-next">
+      <span>Next</span>
+      <span class="icon fa fa-chevron-next" aria-hidden="true"></span>
+    </button>
+  </nav>
+</div>
+
+</div>
+
+            </main>
+          </div>
+        </section>
+
+        <section class="courseware-results-wrapper col-md-9">
+            <div id="loading-message" aria-live="polite" aria-relevant="all"></div>
+            <div id="error-message" aria-live="polite"></div>
+            <div class="courseware-results search-results col-md-12" data-course-id="course-v1:B9lab+HLF-12+2018-07" data-lang-code="en"></div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+
+  
+<div id="accessibile-confirm-modal" class="modal" aria-hidden="true">
+  <div class="inner-wrapper" role="dialog" aria-labelledby="accessibile-confirm-title">
+    <button class="close-modal">
+      <span class="icon fa fa-remove" aria-hidden="true"></span>
+      <span class="sr">
+        Close
+      </span>
+    </button>
+
+    <header>
+      <h2 id="accessibile-confirm-title">
+          Confirm
+        <span class="sr">,
+          modal open
+        </span>
+      </h2>
+    </header>
+    <div role="alertdialog" class="status message" tabindex="-1">
+        <p class="message-title"></p>
+    </div>
+    <hr aria-hidden="true" />
+    <div class="actions">
+        <button class="dismiss ok-button">OK</button>
+        <button class="dismiss cancel-button" data-dismiss="leanModal">Cancel</button>
+    </div>
+  </div>
+  <a href="#accessibile-confirm-modal" rel="leanModal" id="confirm_open_button" style="display:none">open</a>
+</div>
+
+<script type="text/javascript">
+var accessible_confirm = function(message, callback) {
+    $("#accessibile-confirm-modal .cancel-button").click(function(){
+        $("#accessibile-confirm-modal .close-modal").click();
+    });
+    $("#accessibile-confirm-modal .ok-button").click(function(){
+        $("#accessibile-confirm-modal .close-modal").click();
+        callback();
+    });
+
+    accessible_modal("#accessibile-confirm-modal #confirm_open_button", "#accessibile-confirm-modal .close-modal", "#accessibile-confirm-modal", ".content-wrapper");
+    $("#accessibile-confirm-modal #confirm_open_button").click();
+    $("#accessibile-confirm-modal .message-title").html(message);
+};
+</script>
+
+
+
+      
+    </div>
+
+        
+
+
+
+
+
+
+
+
+
+<div class="wrapper-footer">
+  <footer class="container">
+    <div class="row">
+      <nav>
+        <div class="col-md-4 text-center">
+          <a href="/">
+            <img class="b9lab-academy-logo"  src="/static/edx-b9lab-theme/images/b9lab-academy-logo.1e555680be8e.svg" alt="B9lab Academy" >
+          </a>
+        </div>
+        <div class="col-md-4">
+          <ol class="list-inline text-center footer-link-list">
+            <li><a href="/about">About</a></li>
+            <li><a href="http://help.b9lab.com/">FAQ</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/tos">Terms of Service</a></li>
+            <li><a href="/honor">Code of Conduct</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/privacy#cookie-policy">Cookie Policy</a></li>
+          </ol>
+          <div class="copyright">&copy; 2018 B9lab Ltd. | All Rights Reserved</div>
+        </div>
+      </nav>
+
+      <div class="built-on col-md-4 text-center">
+        <span>
+          <a href="http://openedx.org" target="_blank">
+            <img src="https://files.edx.org/openedx-logos/edx-openedx-logo-tag-light.png" width="150" height="50" alt="Powered by Open edX" />
+          </a>
+        </span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script type="text/javascript">
+  // load userdata for tracking
+    
+    userdata = {
+      id              : "12442",
+      email           : "rvbulalacao@codedisruptors.com",
+      fullname        : "Rommel Bulalacao",
+      username        : "rvbulalacao",
+      country         : "PH",
+      intercom_hash   : "c12caad53dbee60fa66aace08606463362a132fcf747481001096f09acf95227"
+    }
+    Academy.setUserData(userdata);
+    
+</script>
+
+<script type="text/javascript">
+  segment_key = "jQhOlBYO1HViQrpgdU9VzBctC3SvSJ51"
+  if (!window.analytics && !analytics) {
+    console.log("secondary segment load");
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
+    analytics.load(segment_key);
+    analytics.page();
+
+    }}();
+  }
+</script>
+
+
+<script type="text/javascript" src="https://static.leaddyno.com/js"></script>
+<script>
+  Academy.debugLog("[JS LOAD] load LEADDYNO");
+  // If you use multiple sub-domains, set the root domain here
+  LeadDyno.domain = "academy.b9lab.com";
+  LeadDyno.key = "1a446511b0324d38c161d3e7ab7776ec6372dc4e"
+  LeadDyno.recordVisit();
+</script>
+
+<script type="text/javascript">
+  window.FCSP = "85173f8f54669c6e3c95843900411a5a";
+</script>
+
+
+
+  </div>
+
+  
+  <script type="text/javascript" src="/static/common/js/vendor/jquery.scrollTo.525edcc52fe8.js"></script>
+  <script type="text/javascript" src="/static/js/vendor/flot/jquery.flot.d3d45ff0c6a8.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.2/katex.min.css" integrity="sha384-XFgyVzCwumZgSg6F85gbh6ev/BVWgP7QAb1V3GOchWQPifusZTU0ODnQsysBK61F" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.2/katex.min.js" integrity="sha384-RpxfKy6OA0Us+WtIGBbrVlfwW4HuETdB9CD8KbG6qSbYbCanfnyid62sojNvydoB" crossorigin="anonymous"></script>
+  <script src="/static/edx-b9lab-theme/js/coursewareui.df89ff787f95.js"> </script>
+
+  <script type="text/javascript" src="/static/js/vendor/codemirror-compressed.dd4b74f7c5fe.js"></script>
+
+  
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/lms-courseware.94e582ddac20.js" charset="utf-8"></script>
+
+
+  
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/discussion.3c41b636c9cd.js" charset="utf-8"></script>
+
+
+
+  
+    
+      <script type="text/javascript" src="/static/js/courseware/courseware_factory.01c762a7c9e6.js?raw"></script>
+    <script type="text/javascript">
+        (function (require) {
+            require(['js/courseware/courseware_factory'], function (CoursewareFactory) {
+                
+    CoursewareFactory();
+  
+            });
+        }).call(this, require || RequireJS.require);
+    </script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    // Fast Preview was introduced in 2.5. However, it
+    // causes undesirable flashing/font size changes when
+    // MathJax is used for interactive preview (equation editor).
+    // Setting processSectionDelay to 0 (see below) fully eliminates
+    // fast preview, but to reduce confusion, we are also setting
+    // the option as displayed in the context menu to false.
+    // When upgrading to 2.6, check if this variable name changed.
+    window.MathJax = {
+      menuSettings: {CHTMLpreview: false}
+    };
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [
+        ["\\(","\\)"],
+        ['[mathjaxinline]','[/mathjaxinline]']
+      ],
+      displayMath: [
+        ["\\[","\\]"],
+        ['[mathjax]','[/mathjax]']
+      ]
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+
+  // In order to eliminate all flashing during interactive
+  // preview, it is necessary to set processSectionDelay to 0
+  // (remove delay between input and output phases). This
+  // effectively disables fast preview, regardless of
+  // the fast preview setting as shown in the context menu.
+  MathJax.Hub.processSectionDelay = 0;
+
+  MathJax.Hub.signal.Interest(function(message) {
+    if(message[0] === "End Math") {
+        set_mathjax_display_div_settings();
+    }
+  });
+  function set_mathjax_display_div_settings() {
+    $('.MathJax_Display').each(function( index ) {
+      this.setAttribute('tabindex', '0');
+      this.setAttribute('aria-live', 'off');
+      this.removeAttribute('role');
+      this.removeAttribute('aria-readonly');
+    });
+  }
+</script>
+
+
+<!-- This must appear after all mathjax-config blocks, so it is after the imports from the other templates.
+     It can't be run through static.url because MathJax uses crazy url introspection to do lazy loading of
+     MathJax extension libraries -->
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_SVG"></script> -->
+
+
+
+    <script type="text/javascript" src="/static/edx-b9lab-theme/js/discussion.3c41b636c9cd.js" charset="utf-8"></script>
+
+
+
+
+<script type="text/javascript">
+        RequireJS.define(
+            'common/js/discussion/discussion',
+            [],
+            function() {
+                return window['Discussion'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/content',
+            [],
+            function() {
+                return window['Content'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/views/discussion_inline_view',
+            [],
+            function() {
+                return window['DiscussionInlineView'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/views/discussion_thread_view',
+            [],
+            function() {
+                return window['DiscussionThreadView'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/views/discussion_thread_list_view',
+            [],
+            function() {
+                return window['DiscussionThreadListView'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/views/discussion_thread_profile_view',
+            [],
+            function() {
+                return window['DiscussionThreadProfileView'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/utils',
+            [],
+            function() {
+                return window['DiscussionUtil'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/models/discussion_course_settings',
+            [],
+            function() {
+                return window['DiscussionCourseSettings'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/models/discussion_user',
+            [],
+            function() {
+                return window['DiscussionUser'];
+            }
+        );
+        RequireJS.define(
+            'common/js/discussion/views/new_post_view',
+            [],
+            function() {
+                return window['NewPostView'];
+            }
+        );
+</script>
+
+
+  <script type="text/javascript">
+    var $$course_id = "course\u002Dv1:B9lab+HLF\u002D12+2018\u002D07";
+  </script>
+
+<script src='/static/xblock/resources/xmodule.vertical_block/public/js/vertical_student_view.7c27fd5e4fd0.js' type='application/javascript'></script>
+
+
+  <script type="text/javascript" src="/static/js/vendor/noreferrer.aa62a3e70ffa.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/static/js/utils/navigation.323bf3e1ae16.js" charset="utf-8"></script>
+  
+</body>
+</html>
+
+
+
+<!-- Performance beacon for onload times -->
